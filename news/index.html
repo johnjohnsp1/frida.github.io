@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
   <meta charset="UTF-8">
-  <title>Frida</title>
+  <title>News</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="alternate" type="application/rss+xml" title="Frida - Feed" href="/feed.xml" />
   <link rel="alternate" type="application/atom+xml" title="Recent commits to Frida’s master branch" href="https://github.com/frida/frida-build-env/commits/master.atom" />
@@ -18,13 +18,13 @@
   <header>
   <nav class="mobile-nav show-on-mobiles">
     <ul>
-  <li class="current">
+  <li class="">
     <a href="/">Overview</a>
   </li>
   <li class="">
     <a href="/docs/home/">Doc<span class="show-on-mobiles">s</span><span class="hide-on-mobiles">umentation</span></a>
   </li>
-  <li class="">
+  <li class="current">
     <a href="/news/">News</a>
   </li>
   <li class="">
@@ -44,13 +44,13 @@
     </div>
     <nav class="main-nav unit two-thirds hide-on-mobiles">
       <ul>
-  <li class="current">
+  <li class="">
     <a href="/">Overview</a>
   </li>
   <li class="">
     <a href="/docs/home/">Doc<span class="show-on-mobiles">s</span><span class="hide-on-mobiles">umentation</span></a>
   </li>
-  <li class="">
+  <li class="current">
     <a href="/news/">News</a>
   </li>
   <li class="">
@@ -63,81 +63,82 @@
 </header>
 
 
-  <section class="intro">
-  <div class="grid">
-    <div class="unit whole center-on-mobiles">
-      <p class="first">Inject JavaScript to explore native apps on Windows, Mac, Linux and iOS.</p>
-    </div>
+    <section class="news">
+    <div class="grid">
+
+      <div class="docs-nav-mobile unit whole show-on-mobiles">
+  <select onchange="if (this.value) window.location.href=this.value">
+    <option value="">Navigate the blog…</option>
+    <option value="/news/">Home</option>
+    <optgroup label="v1.x">
+      
+      <option value="/news/2014/01/05/frida-1-0-5-released/">Frida 1.0.5 Released</option>
+      
+    </optgroup>
+  </select>
+</div>
+
+
+      <div class="unit four-fifths">
+        
+  <article>
+  <h2>
+    <a href="/news/2014/01/05/frida-1-0-5-released/">
+      Frida 1.0.5 Released
+    </a>
+  </h2>
+  <span class="post-category">
+    
+    <span class="label">release</span>
+    
+  </span>
+  <div class="post-meta">
+    <span class="post-date">
+      05 Jan 2014
+    </span>
+    <a href="https://github.com/oleavr" class="post-author">
+      <img src="https://github.com/oleavr.png" class="avatar" alt="oleavr"/>
+      oleavr
+    </a>
   </div>
-</section>
-<section class="features">
-  <div class="grid">
-    <div class="unit one-third">
-      <h2>Scriptable</h2>
-      <p>
-        Your own scripts get injected into black box processes to execute custom debugging logic.
-        Hook any function, spy on crypto APIs or trace private application code, no source code needed!
-      </p>
-    </div>
-    <div class="unit one-third">
-      <h2>Stalking</h2>
-      <p>
-        Stealthy code tracing without relying on software or hardware breakpoints.
-        Think <a href="http://en.wikipedia.org/wiki/DTrace">DTrace</a> in user-space,
-        based on dynamic recompilation, like <a href="http://www.dynamorio.org/">DynamoRIO</a>
-        and <a href="http://software.intel.com/en-us/articles/pin-a-dynamic-binary-instrumentation-tool">PIN</a>.
-      </p>
-    </div>
-    <div class="unit one-third">
-      <h2>Portable</h2>
-      <p>
-        Works on Windows, Mac, Linux, and iOS. Grab a Python package from <a href="https://pypi.python.org/pypi/frida">PyPI</a> or use Frida
-        through its <a href="http://ospy.org/frida/windows/x64-Release/bin/Frida.dll">.NET binding</a>,
-        <a href="http://ospy.org/frida/mac/lib/browser/plugins/libnpfrida.dylib">browser plugin</a> or
-        <a href="http://ospy.org/frida/ios/lib/libfrida-core-1.0.a">C API</a>.
-      </p>
-    </div>
-    <div class="clear"></div>
+  <div class="post-content">
+    <p>This release improves <a href="https://github.com/frida/frida-python/blob/master/src/frida/tracer.py">frida-trace</a> with support for auto-generating, loading and reloading function handlers from scripts on the filesystem. Have a look at our <a href="/docs/quickstart">Quick-start guide</a> for a walkthrough. Also new in this release is Py3k support, which is available from <a href="https://pypi.python.org/pypi/frida">PyPI</a> on all platforms.</p>
   </div>
-</section>
-<section class="quickstart">
-  <div class="grid">
-    <div class="unit golden-small center-on-mobiles">
-      <h4>Get up and running <em>in&nbsp;seconds</em>.</h4>
-    </div>
-    <div class="unit golden-large code">
-      <p class="title">Quick-start Instructions</p>
-      <div class="shell">
-        <p class="line">
-          <span class="path">~</span>
-          <span class="prompt">$</span>
-          <span class="command">sudo easy_install frida</span>
-        </p>
-        <p class="line">
-          <span class="path">~</span>
-          <span class="prompt">$</span>
-          <span class="command">frida-trace -i 'recv*' Skype</span>
-        </p>
-        <p class="line">
-          <span class="output">recvfrom: Auto-generated handler: &hellip;/recvfrom.js</span>
-        </p>
-        <p class="line">
-          <span class="output">Started tracing 21 functions.</span>
-        </p>
-        <p class="line">
-          <span class="output">1442 ms&nbsp;&nbsp;&nbsp;&nbsp;recvfrom()</span>
-        </p>
-        <p class="line">
-          <span class="output"># Live-edit recvfrom.js and watch the magic!</span>
-        </p>
-        <p class="line">
-          <span class="output">5374 ms&nbsp;&nbsp;&nbsp;&nbsp;recvfrom(socket=67, buffer=0x252a618, length=65536, flags=0, address=0xb0420bd8, address_len=16)</span>
-        </p>
+</article>
+
+
+
       </div>
+
+      <div class="unit one-fifth hide-on-mobiles">
+  <aside>
+    <ul>
+      <li class="current">
+        <a href="/news/">All News</a>
+      </li>
+      <li class="">
+        <a href="/news/releases/">Frida Releases</a>
+      </li>
+    </ul>
+    <h4>Recent Releases</h4>
+    <ul>
+      
+      <li class="">
+        <a href="/news/2014/01/05/frida-1-0-5-released/">Version 1.0.5</a>
+      </li>
+      
+      <li>
+        <a href="/docs/history/">History »</a>
+      </li>
+    </ul>
+  </aside>
+</div>
+
+
+      <div class="clear"></div>
+
     </div>
-    <div class="clear"></div>
-  </div>
-</section>
+  </section>
 
 
   <footer>

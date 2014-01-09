@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+  xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+  >
+<channel>
+    <title xml:lang="en">Frida</title>
+    <atom:link type="application/atom+xml" href="http://www.frida.re/feed/" rel="self"/>
+    <link>http://www.frida.re</link>
+    <pubDate>Thu, 09 Jan 2014 11:44:53 +0100</pubDate>
+    <lastBuildDate>Thu, 09 Jan 2014 11:44:53 +0100</lastBuildDate>
+    <language>en-US</language>
+    <description>Inject JavaScript to explore native apps on Windows, Mac, Linux and iOS.</description>
+    
+    <item>
+        <title>Frida 1.0.5 Released</title>
+        <link>http://www.frida.re/news/2014/01/05/frida-1-0-5-released/</link>
+        <pubDate>Sun, 05 Jan 2014 22:00:00 +0000</pubDate>
+        <dc:creator>oleavr</dc:creator>
+        <category>release</category>
+        <guid isPermaLink="false">/news/2014/01/05/frida-1-0-5-released</guid>
+        <description><![CDATA[ <p>This release improves <a href="https://github.com/frida/frida-python/blob/master/src/frida/tracer.py">frida-trace</a> with support for auto-generating, loading and reloading function handlers from scripts on the filesystem. Have a look at our <a href="/docs/quickstart">Quick-start guide</a> for a walkthrough. Also new in this release is Py3k support, which is available from <a href="https://pypi.python.org/pypi/frida">PyPI</a> on all platforms.</p> ]]></description>
+    </item>
+    
+</channel>
+</rss>
