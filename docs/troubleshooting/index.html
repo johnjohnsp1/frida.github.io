@@ -77,14 +77,6 @@
 
   
     
-  
-    
-  
-    
-  
-    
-  
-    
       <option value="/docs/home/">Welcome</option>
     
   
@@ -106,19 +98,17 @@
   
     
   
+    
+  
+    
+  
+    
+  
+    
+  
 
   
 
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
   
     
   
@@ -140,17 +130,19 @@
   
     
   
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
 
   
 
-  
-    
-  
-    
-  
-    
-  
-    
   
     
   
@@ -174,21 +166,17 @@
   
     
   
+    
+  
+    
+  
+    
+  
+    
+  
 
   
 
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
   
     
   
@@ -198,6 +186,18 @@
   
     
       <option value="/docs/usage/">Basic Usage</option>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
     
   
     
@@ -223,6 +223,12 @@
     
   
     
+  
+    
+  
+    
+  
+    
       <option value="/docs/functions/">Functions</option>
     
   
@@ -242,19 +248,9 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
   
 
-  
-    
-  
-    
   
     
   
@@ -266,6 +262,10 @@
   
     
       <option value="/docs/messages/">Messages</option>
+    
+  
+    
+  
     
   
     
@@ -307,9 +307,9 @@
     
   
     
-  
-    
       <option value="/docs/troubleshooting/">Troubleshooting</option>
+    
+  
     
   
     
@@ -335,6 +335,20 @@
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
       <option value="/docs/contributing/">Contributing</option>
     
   
@@ -348,23 +362,15 @@
   
     
   
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
 
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -374,12 +380,6 @@
   
     
       <option value="/docs/history/">History</option>
-    
-  
-    
-  
-    
-  
     
   
     
@@ -407,6 +407,20 @@
         <article>
           <h1>Troubleshooting</h1>
           <p>If you ever run into problems installing or using Frida, here’s a few tips that might be of help. If the problem you’re experiencing isn’t covered below, please <a href="https://github.com/frida/frida-website/issues/new">report an issue</a> so the Frida community can make everyone’s experience better.</p>
+
+<h2 id="no_distributions_at_all_found_for_frida">No distributions at all found for frida</h2>
+
+<p>Running <code>pip install frida</code> gives the error</p>
+<pre>Could not find any downloads that satisfy the requirement frida</pre>
+<p>This is a known issue. Frida is distributed as an <code>.egg</code>. You must use <code>easy_install</code> instead of <code>pip</code> to install Frida:</p>
+
+<ul>
+<li>System-wide: <code>sudo easy_install frida</code>.</li>
+
+<li>Current user only: <code>easy_install --user frida</code>.</li>
+
+<li>Or using <a href="http://www.virtualenv.org/en/latest/">virtualenv</a> .</li>
+</ul>
 
 <h2 id="valueerror_ambiguous_name_it_matches">ValueError: ambiguous name; it matches:</h2>
 
@@ -458,14 +472,6 @@
 
   
     
-  
-    
-  
-    
-  
-    
-  
-    
       <li class=""><a href="/docs/home/">Welcome</a></li>
     
   
@@ -487,6 +493,14 @@
   
     
   
+    
+  
+    
+  
+    
+  
+    
+  
 
 
   
@@ -495,16 +509,6 @@
     
   
 
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
   
     
   
@@ -526,22 +530,24 @@
   
     
   
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
 
-
   
 
   
     
   
 
-  
-    
-  
-    
-  
-    
-  
-    
   
     
   
@@ -565,6 +571,14 @@
   
     
   
+    
+  
+    
+  
+    
+  
+    
+  
 
 
   
@@ -573,18 +587,6 @@
     
   
 
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
   
     
   
@@ -594,6 +596,18 @@
   
     
       <li class=""><a href="/docs/usage/">Basic Usage</a></li>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
     
   
     
@@ -625,6 +639,12 @@
     
   
     
+  
+    
+  
+    
+  
+    
       <li class=""><a href="/docs/functions/">Functions</a></li>
     
   
@@ -644,12 +664,6 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
 
   
@@ -658,10 +672,6 @@
     
   
 
-  
-    
-  
-    
   
     
   
@@ -673,6 +683,10 @@
   
     
       <li class=""><a href="/docs/messages/">Messages</a></li>
+    
+  
+    
+  
     
   
     
@@ -720,9 +734,9 @@
     
   
     
-  
-    
       <li class="current"><a href="/docs/troubleshooting/">Troubleshooting</a></li>
+    
+  
     
   
     
@@ -754,6 +768,20 @@
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
       <li class=""><a href="/docs/contributing/">Contributing</a></li>
     
   
@@ -767,20 +795,6 @@
   
     
   
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
 
 
   
@@ -789,6 +803,12 @@
     
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -798,12 +818,6 @@
   
     
       <li class=""><a href="/docs/history/">History</a></li>
-    
-  
-    
-  
-    
-  
     
   
     
