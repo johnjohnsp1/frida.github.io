@@ -77,6 +77,16 @@
 
   
     
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
       <option value="/docs/home/">Welcome</option>
     
   
@@ -98,19 +108,21 @@
   
     
   
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
 
   
 
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
   
     
   
@@ -132,21 +144,19 @@
   
     
   
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
 
   
 
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
   
     
   
@@ -170,19 +180,23 @@
   
     
   
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
 
   
 
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
   
     
   
@@ -202,20 +216,6 @@
   
     
   
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
 
 
     </optgroup>
@@ -225,10 +225,6 @@
 
   
 
-  
-    
-  
-    
   
     
   
@@ -258,9 +254,19 @@
   
     
   
+    
+  
+    
+  
 
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -272,12 +278,6 @@
   
     
       <option value="/docs/messages/">Messages</option>
-    
-  
-    
-  
-    
-  
     
   
     
@@ -319,6 +319,10 @@
     
   
     
+  
+    
+  
+    
       <option value="/docs/troubleshooting/">Troubleshooting</option>
     
   
@@ -332,32 +336,28 @@
   
     
   
-    
-  
-    
-  
 
   
 
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
   
     
   
     
       <option value="/docs/building/">Building</option>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
     
   
     
@@ -387,20 +387,6 @@
     
   
     
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
       <option value="/docs/contributing/">Contributing</option>
     
   
@@ -414,13 +400,23 @@
   
     
   
-
+    
   
-
+    
   
     
   
     
+  
+    
+  
+    
+  
+    
+  
+
+  
+
   
     
   
@@ -432,6 +428,10 @@
   
     
       <option value="/docs/history/">History</option>
+    
+  
+    
+  
     
   
     
@@ -579,7 +579,7 @@ Number: 2
 <span class='s'>&quot;&quot;&quot;</span> <span class='o'>%</span> <span class='nb'>int</span><span class='p'>(</span><span class='n'>sys</span><span class='o'>.</span><span class='n'>argv</span><span class='p'>[</span><span class='mi'>1</span><span class='p'>],</span> <span class='mi'>16</span><span class='p'>))</span>
 <span class='k'>def</span> <span class='nf'>on_message</span><span class='p'>(</span><span class='n'>message</span><span class='p'>,</span> <span class='n'>data</span><span class='p'>):</span>
     <span class='k'>print</span><span class='p'>(</span><span class='n'>message</span><span class='p'>)</span>
-    <span class='n'>val</span> <span class='o'>=</span> <span class='nb'>int</span><span class='p'>(</span><span class='n'>message</span><span class='p'>[</span><span class='s'>&#39;payload&#39;</span><span class='p'>])</span>
+    <span class='n'>val</span> <span class='o'>=</span> <span class='nb'>int</span><span class='p'>(</span><span class='n'>message</span><span class='p'>[</span><span class='s'>&#39;payload&#39;</span><span class='p'>],</span> <span class='mi'>16</span><span class='p'>)</span>
     <span class='n'>script</span><span class='o'>.</span><span class='n'>post_message</span><span class='p'>({</span><span class='s'>&#39;type&#39;</span><span class='p'>:</span> <span class='s'>&#39;input&#39;</span><span class='p'>,</span> <span class='s'>&#39;payload&#39;</span><span class='p'>:</span> <span class='nb'>str</span><span class='p'>(</span><span class='n'>val</span> <span class='o'>*</span> <span class='mi'>2</span><span class='p'>)})</span>
 <span class='n'>script</span><span class='o'>.</span><span class='n'>on</span><span class='p'>(</span><span class='s'>&#39;message&#39;</span><span class='p'>,</span> <span class='n'>on_message</span><span class='p'>)</span>
 <span class='n'>script</span><span class='o'>.</span><span class='n'>load</span><span class='p'>()</span>
@@ -640,6 +640,16 @@ Number: 14
 
   
     
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
       <li class=""><a href="/docs/home/">Welcome</a></li>
     
   
@@ -661,16 +671,6 @@ Number: 14
   
     
   
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
 
 
   
@@ -679,6 +679,18 @@ Number: 14
     
   
 
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
   
     
   
@@ -700,18 +712,6 @@ Number: 14
   
     
   
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
 
 
   
@@ -720,6 +720,16 @@ Number: 14
     
   
 
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
   
     
   
@@ -743,16 +753,6 @@ Number: 14
   
     
   
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
 
 
   
@@ -761,6 +761,20 @@ Number: 14
     
   
 
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
   
     
   
@@ -770,20 +784,6 @@ Number: 14
   
     
       <li class=""><a href="/docs/usage/">Basic Usage</a></li>
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
     
   
     
@@ -817,10 +817,6 @@ Number: 14
     
   
     
-  
-    
-  
-    
       <li class=""><a href="/docs/functions/">Functions</a></li>
     
   
@@ -842,6 +838,10 @@ Number: 14
   
     
   
+    
+  
+    
+  
 
 
   
@@ -850,6 +850,12 @@ Number: 14
     
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -861,12 +867,6 @@ Number: 14
   
     
       <li class="current"><a href="/docs/messages/">Messages</a></li>
-    
-  
-    
-  
-    
-  
     
   
     
@@ -914,6 +914,10 @@ Number: 14
     
   
     
+  
+    
+  
+    
       <li class=""><a href="/docs/troubleshooting/">Troubleshooting</a></li>
     
   
@@ -927,10 +931,6 @@ Number: 14
   
     
   
-    
-  
-    
-  
 
 
   
@@ -939,25 +939,25 @@ Number: 14
     
   
 
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
   
     
   
     
       <li class=""><a href="/docs/building/">Building</a></li>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
     
   
     
@@ -993,20 +993,6 @@ Number: 14
     
   
     
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
       <li class=""><a href="/docs/contributing/">Contributing</a></li>
     
   
@@ -1020,6 +1006,20 @@ Number: 14
   
     
   
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
 
 
   
@@ -1028,10 +1028,6 @@ Number: 14
     
   
 
-  
-    
-  
-    
   
     
   
@@ -1043,6 +1039,10 @@ Number: 14
   
     
       <li class=""><a href="/docs/history/">History</a></li>
+    
+  
+    
+  
     
   
     
