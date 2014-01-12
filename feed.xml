@@ -11,10 +11,52 @@
     <title xml:lang="en">Frida</title>
     <atom:link type="application/atom+xml" href="http://www.frida.re/feed/" rel="self"/>
     <link>http://www.frida.re</link>
-    <pubDate>Sun, 12 Jan 2014 21:42:47 +0100</pubDate>
-    <lastBuildDate>Sun, 12 Jan 2014 21:42:47 +0100</lastBuildDate>
+    <pubDate>Mon, 13 Jan 2014 00:13:30 +0100</pubDate>
+    <lastBuildDate>Mon, 13 Jan 2014 00:13:30 +0100</lastBuildDate>
     <language>en-US</language>
     <description>Inject JavaScript to explore native apps on Windows, Mac, Linux and iOS.</description>
+    
+    <item>
+        <title>Frida 1.0.7 Released</title>
+        <link>http://www.frida.re/news/2014/01/12/frida-1-0-7-released/</link>
+        <pubDate>Sun, 12 Jan 2014 22:00:00 +0000</pubDate>
+        <dc:creator>oleavr</dc:creator>
+        <category>release</category>
+        <guid isPermaLink="false">/news/2014/01/12/frida-1-0-7-released</guid>
+        <description><![CDATA[ <p>This release brings USB device support in the command-line tools, and adds <code>frida-ps</code> for enumerating processes both locally and remotely.</p>
+
+<p>For example to enumerate processes on your tethered iOS device:</p>
+<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>frida-ps -U
+</code></pre></div>
+<p>The <code>-U</code> switch is also accepted by <code>frida-trace</code> and <code>frida-discover</code>.</p>
+
+<p>Docs how to set this up on your iOS device will soon be added to the website.</p>
+
+<p>However, that’s not the most exciting part. Starting with this release, Frida got its first contribution since the HN launch. <a href="https://github.com/pmorici">Pete Morici</a> dived in and contributed support for specifying module-relative functions in <code>frida-trace</code>:</p>
+<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>frida-trace -a <span class='s1'>&#39;kernel32.dll+0x1234&#39;</span>
+</code></pre></div>
+<p>Enjoy!</p> ]]></description>
+    </item>
+    
+    <item>
+        <title>Frida 1.0.6 Released</title>
+        <link>http://www.frida.re/news/2014/01/11/frida-1-0-6-released/</link>
+        <pubDate>Sat, 11 Jan 2014 22:00:00 +0000</pubDate>
+        <dc:creator>oleavr</dc:creator>
+        <category>release</category>
+        <guid isPermaLink="false">/news/2014/01/11/frida-1-0-6-released</guid>
+        <description><![CDATA[ <p>This release simplifies the licensing and fixes bugs reported by the community since the HN launch.</p>
+
+<p>Primarily:</p>
+
+<ul>
+<li>Relicense remaining GPLv3+ Frida components to LGPLv2.1+ (same as frida-gum).</li>
+
+<li>Tracer works on 64-bit with function addresses in the upper range</li>
+
+<li>Linux build links with Frida’s own libraries instead of the build machine’s corresponding libraries.</li>
+</ul> ]]></description>
+    </item>
     
     <item>
         <title>Frida 1.0.5 Released</title>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
   <meta charset="UTF-8">
-  <title>Frida 1.0.5 Released</title>
+  <title>Frida 1.0.7 Released</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="alternate" type="application/rss+xml" title="Frida - Feed" href="/feed.xml" />
   <link rel="alternate" type="application/atom+xml" title="Recent commits to Frida’s master branch" href="https://github.com/frida/frida-build-env/commits/master.atom" />
@@ -86,8 +86,8 @@
       <div class="unit four-fifths">
         <article>
   <h2>
-    Frida 1.0.5 Released
-    <a href="/news/2014/01/05/frida-1-0-5-released/" class="permalink" title="Permalink">∞</a>
+    Frida 1.0.7 Released
+    <a href="/news/2014/01/12/frida-1-0-7-released/" class="permalink" title="Permalink">∞</a>
   </h2>
   <span class="post-category">
     
@@ -96,7 +96,7 @@
   </span>
   <div class="post-meta">
     <span class="post-date">
-      05 Jan 2014
+      12 Jan 2014
     </span>
     <a href="https://github.com/oleavr" class="post-author">
       <img src="https://github.com/oleavr.png" class="avatar" />
@@ -104,7 +104,19 @@
     </a>
   </div>
   <p class="post-content">
-    <p>This release improves <a href="https://github.com/frida/frida-python/blob/master/src/frida/tracer.py">frida-trace</a> with support for auto-generating, loading and reloading function handlers from scripts on the filesystem. Have a look at our <a href="/docs/quickstart">Quick-start guide</a> for a walkthrough. Also new in this release is Py3k support, which is available from <a href="https://pypi.python.org/pypi/frida">PyPI</a> on all platforms.</p>
+    <p>This release brings USB device support in the command-line tools, and adds <code>frida-ps</code> for enumerating processes both locally and remotely.</p>
+
+<p>For example to enumerate processes on your tethered iOS device:</p>
+<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>frida-ps -U
+</code></pre></div>
+<p>The <code>-U</code> switch is also accepted by <code>frida-trace</code> and <code>frida-discover</code>.</p>
+
+<p>Docs how to set this up on your iOS device will soon be added to the website.</p>
+
+<p>However, that’s not the most exciting part. Starting with this release, Frida got its first contribution since the HN launch. <a href="https://github.com/pmorici">Pete Morici</a> dived in and contributed support for specifying module-relative functions in <code>frida-trace</code>:</p>
+<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>frida-trace -a <span class='s1'>&#39;kernel32.dll+0x1234&#39;</span>
+</code></pre></div>
+<p>Enjoy!</p>
   </p>
 </article>
 
@@ -123,7 +135,7 @@
     <h4>Recent Releases</h4>
     <ul>
       
-      <li class="">
+      <li class="current">
         <a href="/news/2014/01/12/frida-1-0-7-released/">Version 1.0.7</a>
       </li>
       
@@ -131,7 +143,7 @@
         <a href="/news/2014/01/11/frida-1-0-6-released/">Version 1.0.6</a>
       </li>
       
-      <li class="current">
+      <li class="">
         <a href="/news/2014/01/05/frida-1-0-5-released/">Version 1.0.5</a>
       </li>
       

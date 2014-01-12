@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
   <meta charset="UTF-8">
-  <title>Frida 1.0.5 Released</title>
+  <title>Frida 1.0.6 Released</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="alternate" type="application/rss+xml" title="Frida - Feed" href="/feed.xml" />
   <link rel="alternate" type="application/atom+xml" title="Recent commits to Frida’s master branch" href="https://github.com/frida/frida-build-env/commits/master.atom" />
@@ -86,8 +86,8 @@
       <div class="unit four-fifths">
         <article>
   <h2>
-    Frida 1.0.5 Released
-    <a href="/news/2014/01/05/frida-1-0-5-released/" class="permalink" title="Permalink">∞</a>
+    Frida 1.0.6 Released
+    <a href="/news/2014/01/11/frida-1-0-6-released/" class="permalink" title="Permalink">∞</a>
   </h2>
   <span class="post-category">
     
@@ -96,7 +96,7 @@
   </span>
   <div class="post-meta">
     <span class="post-date">
-      05 Jan 2014
+      11 Jan 2014
     </span>
     <a href="https://github.com/oleavr" class="post-author">
       <img src="https://github.com/oleavr.png" class="avatar" />
@@ -104,7 +104,17 @@
     </a>
   </div>
   <p class="post-content">
-    <p>This release improves <a href="https://github.com/frida/frida-python/blob/master/src/frida/tracer.py">frida-trace</a> with support for auto-generating, loading and reloading function handlers from scripts on the filesystem. Have a look at our <a href="/docs/quickstart">Quick-start guide</a> for a walkthrough. Also new in this release is Py3k support, which is available from <a href="https://pypi.python.org/pypi/frida">PyPI</a> on all platforms.</p>
+    <p>This release simplifies the licensing and fixes bugs reported by the community since the HN launch.</p>
+
+<p>Primarily:</p>
+
+<ul>
+<li>Relicense remaining GPLv3+ Frida components to LGPLv2.1+ (same as frida-gum).</li>
+
+<li>Tracer works on 64-bit with function addresses in the upper range</li>
+
+<li>Linux build links with Frida’s own libraries instead of the build machine’s corresponding libraries.</li>
+</ul>
   </p>
 </article>
 
@@ -127,11 +137,11 @@
         <a href="/news/2014/01/12/frida-1-0-7-released/">Version 1.0.7</a>
       </li>
       
-      <li class="">
+      <li class="current">
         <a href="/news/2014/01/11/frida-1-0-6-released/">Version 1.0.6</a>
       </li>
       
-      <li class="current">
+      <li class="">
         <a href="/news/2014/01/05/frida-1-0-5-released/">Version 1.0.5</a>
       </li>
       
