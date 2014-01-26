@@ -72,6 +72,10 @@
     <option value="/news/">Home</option>
     <optgroup label="v1.x">
       
+      <option value="/news/2014/01/25/frida-1-0-9-released/">Frida 1.0.9 Released</option>
+      
+      <option value="/news/2014/01/15/frida-1-0-8-released/">Frida 1.0.8 Released</option>
+      
       <option value="/news/2014/01/12/frida-1-0-7-released/">Frida 1.0.7 Released</option>
       
       <option value="/news/2014/01/11/frida-1-0-6-released/">Frida 1.0.6 Released</option>
@@ -85,6 +89,87 @@
 
       <div class="unit four-fifths">
         
+  <article>
+  <h2>
+    <a href="/news/2014/01/25/frida-1-0-9-released/">
+      Frida 1.0.9 Released
+    </a>
+  </h2>
+  <span class="post-category">
+    
+    <span class="label">release</span>
+    
+  </span>
+  <div class="post-meta">
+    <span class="post-date">
+      25 Jan 2014
+    </span>
+    <a href="https://github.com/oleavr" class="post-author">
+      <img src="https://github.com/oleavr.png" class="avatar" alt="oleavr"/>
+      oleavr
+    </a>
+  </div>
+  <div class="post-content">
+    <p>Another release — this time with some new features:</p>
+
+<ul>
+<li>Objective-C integration for Mac and iOS. Here’s an example to whet your appetite:</li>
+</ul>
+<div class='highlight'><pre><code class='js'><span class='kd'>var</span> <span class='nx'>UIAlertView</span> <span class='o'>=</span> <span class='nx'>ObjC</span><span class='p'>.</span><span class='nx'>use</span><span class='p'>(</span><span class='s1'>&#39;UIAlertView&#39;</span><span class='p'>);</span> <span class='cm'>/* iOS */</span>
+<span class='nx'>ObjC</span><span class='p'>.</span><span class='nx'>schedule</span><span class='p'>(</span><span class='nx'>ObjC</span><span class='p'>.</span><span class='nx'>mainQueue</span><span class='p'>,</span> <span class='kd'>function</span> <span class='p'>()</span> <span class='p'>{</span>
+    <span class='kd'>var</span> <span class='nx'>view</span> <span class='o'>=</span> <span class='nx'>UIAlertView</span><span class='p'>.</span><span class='nx'>alloc</span><span class='p'>().</span><span class='nx'>initWithTitle_message_delegate_cancelButtonTitle_otherButtonTitles_</span><span class='p'>(</span>
+        <span class='s2'>&quot;Frida&quot;</span><span class='p'>,</span>
+        <span class='s2'>&quot;Hello from Frida&quot;</span><span class='p'>,</span>
+        <span class='nx'>ptr</span><span class='p'>(</span><span class='s2'>&quot;0&quot;</span><span class='p'>),</span>
+        <span class='s2'>&quot;OK&quot;</span><span class='p'>,</span>
+        <span class='nx'>ptr</span><span class='p'>(</span><span class='s2'>&quot;0&quot;</span><span class='p'>));</span>
+    <span class='nx'>view</span><span class='p'>.</span><span class='nx'>show</span><span class='p'>();</span>
+    <span class='nx'>view</span><span class='p'>.</span><span class='nx'>release</span><span class='p'>();</span>
+<span class='p'>});</span>
+</code></pre></div>
+<ul>
+<li><code>Module.enumerateExports()</code> now also enumerates exported variables and not just functions. The <code>onMatch</code> callback receives an <code>exp</code> object where the <code>type</code> field is either <code>function</code> or <code>variable</code>.</li>
+</ul>
+
+<p>To get the full scoop on the ObjC integration, have a look at the <a href="http://www.frida.re/docs/javascript-api/">JavaScript API reference</a>.</p>
+  </div>
+</article>
+
+
+  <article>
+  <h2>
+    <a href="/news/2014/01/15/frida-1-0-8-released/">
+      Frida 1.0.8 Released
+    </a>
+  </h2>
+  <span class="post-category">
+    
+    <span class="label">release</span>
+    
+  </span>
+  <div class="post-meta">
+    <span class="post-date">
+      15 Jan 2014
+    </span>
+    <a href="https://github.com/oleavr" class="post-author">
+      <img src="https://github.com/oleavr.png" class="avatar" alt="oleavr"/>
+      oleavr
+    </a>
+  </div>
+  <div class="post-content">
+    <p>We just rolled out a bugfix release:</p>
+
+<ul>
+<li>Support injection into Mac App Store apps</li>
+
+<li>Eliminate iOS daemon auto-start issues</li>
+
+<li>No more iOS crashes shortly after injecting</li>
+</ul>
+  </div>
+</article>
+
+
   <article>
   <h2>
     <a href="/news/2014/01/12/frida-1-0-7-released/">
@@ -200,6 +285,14 @@
     </ul>
     <h4>Recent Releases</h4>
     <ul>
+      
+      <li class="">
+        <a href="/news/2014/01/25/frida-1-0-9-released/">Version 1.0.9</a>
+      </li>
+      
+      <li class="">
+        <a href="/news/2014/01/15/frida-1-0-8-released/">Version 1.0.8</a>
+      </li>
       
       <li class="">
         <a href="/news/2014/01/12/frida-1-0-7-released/">Version 1.0.7</a>

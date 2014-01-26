@@ -11,10 +11,59 @@
     <title xml:lang="en">Frida</title>
     <atom:link type="application/atom+xml" href="http://www.frida.re/feed/" rel="self"/>
     <link>http://www.frida.re</link>
-    <pubDate>Sun, 26 Jan 2014 19:38:51 +0100</pubDate>
-    <lastBuildDate>Sun, 26 Jan 2014 19:38:51 +0100</lastBuildDate>
+    <pubDate>Sun, 26 Jan 2014 20:14:49 +0100</pubDate>
+    <lastBuildDate>Sun, 26 Jan 2014 20:14:49 +0100</lastBuildDate>
     <language>en-US</language>
     <description>Inject JavaScript to explore native apps on Windows, Mac, Linux and iOS.</description>
+    
+    <item>
+        <title>Frida 1.0.9 Released</title>
+        <link>http://www.frida.re/news/2014/01/25/frida-1-0-9-released/</link>
+        <pubDate>Sat, 25 Jan 2014 22:00:00 +0000</pubDate>
+        <dc:creator>oleavr</dc:creator>
+        <category>release</category>
+        <guid isPermaLink="false">/news/2014/01/25/frida-1-0-9-released</guid>
+        <description><![CDATA[ <p>Another release — this time with some new features:</p>
+
+<ul>
+<li>Objective-C integration for Mac and iOS. Here’s an example to whet your appetite:</li>
+</ul>
+<div class='highlight'><pre><code class='js'><span class='kd'>var</span> <span class='nx'>UIAlertView</span> <span class='o'>=</span> <span class='nx'>ObjC</span><span class='p'>.</span><span class='nx'>use</span><span class='p'>(</span><span class='s1'>&#39;UIAlertView&#39;</span><span class='p'>);</span> <span class='cm'>/* iOS */</span>
+<span class='nx'>ObjC</span><span class='p'>.</span><span class='nx'>schedule</span><span class='p'>(</span><span class='nx'>ObjC</span><span class='p'>.</span><span class='nx'>mainQueue</span><span class='p'>,</span> <span class='kd'>function</span> <span class='p'>()</span> <span class='p'>{</span>
+    <span class='kd'>var</span> <span class='nx'>view</span> <span class='o'>=</span> <span class='nx'>UIAlertView</span><span class='p'>.</span><span class='nx'>alloc</span><span class='p'>().</span><span class='nx'>initWithTitle_message_delegate_cancelButtonTitle_otherButtonTitles_</span><span class='p'>(</span>
+        <span class='s2'>&quot;Frida&quot;</span><span class='p'>,</span>
+        <span class='s2'>&quot;Hello from Frida&quot;</span><span class='p'>,</span>
+        <span class='nx'>ptr</span><span class='p'>(</span><span class='s2'>&quot;0&quot;</span><span class='p'>),</span>
+        <span class='s2'>&quot;OK&quot;</span><span class='p'>,</span>
+        <span class='nx'>ptr</span><span class='p'>(</span><span class='s2'>&quot;0&quot;</span><span class='p'>));</span>
+    <span class='nx'>view</span><span class='p'>.</span><span class='nx'>show</span><span class='p'>();</span>
+    <span class='nx'>view</span><span class='p'>.</span><span class='nx'>release</span><span class='p'>();</span>
+<span class='p'>});</span>
+</code></pre></div>
+<ul>
+<li><code>Module.enumerateExports()</code> now also enumerates exported variables and not just functions. The <code>onMatch</code> callback receives an <code>exp</code> object where the <code>type</code> field is either <code>function</code> or <code>variable</code>.</li>
+</ul>
+
+<p>To get the full scoop on the ObjC integration, have a look at the <a href="http://www.frida.re/docs/javascript-api/">JavaScript API reference</a>.</p> ]]></description>
+    </item>
+    
+    <item>
+        <title>Frida 1.0.8 Released</title>
+        <link>http://www.frida.re/news/2014/01/15/frida-1-0-8-released/</link>
+        <pubDate>Wed, 15 Jan 2014 22:00:00 +0000</pubDate>
+        <dc:creator>oleavr</dc:creator>
+        <category>release</category>
+        <guid isPermaLink="false">/news/2014/01/15/frida-1-0-8-released</guid>
+        <description><![CDATA[ <p>We just rolled out a bugfix release:</p>
+
+<ul>
+<li>Support injection into Mac App Store apps</li>
+
+<li>Eliminate iOS daemon auto-start issues</li>
+
+<li>No more iOS crashes shortly after injecting</li>
+</ul> ]]></description>
+    </item>
     
     <item>
         <title>Frida 1.0.7 Released</title>
