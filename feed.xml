@@ -11,10 +11,55 @@
     <title xml:lang="en">Frida</title>
     <atom:link type="application/atom+xml" href="http://www.frida.re/feed/" rel="self"/>
     <link>http://www.frida.re</link>
-    <pubDate>Sun, 26 Jan 2014 20:14:49 +0100</pubDate>
-    <lastBuildDate>Sun, 26 Jan 2014 20:14:49 +0100</lastBuildDate>
+    <pubDate>Sun, 16 Feb 2014 01:53:31 +0100</pubDate>
+    <lastBuildDate>Sun, 16 Feb 2014 01:53:31 +0100</lastBuildDate>
     <language>en-US</language>
     <description>Inject JavaScript to explore native apps on Windows, Mac, Linux and iOS.</description>
+    
+    <item>
+        <title>Frida 1.0.10 Released</title>
+        <link>http://www.frida.re/news/2014/02/16/frida-1-0-10-released/</link>
+        <pubDate>Sun, 16 Feb 2014 00:51:00 +0000</pubDate>
+        <dc:creator>oleavr</dc:creator>
+        <category>release</category>
+        <guid isPermaLink="false">/news/2014/02/16/frida-1-0-10-released</guid>
+        <description><![CDATA[ <p>This release brings a few improvements:</p>
+
+<ul>
+<li><code>Interceptor</code> is now compatible with a lot more functions on iOS/ARM.</li>
+
+<li>A new CLI tool called <code>frida-repl</code> provides you with a basic REPL to experiment with the JavaScript API from inside a target process.</li>
+
+<li><code>onLeave</code> callback passed to <code>Interceptor.attach()</code> is now able to replace the return value by calling <code>retval.replace()</code>.</li>
+
+<li>Both <code>onEnter</code> and <code>onLeave</code> callbacks passed to <code>Interceptor.attach()</code> can access <code>this.errno</code> (UNIX) or <code>this.lastError</code> (Windows) to inspect or manipulate the current thread’s last system error.</li>
+</ul>
+
+<p>Here’s how you can combine the latter three to simulate network conditions for a specific process running on your Mac:</p>
+<div class='highlight'><pre><code class='bash'>~ <span class='nv'>$ </span>frida-repl TargetApp
+</code></pre></div>
+<p>Then paste in:</p>
+<div class='highlight'><pre><code class='js'><span class='nx'>callbacks</span> <span class='o'>=</span> <span class='p'>{</span> <span class='o'>\</span>
+    <span class='nx'>onEnter</span><span class='o'>:</span> <span class='kd'>function</span> <span class='nx'>onEnter</span><span class='p'>(</span><span class='nx'>args</span><span class='p'>)</span> <span class='p'>{</span> <span class='o'>\</span>
+        <span class='nx'>args</span><span class='p'>[</span><span class='mi'>0</span><span class='p'>]</span> <span class='o'>=</span> <span class='nx'>ptr</span><span class='p'>(</span><span class='o'>-</span><span class='mi'>1</span><span class='p'>);</span> <span class='c1'>// Avoid side-effects on socket \</span>
+    <span class='p'>},</span> <span class='o'>\</span>
+    <span class='nx'>onLeave</span><span class='o'>:</span> <span class='kd'>function</span> <span class='nx'>onLeave</span><span class='p'>(</span><span class='nx'>retval</span><span class='p'>)</span> <span class='p'>{</span> <span class='o'>\</span>
+        <span class='kd'>var</span> <span class='nx'>ECONNREFUSED</span> <span class='o'>=</span> <span class='mi'>61</span><span class='p'>;</span> <span class='o'>\</span>
+        <span class='k'>this</span><span class='p'>.</span><span class='nx'>errno</span> <span class='o'>=</span> <span class='nx'>ECONNREFUSED</span><span class='p'>;</span> <span class='o'>\</span>
+        <span class='nx'>retval</span><span class='p'>.</span><span class='nx'>replace</span><span class='p'>(</span><span class='o'>-</span><span class='mi'>1</span><span class='p'>);</span> <span class='o'>\</span>
+    <span class='p'>}</span> <span class='o'>\</span>
+<span class='p'>};</span> <span class='o'>\</span>
+<span class='nx'>Module</span><span class='p'>.</span><span class='nx'>enumerateExports</span><span class='p'>(</span><span class='s2'>&quot;libsystem_kernel.dylib&quot;</span><span class='p'>,</span> <span class='p'>{</span> <span class='o'>\</span>
+    <span class='nx'>onMatch</span><span class='o'>:</span> <span class='kd'>function</span> <span class='p'>(</span><span class='nx'>exp</span><span class='p'>)</span> <span class='p'>{</span> <span class='o'>\</span>
+        <span class='k'>if</span> <span class='p'>(</span><span class='nx'>exp</span><span class='p'>.</span><span class='nx'>name</span><span class='p'>.</span><span class='nx'>indexOf</span><span class='p'>(</span><span class='s2'>&quot;connect&quot;</span><span class='p'>)</span> <span class='o'>===</span> <span class='mi'>0</span> <span class='o'>&amp;&amp;</span> <span class='nx'>exp</span><span class='p'>.</span><span class='nx'>name</span><span class='p'>.</span><span class='nx'>indexOf</span><span class='p'>(</span><span class='s2'>&quot;connectx&quot;</span><span class='p'>)</span> <span class='o'>!==</span> <span class='mi'>0</span><span class='p'>)</span> <span class='p'>{</span> <span class='o'>\</span>
+            <span class='nx'>Interceptor</span><span class='p'>.</span><span class='nx'>attach</span><span class='p'>(</span><span class='nx'>exp</span><span class='p'>.</span><span class='nx'>address</span><span class='p'>,</span> <span class='nx'>callbacks</span><span class='p'>);</span> <span class='o'>\</span>
+        <span class='p'>}</span> <span class='o'>\</span>
+    <span class='p'>},</span> <span class='o'>\</span>
+    <span class='nx'>onComplete</span><span class='o'>:</span> <span class='kd'>function</span> <span class='p'>()</span> <span class='p'>{}</span> <span class='o'>\</span>
+<span class='p'>});</span>
+</code></pre></div>
+<p>Enjoy!</p> ]]></description>
+    </item>
     
     <item>
         <title>Frida 1.0.9 Released</title>

@@ -618,19 +618,15 @@
 <li>Modern x86 64-bit system (Frida’s Linux backend is not yet ported to 32-bit).</li>
 
 <li>Compiler:
-<pre class="bash"><code class="bash">
-$ sudo apt-get install build-essential
-</code></pre>
+<pre class="bash"><code class="bash">$ sudo apt-get install build-essential</code></pre>
 </li>
 </ul>
 </li>
 
 <li>Clone <code>frida-build-env</code> and build it:
-<pre class="bash"><code class="bash">
-  $ git clone git://github.com/frida/frida-build-env.git
+<pre class="bash"><code class="bash">  $ git clone git://github.com/frida/frida-build-env.git
   $ cd frida-build-env
-  $ make
-</code></pre>
+  $ make</code></pre>
 </li>
 </ul>
 
@@ -640,11 +636,9 @@ $ sudo apt-get install build-essential
 <li>Make sure you have the latest Xcode with command-line tools installed.</li>
 
 <li>Clone <code>frida-build-env</code> and build it:
-<pre class="bash"><code class="bash">
-  $ git clone git://github.com/frida/frida-build-env.git
+<pre class="bash"><code class="bash">  $ git clone git://github.com/frida/frida-build-env.git
   $ cd frida-build-env
-  $ make
-</code></pre>
+  $ make</code></pre>
 </li>
 </ul>
 
@@ -662,12 +656,10 @@ $ sudo apt-get install build-essential
 <li><a href="http://python.org/">Python 2.7 and 3.3</a>. You want both the 32- and the 64-bit version of each, with the 32-bit versions installed in <code>C:\Program Files (x86)</code> and 64-bit ones installed in <code>C:\Program Files</code>.</li>
 
 <li>Clone <code>frida-build-env</code>:
-<pre class="bash"><code class="bash">
-$ git clone git://github.com/frida/frida-build-env.git
+<pre class="bash"><code class="bash">$ git clone git://github.com/frida/frida-build-env.git
 $ cd frida-build-env
 $ git submodule init
-$ git submodule update
-</code></pre>
+$ git submodule update</code></pre>
 </li>
 </ul>
 </li>
@@ -683,26 +675,20 @@ $ git submodule update
 
 <ul>
 <li>Make sure your system has the following goodies:
-<pre class="bash"><code class="bash">
-  $ sudo apt-get install build-essential gcc git sudo flex \
-    bison libglib2.0-dev
-</code></pre>
+<pre class="bash"><code class="bash">  $ sudo apt-get install build-essential gcc git sudo flex \
+    bison libglib2.0-dev</code></pre>
 </li>
 
 <li>Clone the <code>frida-ci</code> repository and build away:
-<pre class="bash"><code class="bash">
-  $ git clone git@github.com:frida/frida-ci.git
+<pre class="bash"><code class="bash">  $ git clone git@github.com:frida/frida-ci.git
   $ mkdir tmp
   $ cd tmp
-  $ ../frida-ci/create-toolchain-and-sdk.sh
-</code></pre>
+  $ ../frida-ci/create-toolchain-and-sdk.sh</code></pre>
 </li>
 
 <li>Transfer the resulting toolchain and SDK to a web server somewhere:
-<pre class="bash"><code class="bash">
-  $ scp build/toolchain-*.tar.bz2 your@own.server:
-  $ scp build/sdk-*.tar.bz2 your@own.server:
-</code></pre>
+<pre class="bash"><code class="bash">  $ scp build/toolchain-*.tar.bz2 your@own.server:
+  $ scp build/sdk-*.tar.bz2 your@own.server:</code></pre>
 </li>
 
 <li>Now you can clone <code>frida-build-env</code> like above and adjust the URLs in <code>setup-env.sh</code> (look for <code>download_command</code>) before running <code>make</code>.</li>
@@ -718,17 +704,13 @@ $ git submodule update
 <li>Install <a href="http://launchpad.net/hsbuild/trunk/0.2/+download/hsbuild-0.2.msi">hsbuild-0.2.msi</a>. You need <a href="http://msysgit.github.com/">Git</a> and <a href="http://www.activestate.com/activeperl/">Perl</a> installed, and <code>perl</code> should be in your PATH. For packaging you will also need <a href="http://www.7-zip.org/">7-Zip</a> to be in your PATH.</li>
 
 <li>Ensure that your Git configuration at <code>C:\Program Files (x86)\Git\etc\gitconfig</code> (or similar) has the following in its <code>core</code> section:
-<pre><code>
-autoCRLF = false
-</code></pre>
+<pre><code>autoCRLF = false</code></pre>
 </li>
 
 <li>Also ensure that your environment does not have a <code>CC</code> environment variable defined (might have happened if you installed <code>msys</code> or <code>cygwin</code>).</li>
 
 <li>Use <a href="http://bazaar.canonical.com/">bazaar</a> to check out our slightly modified HSBuild:
-<pre class="bash"><code class="bash">
-$ bzr branch lp:~oleavr/hsbuild/tweaks hsbuild
-</code></pre>
+<pre class="bash"><code class="bash">$ bzr branch lp:~oleavr/hsbuild/tweaks hsbuild</code></pre>
 </li>
 
 <li>Open <code>msbuild\tasks\HSBuildTasks.sln</code> and build it in <code>Release</code> configuration.</li>
@@ -741,33 +723,35 @@ $ bzr branch lp:~oleavr/hsbuild/tweaks hsbuild
 </ul>
 </li>
 
-<li>Build it - Download <a href="http://dl.dropbox.com/u/169648/frida/frida.modules">frida.modules</a> and put it in a (preferably empty) directory somewhere.
+<li>Build it
 <ul>
+<li>Download <a href="http://dl.dropbox.com/u/169648/frida/frida.modules">frida.modules</a> and put it in a (preferably empty) directory somewhere.</li>
+
 <li>Open <code>cmd.exe</code> and navigate to that directory.</li>
 
 <li>Start the build process:
-<pre class="bash"><code class="bash">
-$ set FRIDAMODULES=glib libgee json-glib vala
+<pre class="bash"><code class="bash">$ set FRIDAMODULES=glib libgee json-glib vala
 $ hsbuild build -p x86_64 -c Debug -v %FRIDAMODULES%
 $ hsbuild build -p x86_64 -c Release -v %FRIDAMODULES%
 $ hsbuild build -p x86 -c Debug -v %FRIDAMODULES%
-$ hsbuild build -p x86 -c Release -v %FRIDAMODULES%
-</code></pre>
+$ hsbuild build -p x86 -c Release -v %FRIDAMODULES%</code></pre>
 </li>
 </ul>
 </li>
 
-<li>Package it - Download <a href="https://dl.dropboxusercontent.com/u/169648/frida/makedist.py">makedist.py</a> and put it next to <code>frida.modules</code>. - Run makedist.py:
-<pre class="bash"><code class="bash">
-  $ makedist.py
-</code></pre>
+<li>Package it
+<ul>
+<li>Download <a href="https://dl.dropboxusercontent.com/u/169648/frida/makedist.py">makedist.py</a> and put it next to <code>frida.modules</code>.</li>
+
+<li>Run makedist.py:
+<pre class="bash"><code class="bash">$ makedist.py</code></pre>
+</li>
+</ul>
 </li>
 
 <li>Transfer the resulting toolchain and SDK to a web server somewhere:
-<pre class="bash"><code class="bash">
-  $ scp toolchain-windows-*.exe your@own.server:
-  $ scp sdk-windows-*.exe your@own.server:
-</code></pre>
+<pre class="bash"><code class="bash">  $ scp toolchain-windows-*.exe your@own.server:
+  $ scp sdk-windows-*.exe your@own.server:</code></pre>
 </li>
 
 <li>Now you can clone <code>frida-build-env</code> like above and adjust the URLs in <code>windows-toolchain.txt</code> and <code>windows-sdk.txt</code> before opening <code>frida.sln</code>.</li>

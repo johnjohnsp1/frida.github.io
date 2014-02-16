@@ -1030,7 +1030,7 @@
 </li>
 
 <li>
-<p><code>onLeave: function onLeave(retval)</code>: callback function given one argument <code>retval</code> that is a <code>NativePointer</code> containing the return value.</p>
+<p><code>onLeave: function onLeave(retval)</code>: callback function given one argument <code>retval</code> that is a <code>NativePointer</code> containing the return value. You may call <code>retval.replace(1337)</code> to replace the return value with the integer <code>1337</code>, or <code>retval.replace(ptr(&quot;0x1234&quot;))</code> to replace with a pointer.</p>
 </li>
 </ul>
 
@@ -1050,6 +1050,16 @@
     <span class='p'>}</span>
 <span class='p'>});</span>
 </code></pre></div>
+<pre><code>Additionally, the object contains some useful properties:
+
+-   `errno`: (UNIX) current errno value (you may replace it)
+
+-   `lastError`: (Windows) current OS error value (you may replace it)
+
+-   `threadId`: OS thread ID
+
+-   `depth`: call depth of relative to other invocations</code></pre>
+
 <ul>
 <li>
 <p><code>Interceptor.detachAll()</code>: detach all previously attached callbacks.</p>
