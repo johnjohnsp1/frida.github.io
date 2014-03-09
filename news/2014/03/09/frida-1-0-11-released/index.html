@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
   <meta charset="UTF-8">
-  <title>Frida 1.0.7 Released</title>
+  <title>Frida 1.0.11 Released</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="alternate" type="application/rss+xml" title="Frida - Feed" href="/feed.xml" />
   <link rel="alternate" type="application/atom+xml" title="Recent commits to Frida’s master branch" href="https://github.com/frida/frida-build-env/commits/master.atom" />
@@ -94,8 +94,8 @@
       <div class="unit four-fifths">
         <article>
   <h2>
-    Frida 1.0.7 Released
-    <a href="/news/2014/01/12/frida-1-0-7-released/" class="permalink" title="Permalink">∞</a>
+    Frida 1.0.11 Released
+    <a href="/news/2014/03/09/frida-1-0-11-released/" class="permalink" title="Permalink">∞</a>
   </h2>
   <span class="post-category">
     
@@ -104,7 +104,7 @@
   </span>
   <div class="post-meta">
     <span class="post-date">
-      12 Jan 2014
+      09 Mar 2014
     </span>
     <a href="https://github.com/oleavr" class="post-author">
       <img src="https://github.com/oleavr.png" class="avatar" />
@@ -112,19 +112,19 @@
     </a>
   </div>
   <p class="post-content">
-    <p>This release brings USB device support in the command-line tools, and adds <code>frida-ps</code> for enumerating processes both locally and remotely.</p>
+    <p>Some of you experienced issues injecting into processes on Windows, as well as crashes on iOS. Here’s a new release bringing some serious improvements to Frida’s internals:</p>
 
-<p>For example to enumerate processes on your tethered iOS device:</p>
-<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>frida-ps -U
-</code></pre></div>
-<p>The <code>-U</code> switch is also accepted by <code>frida-trace</code> and <code>frida-discover</code>.</p>
+<ul>
+<li>V8 has been upgraded to 3.25 in order to fix the iOS stability issues. This also means new features (like ECMAScript 6) and improved performance on all platforms. Another nice aspect is that Frida now depends on a V8 version that runs on 64-bit ARM, which paves the way for porting Frida itself to AArch64.</li>
 
-<p>Docs how to set this up on your iOS device will soon be added to the website.</p>
+<li>The Windows injector has learned some new tricks and will get you into even more processes. A configuration error was also discovered in the Windows build system, which explains why some of you were unable to inject into some processes.</li>
 
-<p>However, that’s not the most exciting part. Starting with this release, Frida got its first contribution since the HN launch. <a href="https://github.com/pmorici">Pete Morici</a> dived in and contributed support for specifying module-relative functions in <code>frida-trace</code>:</p>
-<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>frida-trace -a <span class='s1'>&#39;kernel32.dll+0x1234&#39;</span>
-</code></pre></div>
-<p>Enjoy!</p>
+<li>For those of you building Frida on Windows, the build system there now depends on VS2013. This means XP is no longer supported, though it is still possible to build with the <code>v120_xp</code> toolchain if any of you still depend on that, so let me know if this is a deal-breaker for you.</li>
+
+<li>The recently added support for <code>this.lastError</code> (Windows) is now working correctly.</li>
+</ul>
+
+<p>That’s all for now. Let us know what you think, and if you like Frida, please help spread the word! :)</p>
   </p>
 </article>
 
@@ -143,7 +143,7 @@
     <h4>Recent Releases</h4>
     <ul>
       
-      <li class="">
+      <li class="current">
         <a href="/news/2014/03/09/frida-1-0-11-released/">Version 1.0.11</a>
       </li>
       
@@ -159,7 +159,7 @@
         <a href="/news/2014/01/15/frida-1-0-8-released/">Version 1.0.8</a>
       </li>
       
-      <li class="current">
+      <li class="">
         <a href="/news/2014/01/12/frida-1-0-7-released/">Version 1.0.7</a>
       </li>
       

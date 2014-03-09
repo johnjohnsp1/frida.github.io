@@ -11,10 +11,32 @@
     <title xml:lang="en">Frida</title>
     <atom:link type="application/atom+xml" href="http://www.frida.re/feed/" rel="self"/>
     <link>http://www.frida.re</link>
-    <pubDate>Sun, 16 Feb 2014 01:53:31 +0100</pubDate>
-    <lastBuildDate>Sun, 16 Feb 2014 01:53:31 +0100</lastBuildDate>
+    <pubDate>Sun, 09 Mar 2014 19:18:41 +0100</pubDate>
+    <lastBuildDate>Sun, 09 Mar 2014 19:18:41 +0100</lastBuildDate>
     <language>en-US</language>
     <description>Inject JavaScript to explore native apps on Windows, Mac, Linux and iOS.</description>
+    
+    <item>
+        <title>Frida 1.0.11 Released</title>
+        <link>http://www.frida.re/news/2014/03/09/frida-1-0-11-released/</link>
+        <pubDate>Sun, 09 Mar 2014 18:00:00 +0000</pubDate>
+        <dc:creator>oleavr</dc:creator>
+        <category>release</category>
+        <guid isPermaLink="false">/news/2014/03/09/frida-1-0-11-released</guid>
+        <description><![CDATA[ <p>Some of you experienced issues injecting into processes on Windows, as well as crashes on iOS. Here’s a new release bringing some serious improvements to Frida’s internals:</p>
+
+<ul>
+<li>V8 has been upgraded to 3.25 in order to fix the iOS stability issues. This also means new features (like ECMAScript 6) and improved performance on all platforms. Another nice aspect is that Frida now depends on a V8 version that runs on 64-bit ARM, which paves the way for porting Frida itself to AArch64.</li>
+
+<li>The Windows injector has learned some new tricks and will get you into even more processes. A configuration error was also discovered in the Windows build system, which explains why some of you were unable to inject into some processes.</li>
+
+<li>For those of you building Frida on Windows, the build system there now depends on VS2013. This means XP is no longer supported, though it is still possible to build with the <code>v120_xp</code> toolchain if any of you still depend on that, so let me know if this is a deal-breaker for you.</li>
+
+<li>The recently added support for <code>this.lastError</code> (Windows) is now working correctly.</li>
+</ul>
+
+<p>That’s all for now. Let us know what you think, and if you like Frida, please help spread the word! :)</p> ]]></description>
+    </item>
     
     <item>
         <title>Frida 1.0.10 Released</title>
