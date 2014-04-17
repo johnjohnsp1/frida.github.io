@@ -11,10 +11,24 @@
     <title xml:lang="en">Frida</title>
     <atom:link type="application/atom+xml" href="http://www.frida.re/feed/" rel="self"/>
     <link>http://www.frida.re</link>
-    <pubDate>Sun, 09 Mar 2014 19:18:41 +0100</pubDate>
-    <lastBuildDate>Sun, 09 Mar 2014 19:18:41 +0100</lastBuildDate>
+    <pubDate>Thu, 17 Apr 2014 17:52:13 +0200</pubDate>
+    <lastBuildDate>Thu, 17 Apr 2014 17:52:13 +0200</lastBuildDate>
     <language>en-US</language>
     <description>Inject JavaScript to explore native apps on Windows, Mac, Linux and iOS.</description>
+    
+    <item>
+        <title>Frida 1.2.0 Released</title>
+        <link>http://www.frida.re/news/2014/04/17/frida-1-2-0-released/</link>
+        <pubDate>Thu, 17 Apr 2014 16:00:00 +0000</pubDate>
+        <dc:creator>oleavr</dc:creator>
+        <category>release</category>
+        <guid isPermaLink="false">/news/2014/04/17/frida-1-2-0-released</guid>
+        <description><![CDATA[ <p>It’s release-o-clock, and Frida 1.2.0 is finally out! Bugfixes aside, this release introduces brand new ARM64 support, which is quite useful for those of you using Frida on your iPhone 5S or iPad Air. You can now inject into both 64- and 32-bit processes, just like on Mac and Windows.</p>
+
+<p>This release also improves stability on ARM32, where attaching to short functions used to result in undefined behavior.</p>
+
+<p>Enjoy!</p> ]]></description>
+    </item>
     
     <item>
         <title>Frida 1.0.11 Released</title>
