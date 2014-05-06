@@ -715,7 +715,7 @@
 <ul>
 <li>64-bit version of Windows (32-bit will work but may require some fiddling)</li>
 
-<li>Visual Studio 2010</li>
+<li>Visual Studio 2013</li>
 
 <li><a href="http://msysgit.github.com/">Git</a></li>
 
@@ -746,7 +746,7 @@ $ git submodule update</code></pre>
 </li>
 
 <li>Clone the <code>frida-ci</code> repository and build away:
-<pre class="bash"><code class="bash">  $ git clone git@github.com:frida/frida-ci.git
+<pre class="bash"><code class="bash">  $ git clone git://github.com/frida/frida-ci.git
   $ mkdir tmp
   $ cd tmp
   $ ../frida-ci/create-toolchain-and-sdk.sh</code></pre>
@@ -765,7 +765,7 @@ $ git submodule update</code></pre>
 <ul>
 <li>Prepare your system
 <ul>
-<li>Make sure that Visual Studio 2010 is installed.</li>
+<li>Make sure that Visual Studio 2013 is installed.</li>
 
 <li>Install <a href="http://launchpad.net/hsbuild/trunk/0.2/+download/hsbuild-0.2.msi">hsbuild-0.2.msi</a>. You need <a href="http://msysgit.github.com/">Git</a> and <a href="http://www.activestate.com/activeperl/">Perl</a> installed, and <code>perl</code> should be in your PATH. For packaging you will also need <a href="http://www.7-zip.org/">7-Zip</a> to be in your PATH.</li>
 
@@ -785,32 +785,20 @@ $ git submodule update</code></pre>
 
 <li>As Administrator, run <code>deploy.bat</code>, which will update the system-wide HSBuild installation.</li>
 
-<li>Download <a href="http://dl.dropbox.com/u/169648/frida/Frida.props">Frida.props</a> and put it alongside HSBuild’s .targets/.props files, typically something like <code>C:\Program Files (x86)\MSBuild\HSBuild</code>.</li>
+<li>Clone the <code>frida-ci</code> repository:
+<pre class="bash"><code class="bash">$ git clone git://github.com/frida/frida-ci.git</code></pre>
+</li>
+
+<li>Copy <code>frida-ci\Frida.props</code> next to HSBuild’s .targets/.props files, typically at <code>C:\Program Files (x86)\MSBuild\HSBuild</code>.</li>
 </ul>
 </li>
 
 <li>Build it
 <ul>
-<li>Download <a href="http://dl.dropbox.com/u/169648/frida/frida.modules">frida.modules</a> and put it in a (preferably empty) directory somewhere.</li>
-
-<li>Open <code>cmd.exe</code> and navigate to that directory.</li>
+<li>Open <code>cmd.exe</code> and navigate to <code>frida-ci</code>.</li>
 
 <li>Start the build process:
-<pre class="bash"><code class="bash">$ set FRIDAMODULES=glib libgee json-glib vala
-$ hsbuild build -p x86_64 -c Debug -v %FRIDAMODULES%
-$ hsbuild build -p x86_64 -c Release -v %FRIDAMODULES%
-$ hsbuild build -p x86 -c Debug -v %FRIDAMODULES%
-$ hsbuild build -p x86 -c Release -v %FRIDAMODULES%</code></pre>
-</li>
-</ul>
-</li>
-
-<li>Package it
-<ul>
-<li>Download <a href="https://dl.dropboxusercontent.com/u/169648/frida/makedist.py">makedist.py</a> and put it next to <code>frida.modules</code>.</li>
-
-<li>Run makedist.py:
-<pre class="bash"><code class="bash">$ makedist.py</code></pre>
+<pre class="bash"><code class="bash">$ build-deps-windows.py</code></pre>
 </li>
 </ul>
 </li>
