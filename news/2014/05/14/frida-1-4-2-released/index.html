@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
   <meta charset="UTF-8">
-  <title>Frida 1.0.11 Released</title>
+  <title>Frida 1.4.2 Released</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="alternate" type="application/rss+xml" title="Frida - Feed" href="/feed.xml" />
   <link rel="alternate" type="application/atom+xml" title="Recent commits to Frida’s master branch" href="https://github.com/frida/frida/commits/master.atom" />
@@ -104,8 +104,8 @@
       <div class="unit four-fifths">
         <article>
   <h2>
-    Frida 1.0.11 Released
-    <a href="/news/2014/03/09/frida-1-0-11-released/" class="permalink" title="Permalink">∞</a>
+    Frida 1.4.2 Released
+    <a href="/news/2014/05/14/frida-1-4-2-released/" class="permalink" title="Permalink">∞</a>
   </h2>
   <span class="post-category">
     
@@ -114,7 +114,7 @@
   </span>
   <div class="post-meta">
     <span class="post-date">
-      09 Mar 2014
+      14 May 2014
     </span>
     <a href="https://github.com/oleavr" class="post-author">
       <img src="https://github.com/oleavr.png" class="avatar" />
@@ -122,19 +122,9 @@
     </a>
   </div>
   <p class="post-content">
-    <p>Some of you experienced issues injecting into processes on Windows, as well as crashes on iOS. Here’s a new release bringing some serious improvements to Frida’s internals:</p>
+    <p>Just a quick bugfix release to squash <a href="https://github.com/frida/frida-core/issues/5">this annoying bug</a>, which is reproducible on all supported x86 OSes. Thanks for Guillaume for tracking this one down.</p>
 
-<ul>
-<li>V8 has been upgraded to 3.25 in order to fix the iOS stability issues. This also means new features (like ECMAScript 6) and improved performance on all platforms. Another nice aspect is that Frida now depends on a V8 version that runs on 64-bit ARM, which paves the way for porting Frida itself to AArch64.</li>
-
-<li>The Windows injector has learned some new tricks and will get you into even more processes. A configuration error was also discovered in the Windows build system, which explains why some of you were unable to inject into some processes.</li>
-
-<li>For those of you building Frida on Windows, the build system there now depends on VS2013. This means XP is no longer supported, though it is still possible to build with the <code>v120_xp</code> toolchain if any of you still depend on that, so let me know if this is a deal-breaker for you.</li>
-
-<li>The recently added support for <code>this.lastError</code> (Windows) is now working correctly.</li>
-</ul>
-
-<p>That’s all for now. Let us know what you think, and if you like Frida, please help spread the word! :)</p>
+<p>As a bonus, frida-repl now also works on Windows. Happy REPLing!</p>
   </p>
 </article>
 
@@ -153,7 +143,7 @@
     <h4>Recent Releases</h4>
     <ul>
       
-      <li class="">
+      <li class="current">
         <a href="/news/2014/05/14/frida-1-4-2-released/">Version 1.4.2</a>
       </li>
       
