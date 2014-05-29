@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
   <meta charset="UTF-8">
-  <title>Frida 1.4.2 Released</title>
+  <title>Frida 1.6.0 Released</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="alternate" type="application/rss+xml" title="Frida - Feed" href="/feed.xml" />
   <link rel="alternate" type="application/atom+xml" title="Recent commits to Frida’s master branch" href="https://github.com/frida/frida/commits/master.atom" />
@@ -106,8 +106,8 @@
       <div class="unit four-fifths">
         <article>
   <h2>
-    Frida 1.4.2 Released
-    <a href="/news/2014/05/14/frida-1-4-2-released/" class="permalink" title="Permalink">∞</a>
+    Frida 1.6.0 Released
+    <a href="/news/2014/05/29/frida-1-6-0-released/" class="permalink" title="Permalink">∞</a>
   </h2>
   <span class="post-category">
     
@@ -116,7 +116,7 @@
   </span>
   <div class="post-meta">
     <span class="post-date">
-      14 May 2014
+      29 May 2014
     </span>
     <a href="https://github.com/oleavr" class="post-author">
       <img src="https://github.com/oleavr.png" class="avatar" />
@@ -124,9 +124,47 @@
     </a>
   </div>
   <p class="post-content">
-    <p>Just a quick bugfix release to squash <a href="https://github.com/frida/frida-core/issues/5">this annoying bug</a>, which is reproducible on all supported x86 OSes. Thanks for Guillaume for tracking this one down.</p>
+    <p>As some of you may have noticed, Frida recently got brand new Android support, allowing you to easily instrument code just like on Windows, Mac, Linux and iOS. This may sound cool and all, but Android does run a lot of Java code, which means you’d only be able to observe the native side-effects of whatever that code was doing. You could of course use Frida’s FFI API to poke your way into the VM, but hey, shouldn’t Frida just do that dirty plumbing for you? Of course it should!</p>
 
-<p>As a bonus, frida-repl now also works on Windows. Happy REPLing!</p>
+<p>Here’s what it looks like in action:</p>
+<div class='highlight'><pre><code class='js'><span class='nx'>Dalvik</span><span class='p'>.</span><span class='nx'>perform</span><span class='p'>(</span><span class='kd'>function</span> <span class='p'>()</span> <span class='p'>{</span>
+    <span class='kd'>var</span> <span class='nx'>Activity</span> <span class='o'>=</span> <span class='nx'>Dalvik</span><span class='p'>.</span><span class='nx'>use</span><span class='p'>(</span><span class='s2'>&quot;android.app.Activity&quot;</span><span class='p'>);</span>
+    <span class='nx'>Activity</span><span class='p'>.</span><span class='nx'>onResume</span><span class='p'>.</span><span class='nx'>implementation</span> <span class='o'>=</span> <span class='kd'>function</span> <span class='p'>()</span> <span class='p'>{</span>
+        <span class='nx'>send</span><span class='p'>(</span><span class='s2'>&quot;onResume() got called! Let&#39;s call the original implementation&quot;</span><span class='p'>);</span>
+        <span class='k'>this</span><span class='p'>.</span><span class='nx'>onResume</span><span class='p'>();</span>
+    <span class='p'>};</span>
+<span class='p'>});</span>
+</code></pre></div>
+<p>The <code>Dalvik.perform()</code> call takes care of attaching your thread to the VM, and isn’t necessary in callbacks from Java. Also, the first time you call <code>Dalvik.use()</code> with a given class name, Frida will interrogate the VM and build a JavaScript wrapper on-the-fly. Above we ask for the <a href="http://developer.android.com/reference/android/app/Activity.html">Activity</a> class and replace its implementation of <code>onResume</code> with our own version, and proceed to calling the original implementation after sending a message to the debugger (running on your Windows, Mac or Linux machine). You could of course choose to not call the original implementation at all, and emulate its behavior. Or, perhaps you’d like to simulate an error scenario:</p>
+<div class='highlight'><pre><code class='js'><span class='nx'>Dalvik</span><span class='p'>.</span><span class='nx'>perform</span><span class='p'>(</span><span class='kd'>function</span> <span class='p'>()</span> <span class='p'>{</span>
+    <span class='kd'>var</span> <span class='nx'>Activity</span> <span class='o'>=</span> <span class='nx'>Dalvik</span><span class='p'>.</span><span class='nx'>use</span><span class='p'>(</span><span class='s2'>&quot;android.app.Activity&quot;</span><span class='p'>);</span>
+    <span class='kd'>var</span> <span class='nx'>Exception</span> <span class='o'>=</span> <span class='nx'>Dalvik</span><span class='p'>.</span><span class='nx'>use</span><span class='p'>(</span><span class='s2'>&quot;java.lang.Exception&quot;</span><span class='p'>);</span>
+    <span class='nx'>Activity</span><span class='p'>.</span><span class='nx'>onResume</span><span class='p'>.</span><span class='nx'>implementation</span> <span class='o'>=</span> <span class='kd'>function</span> <span class='p'>()</span> <span class='p'>{</span>
+        <span class='k'>throw</span> <span class='nx'>Exception</span><span class='p'>.</span><span class='nx'>$new</span><span class='p'>(</span><span class='s2'>&quot;Oh noes!&quot;</span><span class='p'>);</span>
+    <span class='p'>};</span>
+<span class='p'>});</span>
+</code></pre></div>
+<p>So there you just instantiated a Java Exception and threw it straight from your JavaScript implementation of <code>Activity.onResume</code>.</p>
+
+<p>This release also comes with some other runtime goodies:</p>
+
+<ul>
+<li><code>Memory.copy(dst, src, n)</code>: just like memcpy</li>
+
+<li><code>Memory.dup(mem, size)</code>: short-hand for <code>Memory.alloc()</code> followed by <code>Memory.copy()</code></li>
+
+<li><code>Memory.writeXXX()</code>: the missing <code>Memory.read()</code> counterparts: S8, S16, U16, S32, U32, S64, U64, ByteArray, Utf16String and AnsiString</li>
+
+<li><code>Process.pointerSize</code> to make your scripts more portable</li>
+
+<li><code>NativePointer</code> instances now have a convenient <code>isNull()</code> method</li>
+
+<li><code>NULL</code> constant so you don’t have to do <code>ptr(&quot;0&quot;)</code> all over the place</li>
+
+<li><code>WeakRef.bind(value, fn)</code> and <code>WeakRef.unbind(id)</code> for the hardcore: The former monitors <code>value</code> so <code>fn</code> gets called as soon as <code>value</code> has been garbage-collected, or the script is about to get unloaded. It returns an id that you can pass to <code>unbind()</code> for explicit cleanup. This API is useful if you’re building a language-binding, where you need to free native resources when a JS value is no longer needed.</li>
+</ul>
+
+<p>Enjoy!</p>
   </p>
 </article>
 
@@ -145,11 +183,11 @@
     <h4>Recent Releases</h4>
     <ul>
       
-      <li class="">
+      <li class="current">
         <a href="/news/2014/05/29/frida-1-6-0-released/">Version 1.6.0</a>
       </li>
       
-      <li class="current">
+      <li class="">
         <a href="/news/2014/05/14/frida-1-4-2-released/">Version 1.4.2</a>
       </li>
       
