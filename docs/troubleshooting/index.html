@@ -662,7 +662,7 @@ Reading https://pypi.python.org/simple/frida/
 No local packages or download links found for frida
 error: Could not find suitable distribution for Requirement.parse(&#39;frida&#39;)
 </code></pre></div>
-<p>This appears on some OSX systems where there are multiple versions of <code>easy_install</code> present. A workaround seems to be to force using the system-provided default, i.d. <code>sudo /usr/bin/easy_install frida</code> or <code>/usr/bin/easy_install --user frida</code>.</p>
+<p>This appears on some OS X systems where there are multiple versions of <code>easy_install</code> present. A workaround seems to be to force using the system-provided default, i.d. <code>sudo /usr/bin/easy_install frida</code> or <code>/usr/bin/easy_install --user frida</code>.</p>
 
 <h2 id="no_distributions_at_all_found_for_frida">No distributions at all found for frida</h2>
 
@@ -688,9 +688,9 @@ error: Could not find suitable distribution for Requirement.parse(&#39;frida&#39
 <p>This (probably) means that you don’t have permissions to attach to the target process. The process may be owned by another user and you are not root. You may have forgotten to enable ptrace of non-child processes. Try:</p>
 <div class='highlight'><pre><code class='bash'>sudo sysctl kernel.yama.ptrace_scope<span class='o'>=</span>0
 </code></pre></div>
-<h2 id="systemerror_error_opening_file_tmplibfridaagentso_file_exists">SystemError: Error opening file /tmp/libfrida-agent.so: File exists</h2>
+<h2 id="importerror_dynamic_module_does_not_define_init_function_init_frida">ImportError: dynamic module does not define init function (init_frida)</h2>
 
-<p>This is a bug in the Linux backend of Frida. Just retry <code>frida.attach()</code> (or help us fix the bug :P).</p>
+<p>This or another similar error message is seen when trying to use <code>frida-python</code> compiled for python 2.x in python 3.x, or vice versa. Check which python interpreter you are running against which <code>PYTHONPATH</code> / <code>sys.path</code> is used.</p>
           <div class="section-nav">
   <div class="left align-right">
     
