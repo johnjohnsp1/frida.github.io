@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
   <meta charset="UTF-8">
-  <title>Frida 1.4.1 Released</title>
+  <title>Frida 1.6.1 Released</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="alternate" type="application/rss+xml" title="Frida - Feed" href="/feed.xml" />
   <link rel="alternate" type="application/atom+xml" title="Recent commits to Frida’s master branch" href="https://github.com/frida/frida/commits/master.atom" />
@@ -108,8 +108,8 @@
       <div class="unit four-fifths">
         <article>
   <h2>
-    Frida 1.4.1 Released
-    <a href="/news/2014/05/14/frida-1-4-1-released/" class="permalink" title="Permalink">∞</a>
+    Frida 1.6.1 Released
+    <a href="/news/2014/07/26/frida-1-6-1-released/" class="permalink" title="Permalink">∞</a>
   </h2>
   <span class="post-category">
     
@@ -118,7 +118,7 @@
   </span>
   <div class="post-meta">
     <span class="post-date">
-      14 May 2014
+      26 Jul 2014
     </span>
     <a href="https://github.com/oleavr" class="post-author">
       <img src="https://github.com/oleavr.png" class="avatar" />
@@ -126,9 +126,25 @@
     </a>
   </div>
   <p class="post-content">
-    <p>Interested in spawning processes on Windows or Linux, and not just on Mac? Or maybe you’ve been bitten by the Linux injector crashing your processes instead of letting you inject into them? Or maybe you had a function name that was so long that frida-trace overflowed the max filename length on Windows? Well, if any of the above, or none of it, then Frida 1.4.1 is for you!</p>
+    <p>It’s time for a bugfix release. Highlights:</p>
 
-<p>Thanks to Guillaume and Pedro for making this release awesome. Keep those pull- requests and bug reports coming!</p>
+<ul>
+<li>Compatibility with the Pangu iOS jailbreak on ARM64. The issue is that RWX pages are not available like they used to be with the evad3rs jailbreak.</li>
+
+<li>Fix occasional target process crash when detaching.</li>
+
+<li>Fix crash when trying to attach to a process the second time after failing to establish the first time. This primarily affected Android users, but could happen on any OS when using <code>frida-server</code>.</li>
+
+<li>Faster and more reliable injection on Linux/x86-64 and Android/ARM.</li>
+
+<li>Fix issues preventing hooking of HeapFree and friends on Windows.</li>
+
+<li>Upgraded GLib, libgee, json-glib and Vala dependencies for improved performance and bugfixes.</li>
+
+<li>No more resource leaks. Please report if you find any.</li>
+</ul>
+
+<p>Also new since 1.6.0, as covered in my <a href="https://medium.com/@oleavr/build-a-debugger-in-5-minutes-1-5-51dce98c3544">blog post</a>, there is now a full- featured <a href="https://github.com/frida/frida-qml">binding for Qml</a>. This should be of interest to those of you building graphical cross-platform tools.</p>
   </p>
 </article>
 
@@ -147,7 +163,7 @@
     <h4>Recent Releases</h4>
     <ul>
       
-      <li class="">
+      <li class="current">
         <a href="/news/2014/07/26/frida-1-6-1-released/">Version 1.6.1</a>
       </li>
       
@@ -159,7 +175,7 @@
         <a href="/news/2014/05/14/frida-1-4-2-released/">Version 1.4.2</a>
       </li>
       
-      <li class="current">
+      <li class="">
         <a href="/news/2014/05/14/frida-1-4-1-released/">Version 1.4.1</a>
       </li>
       
