@@ -1237,6 +1237,30 @@
 </li>
 </ul>
 
+<h2 id="instruction">Instruction</h2>
+
+<ul>
+<li>
+<p><code>Instruction.parse(target)</code>: parse the instruction at the <code>target</code> address in memory, represented by a <code>NativePointer</code>. Note that on 32-bit ARM this address must have its least significant bit set to 0 for ARM functions, and 1 for Thumb functions. Frida takes care of this detail for you if you get the address from a Frida API (for example <code>Module.findExportByName()</code>).</p>
+
+<p>The object returned has the fields:</p>
+
+<ul>
+<li><code>address</code>: Address (EIP) of this instruction, as a <code>NativePointer</code>.</li>
+
+<li><code>next</code>: Pointer to the next instruction, so you can <code>parse()</code> it.</li>
+
+<li><code>size</code>: Size of this instruction.</li>
+
+<li><code>mnemonic</code>: String representation of instruction mnemonic.</li>
+
+<li><code>opStr</code>: String representation of instruction operands.</li>
+
+<li><code>toString()</code>: Convert to a human-readable string.</li>
+</ul>
+</li>
+</ul>
+
 <h2 id="objc">ObjC</h2>
 
 <ul>
