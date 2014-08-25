@@ -89,6 +89,12 @@
     
   
     
+  
+    
+  
+    
+  
+    
       <option value="/docs/home/">Welcome</option>
     
   
@@ -108,15 +114,15 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -150,15 +156,15 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -192,15 +198,17 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
   
 
+  
+    
+  
+    
+  
+    
+  
+    
   
     
   
@@ -230,14 +238,6 @@
   
     
       <option value="/docs/usage/">Basic Usage</option>
-    
-  
-    
-  
-    
-  
-    
-  
     
   
 
@@ -313,6 +313,12 @@
     
   
     
+  
+    
+  
+    
+  
+    
       <option value="/docs/messages/">Messages</option>
     
   
@@ -324,15 +330,15 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -366,20 +372,14 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
   
 
-  
-    
   
     
       <option value="/docs/android/">Android</option>
+    
+  
     
   
     
@@ -443,13 +443,13 @@
     
   
     
+  
+    
+  
+    
+  
+    
       <option value="/docs/javascript-api/">JavaScript API</option>
-    
-  
-    
-  
-    
-  
     
   
     
@@ -497,29 +497,29 @@
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
       <option value="/docs/troubleshooting/">Troubleshooting</option>
     
   
     
   
-    
-  
-    
-  
-    
-  
-    
-  
 
   
 
-  
-    
   
     
   
     
       <option value="/docs/building/">Building</option>
+    
+  
     
   
     
@@ -567,9 +567,9 @@
     
   
     
-  
-    
       <option value="/docs/contributing/">Contributing</option>
+    
+  
     
   
     
@@ -654,48 +654,69 @@
           <h1>iOS</h1>
           <p>In this tutorial we show how to do function tracing on your iOS device.</p>
 
-<h2 id="setting_up_your_ios_device">Setting up your iOS device</h2>
+<h2 id="setting-up-your-ios-device">Setting up your iOS device</h2>
 
-<p>First off, you will need to jailbreak your device in case you haven’t done so already. Also, we recommend using iOS 7.x as we haven’t performed any recent regression tests on earlier versions. Next, start <code>Cydia</code> and add Frida’s repository by going to <code>Manage</code> -&gt; <code>Sources</code> -&gt; <code>Edit</code> -&gt; <code>Add</code> and enter <code>http://ospy.org</code>. You should now be able to find and install the <code>Frida</code> package which lets Frida inject JavaScript into apps running on your iOS device. This happens over USB, so you will need to have your USB cable handy, though there’s no need to plug it in just yet.</p>
+<p>First off, you will need to jailbreak your device in case you haven’t done so
+already. Also, we recommend using iOS 7.x as we haven’t performed any recent
+regression tests on earlier versions.
+Next, start <code>Cydia</code> and add Frida’s repository by going to <code>Manage</code> -&gt;
+<code>Sources</code> -&gt; <code>Edit</code> -&gt; <code>Add</code> and enter <code>http://ospy.org</code>. You should now
+be able to find and install the <code>Frida</code> package which lets Frida inject
+JavaScript into apps running on your iOS device. This happens over USB,
+so you will need to have your USB cable handy, though there’s no need to
+plug it in just yet.</p>
 
-<h2 id="a_quick_smoketest">A quick smoke-test</h2>
+<h2 id="a-quick-smoke-test">A quick smoke-test</h2>
 
-<p>Now, back on your Windows or Mac system it’s time to make sure the basics are working. Run:</p>
-<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>frida-ps -U
-</code></pre></div>
-<p>Unless you already plugged in your device, you should see the following message:</p>
-<div class='highlight'><pre><code class='text'>Waiting for USB device to appear...
-</code></pre></div>
+<p>Now, back on your Windows or Mac system it’s time to make sure the basics
+are working. Run:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>frida-ps -U</code></pre></div>
+
+<p>Unless you already plugged in your device, you should see the following
+message:</p>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">Waiting for USB device to appear...</code></pre></div>
+
 <p>Plug in your device, and you should see a process list along the lines of:</p>
-<div class='highlight'><pre><code class='bash'> PID NAME
- 488 Clock
- 116 Facebook
- 312 IRCCloud
-1711 LinkedIn
-…
-</code></pre></div>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">PID NAME
+ <span class="m">488</span> Clock
+ <span class="m">116</span> Facebook
+ <span class="m">312</span> IRCCloud
+<span class="m">1711</span> LinkedIn
+…</code></pre></div>
+
 <p>Great, we’re good to go then!</p>
 
-<h2 id="tracing_crypto_calls_in_the_twitter_app">Tracing crypto calls in the Twitter app</h2>
+<h2 id="tracing-crypto-calls-in-the-twitter-app">Tracing crypto calls in the Twitter app</h2>
 
-<p>Alright, let’s have some fun. Fire up the Twitter app on your device, and while making sure it stays in the foreground without the device going to sleep, go back to your desktop and run:</p>
-<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>frida-trace -U -i <span class='s1'>&#39;CCCryptorCreate*&#39;</span> Twitter
+<p>Alright, let’s have some fun. Fire up the Twitter app on your device, and while
+making sure it stays in the foreground without the device going to sleep, go
+back to your desktop and run:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>frida-trace -U -i <span class="s1">&#39;CCCryptorCreate*&#39;</span> Twitter
 Uploading data...
 CCCryptorCreate: Auto-generated handler …/CCCryptorCreate.js
 CCCryptorCreateFromData: Auto-generated handler …/CCCryptorCreateFromData.js
 CCCryptorCreateWithMode: Auto-generated handler …/CCCryptorCreateWithMode.js
 CCCryptorCreateFromDataWithMode: Auto-generated handler …/CCCryptorCreateFromDataWithMode.js
-Started tracing 4 functions. Press ENTER to stop.
-</code></pre></div>
-<p>Now, <code>CCryptorCreate</code> and friends are part of Apple’s <code>libcommonCrypt.dylib</code>, and is used by many apps to take care of encryption, decryption, hashing, etc.</p>
+Started tracing <span class="m">4</span> functions. Press ENTER to stop.</code></pre></div>
 
-<p>Reload your Twitter feed or exercise the UI in some way that results in network traffic, and you should see some output like the following:</p>
-<div class='highlight'><pre><code class='bash'>  3979 ms	CCCryptorCreate<span class='o'>()</span>
-  3982 ms	CCCryptorCreateWithMode<span class='o'>()</span>
-  3983 ms	CCCryptorCreate<span class='o'>()</span>
-  3983 ms	CCCryptorCreateWithMode<span class='o'>()</span>
-</code></pre></div>
-<p>You can now live-edit the aforementioned JavaScript files as you read <code>man CCryptorCreate</code>, and start diving deeper and deeper into your iOS apps.</p>
+<p>Now, <code>CCryptorCreate</code> and friends are part of Apple’s <code>libcommonCrypt.dylib</code>,
+and is used by many apps to take care of encryption, decryption, hashing, etc.</p>
+
+<p>Reload your Twitter feed or exercise the UI in some way that results in network
+traffic, and you should see some output like the following:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="m">3979</span> ms	CCCryptorCreate<span class="o">()</span>
+  <span class="m">3982</span> ms	CCCryptorCreateWithMode<span class="o">()</span>
+  <span class="m">3983</span> ms	CCCryptorCreate<span class="o">()</span>
+  <span class="m">3983</span> ms	CCCryptorCreateWithMode<span class="o">()</span></code></pre></div>
+
+<p>You can now live-edit the aforementioned JavaScript files as you read
+<code>man CCryptorCreate</code>, and start diving deeper and deeper into your iOS apps.</p>
+
           <div class="section-nav">
   <div class="left align-right">
     
@@ -745,6 +766,12 @@ Started tracing 4 functions. Press ENTER to stop.
     
   
     
+  
+    
+  
+    
+  
+    
       <li class=""><a href="/docs/home/">Welcome</a></li>
     
   
@@ -764,12 +791,6 @@ Started tracing 4 functions. Press ENTER to stop.
   
     
   
-    
-  
-    
-  
-    
-  
 
 
   
@@ -778,6 +799,12 @@ Started tracing 4 functions. Press ENTER to stop.
     
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -811,12 +838,6 @@ Started tracing 4 functions. Press ENTER to stop.
   
     
   
-    
-  
-    
-  
-    
-  
 
 
   
@@ -825,6 +846,12 @@ Started tracing 4 functions. Press ENTER to stop.
     
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -858,12 +885,6 @@ Started tracing 4 functions. Press ENTER to stop.
   
     
   
-    
-  
-    
-  
-    
-  
 
 
   
@@ -872,6 +893,14 @@ Started tracing 4 functions. Press ENTER to stop.
     
   
 
+  
+    
+  
+    
+  
+    
+  
+    
   
     
   
@@ -901,14 +930,6 @@ Started tracing 4 functions. Press ENTER to stop.
   
     
       <li class=""><a href="/docs/usage/">Basic Usage</a></li>
-    
-  
-    
-  
-    
-  
-    
-  
     
   
 
@@ -995,6 +1016,12 @@ Started tracing 4 functions. Press ENTER to stop.
     
   
     
+  
+    
+  
+    
+  
+    
       <li class=""><a href="/docs/messages/">Messages</a></li>
     
   
@@ -1006,12 +1033,6 @@ Started tracing 4 functions. Press ENTER to stop.
   
     
   
-    
-  
-    
-  
-    
-  
 
 
   
@@ -1020,6 +1041,12 @@ Started tracing 4 functions. Press ENTER to stop.
     
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -1053,12 +1080,6 @@ Started tracing 4 functions. Press ENTER to stop.
   
     
   
-    
-  
-    
-  
-    
-  
 
 
   
@@ -1067,11 +1088,11 @@ Started tracing 4 functions. Press ENTER to stop.
     
   
 
-  
-    
   
     
       <li class=""><a href="/docs/android/">Android</a></li>
+    
+  
     
   
     
@@ -1141,13 +1162,13 @@ Started tracing 4 functions. Press ENTER to stop.
     
   
     
+  
+    
+  
+    
+  
+    
       <li class=""><a href="/docs/javascript-api/">JavaScript API</a></li>
-    
-  
-    
-  
-    
-  
     
   
     
@@ -1201,19 +1222,19 @@ Started tracing 4 functions. Press ENTER to stop.
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
       <li class=""><a href="/docs/troubleshooting/">Troubleshooting</a></li>
     
   
     
   
-    
-  
-    
-  
-    
-  
-    
-  
 
 
   
@@ -1222,13 +1243,13 @@ Started tracing 4 functions. Press ENTER to stop.
     
   
 
-  
-    
   
     
   
     
       <li class=""><a href="/docs/building/">Building</a></li>
+    
+  
     
   
     
@@ -1282,9 +1303,9 @@ Started tracing 4 functions. Press ENTER to stop.
     
   
     
-  
-    
       <li class=""><a href="/docs/contributing/">Contributing</a></li>
+    
+  
     
   
     

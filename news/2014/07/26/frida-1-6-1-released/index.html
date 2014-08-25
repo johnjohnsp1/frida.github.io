@@ -72,11 +72,13 @@
     <option value="/news/">Home</option>
     <optgroup label="v1.x">
       
+      <option value="/news/2014/08/25/frida-1-6-3-released/">Frida 1.6.3 Released</option>
+      
       <option value="/news/2014/08/03/frida-1-6-2-released/">Frida 1.6.2 Released</option>
       
       <option value="/news/2014/07/26/frida-1-6-1-released/">Frida 1.6.1 Released</option>
       
-      <option value="/news/2014/05/29/frida-1-6-0-released/">Frida 1.6.0 Released</option>
+      <option value="/news/2014/05/30/frida-1-6-0-released/">Frida 1.6.0 Released</option>
       
       <option value="/news/2014/05/14/frida-1-4-2-released/">Frida 1.4.2 Released</option>
       
@@ -131,22 +133,24 @@
     <p>It’s time for a bugfix release. Highlights:</p>
 
 <ul>
-<li>Compatibility with the Pangu iOS jailbreak on ARM64. The issue is that RWX pages are not available like they used to be with the evad3rs jailbreak.</li>
-
-<li>Fix occasional target process crash when detaching.</li>
-
-<li>Fix crash when trying to attach to a process the second time after failing to establish the first time. This primarily affected Android users, but could happen on any OS when using <code>frida-server</code>.</li>
-
-<li>Faster and more reliable injection on Linux/x86-64 and Android/ARM.</li>
-
-<li>Fix issues preventing hooking of HeapFree and friends on Windows.</li>
-
-<li>Upgraded GLib, libgee, json-glib and Vala dependencies for improved performance and bugfixes.</li>
-
-<li>No more resource leaks. Please report if you find any.</li>
+  <li>Compatibility with the Pangu iOS jailbreak on ARM64. The issue is that RWX
+pages are not available like they used to be with the evad3rs jailbreak.</li>
+  <li>Fix occasional target process crash when detaching.</li>
+  <li>Fix crash when trying to attach to a process the second time after failing
+to establish the first time. This primarily affected Android users, but could
+happen on any OS when using <code>frida-server</code>.</li>
+  <li>Faster and more reliable injection on Linux/x86-64 and Android/ARM.</li>
+  <li>Fix issues preventing hooking of HeapFree and friends on Windows.</li>
+  <li>Upgraded GLib, libgee, json-glib and Vala dependencies for improved
+performance and bugfixes.</li>
+  <li>No more resource leaks. Please report if you find any.</li>
 </ul>
 
-<p>Also new since 1.6.0, as covered in my <a href="https://medium.com/@oleavr/build-a-debugger-in-5-minutes-1-5-51dce98c3544">blog post</a>, there is now a full- featured <a href="https://github.com/frida/frida-qml">binding for Qml</a>. This should be of interest to those of you building graphical cross-platform tools.</p>
+<p>Also new since 1.6.0, as covered in my <a href="https://medium.com/@oleavr/build-a-debugger-in-5-minutes-1-5-51dce98c3544">blog post</a>, there is now a full-
+featured <a href="https://github.com/frida/frida-qml">binding for Qml</a>. This should be of interest to those of you
+building graphical cross-platform tools.</p>
+
+
   </p>
 </article>
 
@@ -166,6 +170,10 @@
     <ul>
       
       <li class="">
+        <a href="/news/2014/08/25/frida-1-6-3-released/">Version 1.6.3</a>
+      </li>
+      
+      <li class="">
         <a href="/news/2014/08/03/frida-1-6-2-released/">Version 1.6.2</a>
       </li>
       
@@ -174,15 +182,11 @@
       </li>
       
       <li class="">
-        <a href="/news/2014/05/29/frida-1-6-0-released/">Version 1.6.0</a>
+        <a href="/news/2014/05/30/frida-1-6-0-released/">Version 1.6.0</a>
       </li>
       
       <li class="">
         <a href="/news/2014/05/14/frida-1-4-2-released/">Version 1.4.2</a>
-      </li>
-      
-      <li class="">
-        <a href="/news/2014/05/14/frida-1-4-1-released/">Version 1.4.1</a>
       </li>
       
       <li>

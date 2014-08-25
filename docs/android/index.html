@@ -89,6 +89,12 @@
     
   
     
+  
+    
+  
+    
+  
+    
       <option value="/docs/home/">Welcome</option>
     
   
@@ -108,15 +114,15 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -150,15 +156,15 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -192,15 +198,17 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
   
 
+  
+    
+  
+    
+  
+    
+  
+    
   
     
   
@@ -230,14 +238,6 @@
   
     
       <option value="/docs/usage/">Basic Usage</option>
-    
-  
-    
-  
-    
-  
-    
-  
     
   
 
@@ -313,6 +313,12 @@
     
   
     
+  
+    
+  
+    
+  
+    
       <option value="/docs/messages/">Messages</option>
     
   
@@ -324,15 +330,15 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -366,20 +372,14 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
   
 
-  
-    
   
     
       <option value="/docs/android/">Android</option>
+    
+  
     
   
     
@@ -443,13 +443,13 @@
     
   
     
+  
+    
+  
+    
+  
+    
       <option value="/docs/javascript-api/">JavaScript API</option>
-    
-  
-    
-  
-    
-  
     
   
     
@@ -497,29 +497,29 @@
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
       <option value="/docs/troubleshooting/">Troubleshooting</option>
     
   
     
   
-    
-  
-    
-  
-    
-  
-    
-  
 
   
 
-  
-    
   
     
   
     
       <option value="/docs/building/">Building</option>
+    
+  
     
   
     
@@ -567,9 +567,9 @@
     
   
     
-  
-    
       <option value="/docs/contributing/">Contributing</option>
+    
+  
     
   
     
@@ -654,57 +654,73 @@
           <h1>Android</h1>
           <p>In this tutorial we show how to do function tracing on your Android device.</p>
 
-<h2 id="setting_up_your_android_device">Setting up your Android device</h2>
+<h2 id="setting-up-your-android-device">Setting up your Android device</h2>
 
-<p>Before you start, you will need to root your device in case you haven’t done so already. You will also need the Android SDK so you can use the <code>adb</code> tool. This is a stop-gap solution and won’t be necessary once Frida has an Android app (pull-request welcome!).</p>
+<p>Before you start, you will need to root your device in case you haven’t done so
+already. You will also need the Android SDK so you can use the <code>adb</code> tool. This
+is a stop-gap solution and won’t be necessary once Frida has an Android app
+(pull-request welcome!).</p>
 
 <p>First off, download the latest <code>frida-server</code> for Android:</p>
-<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>curl -O http://build.frida.re/frida/android/bin/frida-server
-<span class='nv'>$ </span>chmod +x frida-server
-</code></pre></div>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>curl -O http://build.frida.re/frida/android/bin/frida-server
+<span class="nv">$ </span>chmod +x frida-server</code></pre></div>
+
 <p>Next, deploy <code>frida-server</code> on your device:</p>
-<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>adb push frida-server /data/local/tmp/
-</code></pre></div>
-<h2 id="spin_up_frida">Spin up Frida</h2>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>adb push frida-server /data/local/tmp/</code></pre></div>
+
+<h2 id="spin-up-frida">Spin up Frida</h2>
 
 <p>In one terminal (on your desktop), run the server:</p>
-<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>adb shell
-root@android:/ <span class='c'># /data/local/tmp/frida-server -t 0</span>
-</code></pre></div>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>adb shell
+root@android:/ <span class="c"># /data/local/tmp/frida-server -t 0</span></code></pre></div>
+
 <p>While that’s running, forward some local TCP ports to your device:</p>
-<div class='highlight'><pre><code class='bash'>adb forward tcp:27042 tcp:27042
-adb forward tcp:27043 tcp:27043
-</code></pre></div>
-<p><em>27042</em> is the port used for communicating with <code>frida-server</code>, and each subsequent port is required for each of the next processes you inject into.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">adb forward tcp:27042 tcp:27042
+adb forward tcp:27043 tcp:27043</code></pre></div>
+
+<p><em>27042</em> is the port used for communicating with <code>frida-server</code>, and each
+subsequent port is required for each of the next processes you inject into.</p>
 
 <p>Now, just to verify things are working:</p>
-<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>frida-ps -R
-</code></pre></div>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>frida-ps -R</code></pre></div>
+
 <p>Should give you a process list along the lines of:</p>
-<div class='highlight'><pre><code class='bash'>  PID NAME
- 1590 com.facebook.katana
-13194 com.facebook.katana:providers
-12326 com.facebook.orca
-13282 com.twitter.android
-…
-</code></pre></div>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">PID NAME
+ <span class="m">1590</span> com.facebook.katana
+<span class="m">13194</span> com.facebook.katana:providers
+<span class="m">12326</span> com.facebook.orca
+<span class="m">13282</span> com.twitter.android
+…</code></pre></div>
+
 <p>Great, we’re good to go then!</p>
 
-<h2 id="tracing_open_calls_in_chrome">Tracing open() calls in Chrome</h2>
+<h2 id="tracing-open-calls-in-chrome">Tracing open() calls in Chrome</h2>
 
-<p>Alright, let’s have some fun. Fire up the Chrome app on your device and return to your desktop and run:</p>
-<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>frida-trace -R -i open com.android.chrome
+<p>Alright, let’s have some fun. Fire up the Chrome app on your device and return
+to your desktop and run:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>frida-trace -R -i open com.android.chrome
 Uploading data...
 open: Auto-generated handler …/linker/open.js
 open: Auto-generated handler …/libc.so/open.js
-Started tracing 2 functions. Press ENTER to stop.
-</code></pre></div>
-<p>Now just play around with the Chrome app and you should start seeing <code>open()</code> calls flying in:</p>
-<div class='highlight'><pre><code class='bash'>  1392 ms	open<span class='o'>()</span>
-  1403 ms	open<span class='o'>()</span>
-  1420 ms	open<span class='o'>()</span>
-</code></pre></div>
-<p>You can now live-edit the aforementioned JavaScript files as you read <code>man open</code>, and start diving deeper and deeper into your Android apps.</p>
+Started tracing <span class="m">2</span> functions. Press ENTER to stop.</code></pre></div>
+
+<p>Now just play around with the Chrome app and you should start seeing <code>open()</code>
+calls flying in:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="m">1392</span> ms	open<span class="o">()</span>
+  <span class="m">1403</span> ms	open<span class="o">()</span>
+  <span class="m">1420</span> ms	open<span class="o">()</span></code></pre></div>
+
+<p>You can now live-edit the aforementioned JavaScript files as you read
+<code>man open</code>, and start diving deeper and deeper into your Android apps.</p>
+
           <div class="section-nav">
   <div class="left align-right">
     
@@ -754,6 +770,12 @@ Started tracing 2 functions. Press ENTER to stop.
     
   
     
+  
+    
+  
+    
+  
+    
       <li class=""><a href="/docs/home/">Welcome</a></li>
     
   
@@ -773,12 +795,6 @@ Started tracing 2 functions. Press ENTER to stop.
   
     
   
-    
-  
-    
-  
-    
-  
 
 
   
@@ -787,6 +803,12 @@ Started tracing 2 functions. Press ENTER to stop.
     
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -820,12 +842,6 @@ Started tracing 2 functions. Press ENTER to stop.
   
     
   
-    
-  
-    
-  
-    
-  
 
 
   
@@ -834,6 +850,12 @@ Started tracing 2 functions. Press ENTER to stop.
     
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -867,12 +889,6 @@ Started tracing 2 functions. Press ENTER to stop.
   
     
   
-    
-  
-    
-  
-    
-  
 
 
   
@@ -881,6 +897,14 @@ Started tracing 2 functions. Press ENTER to stop.
     
   
 
+  
+    
+  
+    
+  
+    
+  
+    
   
     
   
@@ -910,14 +934,6 @@ Started tracing 2 functions. Press ENTER to stop.
   
     
       <li class=""><a href="/docs/usage/">Basic Usage</a></li>
-    
-  
-    
-  
-    
-  
-    
-  
     
   
 
@@ -1004,6 +1020,12 @@ Started tracing 2 functions. Press ENTER to stop.
     
   
     
+  
+    
+  
+    
+  
+    
       <li class=""><a href="/docs/messages/">Messages</a></li>
     
   
@@ -1015,12 +1037,6 @@ Started tracing 2 functions. Press ENTER to stop.
   
     
   
-    
-  
-    
-  
-    
-  
 
 
   
@@ -1029,6 +1045,12 @@ Started tracing 2 functions. Press ENTER to stop.
     
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -1062,12 +1084,6 @@ Started tracing 2 functions. Press ENTER to stop.
   
     
   
-    
-  
-    
-  
-    
-  
 
 
   
@@ -1076,11 +1092,11 @@ Started tracing 2 functions. Press ENTER to stop.
     
   
 
-  
-    
   
     
       <li class="current"><a href="/docs/android/">Android</a></li>
+    
+  
     
   
     
@@ -1150,13 +1166,13 @@ Started tracing 2 functions. Press ENTER to stop.
     
   
     
+  
+    
+  
+    
+  
+    
       <li class=""><a href="/docs/javascript-api/">JavaScript API</a></li>
-    
-  
-    
-  
-    
-  
     
   
     
@@ -1210,19 +1226,19 @@ Started tracing 2 functions. Press ENTER to stop.
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
       <li class=""><a href="/docs/troubleshooting/">Troubleshooting</a></li>
     
   
     
   
-    
-  
-    
-  
-    
-  
-    
-  
 
 
   
@@ -1231,13 +1247,13 @@ Started tracing 2 functions. Press ENTER to stop.
     
   
 
-  
-    
   
     
   
     
       <li class=""><a href="/docs/building/">Building</a></li>
+    
+  
     
   
     
@@ -1291,9 +1307,9 @@ Started tracing 2 functions. Press ENTER to stop.
     
   
     
-  
-    
       <li class=""><a href="/docs/contributing/">Contributing</a></li>
+    
+  
     
   
     

@@ -72,11 +72,13 @@
     <option value="/news/">Home</option>
     <optgroup label="v1.x">
       
+      <option value="/news/2014/08/25/frida-1-6-3-released/">Frida 1.6.3 Released</option>
+      
       <option value="/news/2014/08/03/frida-1-6-2-released/">Frida 1.6.2 Released</option>
       
       <option value="/news/2014/07/26/frida-1-6-1-released/">Frida 1.6.1 Released</option>
       
-      <option value="/news/2014/05/29/frida-1-6-0-released/">Frida 1.6.0 Released</option>
+      <option value="/news/2014/05/30/frida-1-6-0-released/">Frida 1.6.0 Released</option>
       
       <option value="/news/2014/05/14/frida-1-4-2-released/">Frida 1.4.2 Released</option>
       
@@ -128,19 +130,28 @@
     </a>
   </div>
   <p class="post-content">
-    <p>It’s release o’clock, and this time we’re bringing you more than just bugfixes. Meet <code>Instruction.parse()</code>:</p>
-<div class='highlight'><pre><code class='js'><span class='kd'>var</span> <span class='nx'>a</span> <span class='o'>=</span> <span class='nx'>Instruction</span><span class='p'>.</span><span class='nx'>parse</span><span class='p'>(</span><span class='nx'>ptr</span><span class='p'>(</span><span class='s2'>&quot;0x1234&quot;</span><span class='p'>));</span>
-<span class='kd'>var</span> <span class='nx'>b</span> <span class='o'>=</span> <span class='nx'>Instruction</span><span class='p'>.</span><span class='nx'>parse</span><span class='p'>(</span><span class='nx'>a</span><span class='p'>.</span><span class='nx'>next</span><span class='p'>);</span>
-<span class='nx'>console</span><span class='p'>.</span><span class='nx'>log</span><span class='p'>(</span><span class='nx'>a</span><span class='p'>);</span>
-<span class='nx'>console</span><span class='p'>.</span><span class='nx'>log</span><span class='p'>(</span><span class='nx'>b</span><span class='p'>);</span>
-</code></pre></div>
+    <p>It’s release o’clock, and this time we’re bringing you more than just bugfixes.
+Meet <code>Instruction.parse()</code>:</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">Instruction</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">ptr</span><span class="p">(</span><span class="s2">&quot;0x1234&quot;</span><span class="p">));</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">Instruction</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">next</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span></code></pre></div>
+
 <p>Output:</p>
-<div class='highlight'><pre><code class='nasm'><span class='nf'>push</span> <span class='nb'>rbp</span>
-<span class='nf'>mov</span> <span class='nb'>rbp</span><span class='p'>,</span> <span class='nb'>rsp</span>
-</code></pre></div>
-<p>How is this implemented you ask? That’s the cool part. Frida already uses the amazing <a href="http://www.capstone-engine.org/">Capstone disassembly framework</a> behind the scenes, and thus it makes perfect sense to make it available to the JavaScript runtime. Have a look at the <a href="http://www.frida.re/docs/javascript-api/">JavaScript API Reference</a> for all the details.</p>
+
+<div class="highlight"><pre><code class="language-nasm" data-lang="nasm"><span class="nf">push</span> <span class="nb">rbp</span>
+<span class="nf">mov</span> <span class="nb">rbp</span><span class="p">,</span> <span class="nb">rsp</span></code></pre></div>
+
+<p>How is this implemented you ask? That’s the cool part. Frida already uses the
+amazing <a href="http://www.capstone-engine.org/">Capstone disassembly framework</a>
+behind the scenes, and thus it makes perfect sense to make it available to the
+JavaScript runtime. Have a look at the
+<a href="http://www.frida.re/docs/javascript-api/">JavaScript API Reference</a> for all
+the details.</p>
 
 <p>Enjoy!</p>
+
   </p>
 </article>
 
@@ -159,6 +170,10 @@
     <h4>Recent Releases</h4>
     <ul>
       
+      <li class="">
+        <a href="/news/2014/08/25/frida-1-6-3-released/">Version 1.6.3</a>
+      </li>
+      
       <li class="current">
         <a href="/news/2014/08/03/frida-1-6-2-released/">Version 1.6.2</a>
       </li>
@@ -168,15 +183,11 @@
       </li>
       
       <li class="">
-        <a href="/news/2014/05/29/frida-1-6-0-released/">Version 1.6.0</a>
+        <a href="/news/2014/05/30/frida-1-6-0-released/">Version 1.6.0</a>
       </li>
       
       <li class="">
         <a href="/news/2014/05/14/frida-1-4-2-released/">Version 1.4.2</a>
-      </li>
-      
-      <li class="">
-        <a href="/news/2014/05/14/frida-1-4-1-released/">Version 1.4.1</a>
       </li>
       
       <li>

@@ -89,6 +89,12 @@
     
   
     
+  
+    
+  
+    
+  
+    
       <option value="/docs/home/">Welcome</option>
     
   
@@ -108,15 +114,15 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -150,15 +156,15 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -192,15 +198,17 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
   
 
+  
+    
+  
+    
+  
+    
+  
+    
   
     
   
@@ -230,14 +238,6 @@
   
     
       <option value="/docs/usage/">Basic Usage</option>
-    
-  
-    
-  
-    
-  
-    
-  
     
   
 
@@ -313,6 +313,12 @@
     
   
     
+  
+    
+  
+    
+  
+    
       <option value="/docs/messages/">Messages</option>
     
   
@@ -324,15 +330,15 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -366,20 +372,14 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
   
 
-  
-    
   
     
       <option value="/docs/android/">Android</option>
+    
+  
     
   
     
@@ -443,13 +443,13 @@
     
   
     
+  
+    
+  
+    
+  
+    
       <option value="/docs/javascript-api/">JavaScript API</option>
-    
-  
-    
-  
-    
-  
     
   
     
@@ -497,29 +497,29 @@
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
       <option value="/docs/troubleshooting/">Troubleshooting</option>
     
   
     
   
-    
-  
-    
-  
-    
-  
-    
-  
 
   
 
-  
-    
   
     
   
     
       <option value="/docs/building/">Building</option>
+    
+  
     
   
     
@@ -567,9 +567,9 @@
     
   
     
-  
-    
       <option value="/docs/contributing/">Contributing</option>
+    
+  
     
   
     
@@ -652,94 +652,110 @@
       <div class="unit four-fifths">
         <article>
           <h1>Functions</h1>
-          <p>We show how to use Frida to inspect functions as they are called, modify their arguments, and do custom calls to functions inside a target process.</p>
+          <p>We show how to use Frida to inspect functions as they are called, modify their
+arguments, and do custom calls to functions inside a target process.</p>
 
-<h2 id="setting_up_the_experiment">Setting up the experiment</h2>
+<h2 id="setting-up-the-experiment">Setting up the experiment</h2>
 
 <p>Create a file <code>hello.c</code>:</p>
-<div class='highlight'><pre><code class='c'><span class='cp'>#include &lt;stdio.h&gt;</span>
-<span class='cp'>#include &lt;unistd.h&gt;</span>
 
-<span class='kt'>void</span>
-<span class='nf'>f</span> <span class='p'>(</span><span class='kt'>int</span> <span class='n'>n</span><span class='p'>)</span>
-<span class='p'>{</span>
-  <span class='n'>printf</span> <span class='p'>(</span><span class='s'>&quot;Number: %d</span><span class='se'>\n</span><span class='s'>&quot;</span><span class='p'>,</span> <span class='n'>n</span><span class='p'>);</span>
-<span class='p'>}</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#include &lt;unistd.h&gt;</span>
 
-<span class='kt'>int</span>
-<span class='nf'>main</span> <span class='p'>()</span>
-<span class='p'>{</span>
-  <span class='kt'>int</span> <span class='n'>i</span> <span class='o'>=</span> <span class='mi'>0</span><span class='p'>;</span>
+<span class="kt">void</span>
+<span class="nf">f</span> <span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">printf</span> <span class="p">(</span><span class="s">&quot;Number: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+<span class="p">}</span>
 
-  <span class='n'>printf</span> <span class='p'>(</span><span class='s'>&quot;f() is at %p</span><span class='se'>\n</span><span class='s'>&quot;</span><span class='p'>,</span> <span class='n'>f</span><span class='p'>);</span>
+<span class="kt">int</span>
+<span class="nf">main</span> <span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-  <span class='k'>while</span> <span class='p'>(</span><span class='mi'>1</span><span class='p'>)</span>
-  <span class='p'>{</span>
-    <span class='n'>f</span> <span class='p'>(</span><span class='n'>i</span><span class='o'>++</span><span class='p'>);</span>
-    <span class='n'>sleep</span> <span class='p'>(</span><span class='mi'>1</span><span class='p'>);</span>
-  <span class='p'>}</span>
-<span class='p'>}</span>
-</code></pre></div>
+  <span class="n">printf</span> <span class="p">(</span><span class="s">&quot;f() is at %p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">f</span><span class="p">);</span>
+
+  <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">f</span> <span class="p">(</span><span class="n">i</span><span class="o">++</span><span class="p">);</span>
+    <span class="n">sleep</span> <span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
 <p>Compile with:</p>
-<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>gcc -Wall hello.c -o hello
-</code></pre></div>
-<p>Start the program and make note of the address of <code>f()</code> (<code>0x400544</code> in the following example):</p>
-<div class='highlight'><pre><code class='bash'>f<span class='o'>()</span> is at 0x400544
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>gcc -Wall hello.c -o hello</code></pre></div>
+
+<p>Start the program and make note of the address of <code>f()</code> (<code>0x400544</code> in the
+following example):</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">f<span class="o">()</span> is at 0x400544
 Number: 0
 Number: 1
 Number: 2
-…
-</code></pre></div>
-<h2 id="hooking_functions">Hooking Functions</h2>
+…</code></pre></div>
 
-<p>The following script shows how to hook calls to functions inside a target process and report back a function argument to you. Create a file <code>hook.py</code> containing:</p>
-<div class='highlight'><pre><code class='py'><span class='kn'>import</span> <span class='nn'>frida</span>
-<span class='kn'>import</span> <span class='nn'>sys</span>
+<h2 id="hooking-functions">Hooking Functions</h2>
 
-<span class='n'>process</span> <span class='o'>=</span> <span class='n'>frida</span><span class='o'>.</span><span class='n'>attach</span><span class='p'>(</span><span class='s'>&quot;hello&quot;</span><span class='p'>)</span>
-<span class='n'>script</span> <span class='o'>=</span> <span class='n'>process</span><span class='o'>.</span><span class='n'>session</span><span class='o'>.</span><span class='n'>create_script</span><span class='p'>(</span><span class='s'>&quot;&quot;&quot;</span>
-<span class='s'>Interceptor.attach(ptr(&quot;</span><span class='si'>%s</span><span class='s'>&quot;), {</span>
-<span class='s'>    onEnter: function(args) {</span>
-<span class='s'>        send(args[0].toInt32());</span>
-<span class='s'>    }</span>
-<span class='s'>});</span>
-<span class='s'>&quot;&quot;&quot;</span> <span class='o'>%</span> <span class='nb'>int</span><span class='p'>(</span><span class='n'>sys</span><span class='o'>.</span><span class='n'>argv</span><span class='p'>[</span><span class='mi'>1</span><span class='p'>],</span> <span class='mi'>16</span><span class='p'>))</span>
-<span class='k'>def</span> <span class='nf'>on_message</span><span class='p'>(</span><span class='n'>message</span><span class='p'>,</span> <span class='n'>data</span><span class='p'>):</span>
-    <span class='k'>print</span><span class='p'>(</span><span class='n'>message</span><span class='p'>)</span>
-<span class='n'>script</span><span class='o'>.</span><span class='n'>on</span><span class='p'>(</span><span class='s'>&#39;message&#39;</span><span class='p'>,</span> <span class='n'>on_message</span><span class='p'>)</span>
-<span class='n'>script</span><span class='o'>.</span><span class='n'>load</span><span class='p'>()</span>
-<span class='n'>sys</span><span class='o'>.</span><span class='n'>stdin</span><span class='o'>.</span><span class='n'>read</span><span class='p'>()</span>
-</code></pre></div>
-<p>Run this script with the address you picked out from above (<code>0x400544</code> on our example):</p>
-<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>python hook.py 0x400544
-</code></pre></div>
+<p>The following script shows how to hook calls to functions inside a target
+process and report back a function argument to you. Create a file <code>hook.py</code>
+containing:</p>
+
+<div class="highlight"><pre><code class="language-py" data-lang="py"><span class="kn">import</span> <span class="nn">frida</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">process</span> <span class="o">=</span> <span class="n">frida</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span>
+<span class="n">script</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">create_script</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">Interceptor.attach(ptr(&quot;</span><span class="si">%s</span><span class="s">&quot;), {</span>
+<span class="s">    onEnter: function(args) {</span>
+<span class="s">        send(args[0].toInt32());</span>
+<span class="s">    }</span>
+<span class="s">});</span>
+<span class="s">&quot;&quot;&quot;</span> <span class="o">%</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">16</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">on_message</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+<span class="n">script</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="s">&#39;message&#39;</span><span class="p">,</span> <span class="n">on_message</span><span class="p">)</span>
+<span class="n">script</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">read</span><span class="p">()</span></code></pre></div>
+
+<p>Run this script with the address you picked out from above (<code>0x400544</code> on our
+example):</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>python hook.py 0x400544</code></pre></div>
+
 <p>This should give you a new message every second on the form:</p>
-<div class='highlight'><pre><code class='py'><span class='p'>{</span><span class='s'>u&#39;type&#39;</span><span class='p'>:</span> <span class='s'>u&#39;send&#39;</span><span class='p'>,</span> <span class='s'>u&#39;payload&#39;</span><span class='p'>:</span> <span class='mi'>531</span><span class='p'>}</span>
-<span class='p'>{</span><span class='s'>u&#39;type&#39;</span><span class='p'>:</span> <span class='s'>u&#39;send&#39;</span><span class='p'>,</span> <span class='s'>u&#39;payload&#39;</span><span class='p'>:</span> <span class='mi'>532</span><span class='p'>}</span>
-<span class='err'>…</span>
-</code></pre></div>
-<h2 id="modifying_function_arguments">Modifying Function Arguments</h2>
 
-<p>Next up: we want to modify the argument passed to a function inside a target process. Create the file <code>modify.py</code> with the following contents:</p>
-<div class='highlight'><pre><code class='py'><span class='kn'>import</span> <span class='nn'>frida</span>
-<span class='kn'>import</span> <span class='nn'>sys</span>
+<div class="highlight"><pre><code class="language-py" data-lang="py"><span class="p">{</span><span class="s">u&#39;type&#39;</span><span class="p">:</span> <span class="s">u&#39;send&#39;</span><span class="p">,</span> <span class="s">u&#39;payload&#39;</span><span class="p">:</span> <span class="mi">531</span><span class="p">}</span>
+<span class="p">{</span><span class="s">u&#39;type&#39;</span><span class="p">:</span> <span class="s">u&#39;send&#39;</span><span class="p">,</span> <span class="s">u&#39;payload&#39;</span><span class="p">:</span> <span class="mi">532</span><span class="p">}</span>
+<span class="err">…</span></code></pre></div>
 
-<span class='n'>process</span> <span class='o'>=</span> <span class='n'>frida</span><span class='o'>.</span><span class='n'>attach</span><span class='p'>(</span><span class='s'>&quot;hello&quot;</span><span class='p'>)</span>
-<span class='n'>script</span> <span class='o'>=</span> <span class='n'>process</span><span class='o'>.</span><span class='n'>session</span><span class='o'>.</span><span class='n'>create_script</span><span class='p'>(</span><span class='s'>&quot;&quot;&quot;</span>
-<span class='s'>Interceptor.attach(ptr(&quot;</span><span class='si'>%s</span><span class='s'>&quot;), {</span>
-<span class='s'>    onEnter: function(args) {</span>
-<span class='s'>        args[0] = ptr(&quot;1337&quot;);</span>
-<span class='s'>    }</span>
-<span class='s'>});</span>
-<span class='s'>&quot;&quot;&quot;</span> <span class='o'>%</span> <span class='nb'>int</span><span class='p'>(</span><span class='n'>sys</span><span class='o'>.</span><span class='n'>argv</span><span class='p'>[</span><span class='mi'>1</span><span class='p'>],</span> <span class='mi'>16</span><span class='p'>))</span>
-<span class='n'>script</span><span class='o'>.</span><span class='n'>load</span><span class='p'>()</span>
-<span class='n'>sys</span><span class='o'>.</span><span class='n'>stdin</span><span class='o'>.</span><span class='n'>read</span><span class='p'>()</span>
-</code></pre></div>
+<h2 id="modifying-function-arguments">Modifying Function Arguments</h2>
+
+<p>Next up: we want to modify the argument passed to a function inside a target
+process. Create the file <code>modify.py</code> with the following contents:</p>
+
+<div class="highlight"><pre><code class="language-py" data-lang="py"><span class="kn">import</span> <span class="nn">frida</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">process</span> <span class="o">=</span> <span class="n">frida</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span>
+<span class="n">script</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">create_script</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">Interceptor.attach(ptr(&quot;</span><span class="si">%s</span><span class="s">&quot;), {</span>
+<span class="s">    onEnter: function(args) {</span>
+<span class="s">        args[0] = ptr(&quot;1337&quot;);</span>
+<span class="s">    }</span>
+<span class="s">});</span>
+<span class="s">&quot;&quot;&quot;</span> <span class="o">%</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">16</span><span class="p">))</span>
+<span class="n">script</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">read</span><span class="p">()</span></code></pre></div>
+
 <p>Run this against the <code>hello</code> process (which should be still running):</p>
-<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>python modify.py 0x400544
-</code></pre></div>
-<p>At this point, the terminal running the <code>hello process</code> should stop counting and always report <code>1337</code>, until you hit <code>Ctrl-D</code> to detach from it.</p>
-<div class='highlight'><pre><code class='bash'>Number: 1281
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>python modify.py 0x400544</code></pre></div>
+
+<p>At this point, the terminal running the <code>hello process</code> should stop counting
+and always report <code>1337</code>, until you hit <code>Ctrl-D</code> to detach from it.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">Number: 1281
 Number: 1282
 Number: 1337
 Number: 1337
@@ -748,34 +764,39 @@ Number: 1337
 Number: 1296
 Number: 1297
 Number: 1298
-…
-</code></pre></div>
-<h2 id="calling_functions">Calling Functions</h2>
+…</code></pre></div>
 
-<p>We can use Frida to call functions inside a target process. Create the file <code>call.py</code> with the contents:</p>
-<div class='highlight'><pre><code class='py'><span class='kn'>import</span> <span class='nn'>frida</span>
-<span class='kn'>import</span> <span class='nn'>sys</span>
+<h2 id="calling-functions">Calling Functions</h2>
 
-<span class='n'>process</span> <span class='o'>=</span> <span class='n'>frida</span><span class='o'>.</span><span class='n'>attach</span><span class='p'>(</span><span class='s'>&quot;hello&quot;</span><span class='p'>)</span>
-<span class='n'>script</span> <span class='o'>=</span> <span class='n'>process</span><span class='o'>.</span><span class='n'>session</span><span class='o'>.</span><span class='n'>create_script</span><span class='p'>(</span><span class='s'>&quot;&quot;&quot;</span>
-<span class='s'>var f = new NativeFunction(ptr(&quot;</span><span class='si'>%s</span><span class='s'>&quot;), &#39;void&#39;, [&#39;int&#39;]);</span>
-<span class='s'>f(1911);</span>
-<span class='s'>f(1911);</span>
-<span class='s'>f(1911);</span>
-<span class='s'>&quot;&quot;&quot;</span> <span class='o'>%</span> <span class='nb'>int</span><span class='p'>(</span><span class='n'>sys</span><span class='o'>.</span><span class='n'>argv</span><span class='p'>[</span><span class='mi'>1</span><span class='p'>],</span> <span class='mi'>16</span><span class='p'>))</span>
-<span class='n'>script</span><span class='o'>.</span><span class='n'>load</span><span class='p'>()</span>
-</code></pre></div>
+<p>We can use Frida to call functions inside a target process. Create the file
+<code>call.py</code> with the contents:</p>
+
+<div class="highlight"><pre><code class="language-py" data-lang="py"><span class="kn">import</span> <span class="nn">frida</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">process</span> <span class="o">=</span> <span class="n">frida</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span>
+<span class="n">script</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">create_script</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">var f = new NativeFunction(ptr(&quot;</span><span class="si">%s</span><span class="s">&quot;), &#39;void&#39;, [&#39;int&#39;]);</span>
+<span class="s">f(1911);</span>
+<span class="s">f(1911);</span>
+<span class="s">f(1911);</span>
+<span class="s">&quot;&quot;&quot;</span> <span class="o">%</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">16</span><span class="p">))</span>
+<span class="n">script</span><span class="o">.</span><span class="n">load</span><span class="p">()</span></code></pre></div>
+
 <p>Run the script:</p>
-<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>python call.py 0x400544
-</code></pre></div>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>python call.py 0x400544</code></pre></div>
+
 <p>and keep a watchful eye on the terminal (still) running <code>hello</code>:</p>
-<div class='highlight'><pre><code class='bash'>Number: 1879
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">Number: 1879
 Number: 1911
 Number: 1911
 Number: 1911
 Number: 1880
-…
-</code></pre></div>
+…</code></pre></div>
+
+
           <div class="section-nav">
   <div class="left align-right">
     
@@ -825,6 +846,12 @@ Number: 1880
     
   
     
+  
+    
+  
+    
+  
+    
       <li class=""><a href="/docs/home/">Welcome</a></li>
     
   
@@ -844,12 +871,6 @@ Number: 1880
   
     
   
-    
-  
-    
-  
-    
-  
 
 
   
@@ -858,6 +879,12 @@ Number: 1880
     
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -891,12 +918,6 @@ Number: 1880
   
     
   
-    
-  
-    
-  
-    
-  
 
 
   
@@ -905,6 +926,12 @@ Number: 1880
     
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -938,12 +965,6 @@ Number: 1880
   
     
   
-    
-  
-    
-  
-    
-  
 
 
   
@@ -952,6 +973,14 @@ Number: 1880
     
   
 
+  
+    
+  
+    
+  
+    
+  
+    
   
     
   
@@ -981,14 +1010,6 @@ Number: 1880
   
     
       <li class=""><a href="/docs/usage/">Basic Usage</a></li>
-    
-  
-    
-  
-    
-  
-    
-  
     
   
 
@@ -1075,6 +1096,12 @@ Number: 1880
     
   
     
+  
+    
+  
+    
+  
+    
       <li class=""><a href="/docs/messages/">Messages</a></li>
     
   
@@ -1086,12 +1113,6 @@ Number: 1880
   
     
   
-    
-  
-    
-  
-    
-  
 
 
   
@@ -1100,6 +1121,12 @@ Number: 1880
     
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -1133,12 +1160,6 @@ Number: 1880
   
     
   
-    
-  
-    
-  
-    
-  
 
 
   
@@ -1147,11 +1168,11 @@ Number: 1880
     
   
 
-  
-    
   
     
       <li class=""><a href="/docs/android/">Android</a></li>
+    
+  
     
   
     
@@ -1221,13 +1242,13 @@ Number: 1880
     
   
     
+  
+    
+  
+    
+  
+    
       <li class=""><a href="/docs/javascript-api/">JavaScript API</a></li>
-    
-  
-    
-  
-    
-  
     
   
     
@@ -1281,19 +1302,19 @@ Number: 1880
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
       <li class=""><a href="/docs/troubleshooting/">Troubleshooting</a></li>
     
   
     
   
-    
-  
-    
-  
-    
-  
-    
-  
 
 
   
@@ -1302,13 +1323,13 @@ Number: 1880
     
   
 
-  
-    
   
     
   
     
       <li class=""><a href="/docs/building/">Building</a></li>
+    
+  
     
   
     
@@ -1362,9 +1383,9 @@ Number: 1880
     
   
     
-  
-    
       <li class=""><a href="/docs/contributing/">Contributing</a></li>
+    
+  
     
   
     

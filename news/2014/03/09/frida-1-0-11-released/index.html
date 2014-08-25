@@ -72,11 +72,13 @@
     <option value="/news/">Home</option>
     <optgroup label="v1.x">
       
+      <option value="/news/2014/08/25/frida-1-6-3-released/">Frida 1.6.3 Released</option>
+      
       <option value="/news/2014/08/03/frida-1-6-2-released/">Frida 1.6.2 Released</option>
       
       <option value="/news/2014/07/26/frida-1-6-1-released/">Frida 1.6.1 Released</option>
       
-      <option value="/news/2014/05/29/frida-1-6-0-released/">Frida 1.6.0 Released</option>
+      <option value="/news/2014/05/30/frida-1-6-0-released/">Frida 1.6.0 Released</option>
       
       <option value="/news/2014/05/14/frida-1-4-2-released/">Frida 1.4.2 Released</option>
       
@@ -128,19 +130,31 @@
     </a>
   </div>
   <p class="post-content">
-    <p>Some of you experienced issues injecting into processes on Windows, as well as crashes on iOS. Here’s a new release bringing some serious improvements to Frida’s internals:</p>
+    <p>Some of you experienced issues injecting into processes on Windows, as well as
+crashes on iOS. Here’s a new release bringing some serious improvements to
+Frida’s internals:</p>
 
 <ul>
-<li>V8 has been upgraded to 3.25 in order to fix the iOS stability issues. This also means new features (like ECMAScript 6) and improved performance on all platforms. Another nice aspect is that Frida now depends on a V8 version that runs on 64-bit ARM, which paves the way for porting Frida itself to AArch64.</li>
-
-<li>The Windows injector has learned some new tricks and will get you into even more processes. A configuration error was also discovered in the Windows build system, which explains why some of you were unable to inject into some processes.</li>
-
-<li>For those of you building Frida on Windows, the build system there now depends on VS2013. This means XP is no longer supported, though it is still possible to build with the <code>v120_xp</code> toolchain if any of you still depend on that, so let me know if this is a deal-breaker for you.</li>
-
-<li>The recently added support for <code>this.lastError</code> (Windows) is now working correctly.</li>
+  <li>V8 has been upgraded to 3.25 in order to fix the iOS stability issues. This
+also means new features (like ECMAScript 6) and improved performance on all
+platforms. Another nice aspect is that Frida now depends on a V8 version
+that runs on 64-bit ARM, which paves the way for porting Frida itself to
+AArch64.</li>
+  <li>The Windows injector has learned some new tricks and will get you into even
+more processes. A configuration error was also discovered in the Windows
+build system, which explains why some of you were unable to inject into
+some processes.</li>
+  <li>For those of you building Frida on Windows, the build system there now
+depends on VS2013. This means XP is no longer supported, though it is still
+possible to build with the <code>v120_xp</code> toolchain if any of you still depend
+on that, so let me know if this is a deal-breaker for you.</li>
+  <li>The recently added support for <code>this.lastError</code> (Windows) is now working
+correctly.</li>
 </ul>
 
-<p>That’s all for now. Let us know what you think, and if you like Frida, please help spread the word! :)</p>
+<p>That’s all for now. Let us know what you think, and if you like Frida, please
+help spread the word! :)</p>
+
   </p>
 </article>
 
@@ -160,6 +174,10 @@
     <ul>
       
       <li class="">
+        <a href="/news/2014/08/25/frida-1-6-3-released/">Version 1.6.3</a>
+      </li>
+      
+      <li class="">
         <a href="/news/2014/08/03/frida-1-6-2-released/">Version 1.6.2</a>
       </li>
       
@@ -168,15 +186,11 @@
       </li>
       
       <li class="">
-        <a href="/news/2014/05/29/frida-1-6-0-released/">Version 1.6.0</a>
+        <a href="/news/2014/05/30/frida-1-6-0-released/">Version 1.6.0</a>
       </li>
       
       <li class="">
         <a href="/news/2014/05/14/frida-1-4-2-released/">Version 1.4.2</a>
-      </li>
-      
-      <li class="">
-        <a href="/news/2014/05/14/frida-1-4-1-released/">Version 1.4.1</a>
       </li>
       
       <li>

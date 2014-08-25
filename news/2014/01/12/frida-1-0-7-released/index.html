@@ -72,11 +72,13 @@
     <option value="/news/">Home</option>
     <optgroup label="v1.x">
       
+      <option value="/news/2014/08/25/frida-1-6-3-released/">Frida 1.6.3 Released</option>
+      
       <option value="/news/2014/08/03/frida-1-6-2-released/">Frida 1.6.2 Released</option>
       
       <option value="/news/2014/07/26/frida-1-6-1-released/">Frida 1.6.1 Released</option>
       
-      <option value="/news/2014/05/29/frida-1-6-0-released/">Frida 1.6.0 Released</option>
+      <option value="/news/2014/05/30/frida-1-6-0-released/">Frida 1.6.0 Released</option>
       
       <option value="/news/2014/05/14/frida-1-4-2-released/">Frida 1.4.2 Released</option>
       
@@ -128,19 +130,26 @@
     </a>
   </div>
   <p class="post-content">
-    <p>This release brings USB device support in the command-line tools, and adds <code>frida-ps</code> for enumerating processes both locally and remotely.</p>
+    <p>This release brings USB device support in the command-line tools, and
+adds <code>frida-ps</code> for enumerating processes both locally and remotely.</p>
 
 <p>For example to enumerate processes on your tethered iOS device:</p>
-<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>frida-ps -U
-</code></pre></div>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>frida-ps -U</code></pre></div>
+
 <p>The <code>-U</code> switch is also accepted by <code>frida-trace</code> and <code>frida-discover</code>.</p>
 
 <p>Docs how to set this up on your iOS device will soon be added to the website.</p>
 
-<p>However, that’s not the most exciting part. Starting with this release, Frida got its first contribution since the HN launch. <a href="https://github.com/pmorici">Pete Morici</a> dived in and contributed support for specifying module-relative functions in <code>frida-trace</code>:</p>
-<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>frida-trace -a <span class='s1'>&#39;kernel32.dll+0x1234&#39;</span>
-</code></pre></div>
+<p>However, that’s not the most exciting part. Starting with this release,
+Frida got its first contribution since the HN launch.
+<a href="https://github.com/pmorici">Pete Morici</a> dived in and contributed support
+for specifying module-relative functions in <code>frida-trace</code>:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>frida-trace -a <span class="s1">&#39;kernel32.dll+0x1234&#39;</span></code></pre></div>
+
 <p>Enjoy!</p>
+
   </p>
 </article>
 
@@ -160,6 +169,10 @@
     <ul>
       
       <li class="">
+        <a href="/news/2014/08/25/frida-1-6-3-released/">Version 1.6.3</a>
+      </li>
+      
+      <li class="">
         <a href="/news/2014/08/03/frida-1-6-2-released/">Version 1.6.2</a>
       </li>
       
@@ -168,15 +181,11 @@
       </li>
       
       <li class="">
-        <a href="/news/2014/05/29/frida-1-6-0-released/">Version 1.6.0</a>
+        <a href="/news/2014/05/30/frida-1-6-0-released/">Version 1.6.0</a>
       </li>
       
       <li class="">
         <a href="/news/2014/05/14/frida-1-4-2-released/">Version 1.4.2</a>
-      </li>
-      
-      <li class="">
-        <a href="/news/2014/05/14/frida-1-4-1-released/">Version 1.4.1</a>
       </li>
       
       <li>

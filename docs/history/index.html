@@ -89,6 +89,12 @@
     
   
     
+  
+    
+  
+    
+  
+    
       <option value="/docs/home/">Welcome</option>
     
   
@@ -108,15 +114,15 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -150,15 +156,15 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -192,15 +198,17 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
   
 
+  
+    
+  
+    
+  
+    
+  
+    
   
     
   
@@ -230,14 +238,6 @@
   
     
       <option value="/docs/usage/">Basic Usage</option>
-    
-  
-    
-  
-    
-  
-    
-  
     
   
 
@@ -313,6 +313,12 @@
     
   
     
+  
+    
+  
+    
+  
+    
       <option value="/docs/messages/">Messages</option>
     
   
@@ -324,15 +330,15 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -366,20 +372,14 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
   
 
-  
-    
   
     
       <option value="/docs/android/">Android</option>
+    
+  
     
   
     
@@ -443,13 +443,13 @@
     
   
     
+  
+    
+  
+    
+  
+    
       <option value="/docs/javascript-api/">JavaScript API</option>
-    
-  
-    
-  
-    
-  
     
   
     
@@ -497,29 +497,29 @@
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
       <option value="/docs/troubleshooting/">Troubleshooting</option>
     
   
     
   
-    
-  
-    
-  
-    
-  
-    
-  
 
   
 
-  
-    
   
     
   
     
       <option value="/docs/building/">Building</option>
+    
+  
     
   
     
@@ -567,9 +567,9 @@
     
   
     
-  
-    
       <option value="/docs/contributing/">Contributing</option>
+    
+  
     
   
     
@@ -652,13 +652,34 @@
       <div class="unit four-fifths">
         <article>
           <h1>History</h1>
-          <p>Frida was born after <a href="https://twitter.com/oleavr">@oleavr</a> and <a href="https://twitter.com/hsorbo">@hsorbo</a> had been casually brainstorming about how they wish they could turn tedious manual reverse- engineering into something much more fun, productive, and interactive.</p>
+          <p>Frida was born after <a href="https://twitter.com/oleavr">@oleavr</a> and <a href="https://twitter.com/hsorbo">@hsorbo</a> had been casually
+brainstorming about how they wish they could turn tedious manual reverse-
+engineering into something much more fun, productive, and interactive.</p>
 
-<p>Having built <a href="https://code.google.com/p/ospy/">oSpy</a> and other custom tools to scratch reverse-engineering itches, <a href="https://twitter.com/oleavr">@oleavr</a> started piecing together <a href="https://github.com/frida/frida-gum/">frida-gum</a>, a generic cross- platform code-instrumentation library for C. At the time it was limited to hooking functions and providing some tools to help developers write unit- tests for memory leaks and profiling on an extremely granular level. Later it was further improved and used to create Frida. The component <a href="https://github.com/frida/frida-core/">frida-core</a> would take care of all the nitty gritty details of injecting shared libraries into arbitrary processes, and maintaining a live two-way channel with the injected code running inside those processes. Inside that payload, <a href="https://github.com/frida/frida-gum/">frida-gum</a> would take care of hooking functions and providing a scripting runtime using Google’s excellent <a href="https://code.google.com/p/v8/">V8</a> engine.</p>
+<p>Having built <a href="https://code.google.com/p/ospy/">oSpy</a> and other custom tools to scratch reverse-engineering
+itches, <a href="https://twitter.com/oleavr">@oleavr</a> started piecing together <a href="https://github.com/frida/frida-gum/">frida-gum</a>, a generic cross-
+platform code-instrumentation library for C. At the time it was limited to
+hooking functions and providing some tools to help developers write unit-
+tests for memory leaks and profiling on an extremely granular level. Later it
+was further improved and used to create Frida. The component <a href="https://github.com/frida/frida-core/">frida-core</a>
+would take care of all the nitty gritty details of injecting shared libraries
+into arbitrary processes, and maintaining a live two-way channel with the
+injected code running inside those processes. Inside that payload, <a href="https://github.com/frida/frida-gum/">frida-gum</a>
+would take care of hooking functions and providing a scripting runtime using
+Google’s excellent <a href="https://code.google.com/p/v8/">V8</a> engine.</p>
 
-<p>Later, in their not-so-ample spare time, <a href="https://twitter.com/oleavr">@oleavr</a> and <a href="https://twitter.com/karltk">@karltk</a> did some recreational pair-programming-hackathons that resulted in <a href="http://blog.kalleberg.org/post/833101026/live-x86-code-instrumentation-with-frida">huge improvements</a> to <a href="https://github.com/frida/frida-gum/">frida-gum</a>’s code tracing engine, the so-called <a href="https://github.com/frida/frida-gum/blob/master/gum/backend-x86/gumstalker-x86.c">Stalker</a>. There were also Python bindings created. They started realizing that it was about time that people out there knew about the project, so further hackathons were devoted to piecing together a website and some much needed documentation.</p>
+<p>Later, in their not-so-ample spare time, <a href="https://twitter.com/oleavr">@oleavr</a> and <a href="https://twitter.com/karltk">@karltk</a> did some
+recreational pair-programming-hackathons that resulted in <a href="http://blog.kalleberg.org/post/833101026/live-x86-code-instrumentation-with-frida">huge improvements</a>
+to <a href="https://github.com/frida/frida-gum/">frida-gum</a>’s code tracing engine, the so-called <a href="https://github.com/frida/frida-gum/blob/master/gum/backend-x86/gumstalker-x86.c">Stalker</a>. There were
+also Python bindings created. They started realizing that it was about time
+that people out there knew about the project, so further hackathons were devoted
+to piecing together a website and some much needed documentation.</p>
 
-<p>Today, Frida should be a very helpful toolbox for anyone interested in dynamic instrumentation and/or reverse-engineering. There are now language bindings for <a href="https://pypi.python.org/pypi/frida">python</a>, <a href="http://ospy.org/frida/windows/x64-Release/bin/Frida.dll">.NET</a>, and even a <a href="http://ospy.org/frida/mac/lib/browser/plugins/libnpfrida.dylib">browser plugin</a>.</p>
+<p>Today, Frida should be a very helpful toolbox for anyone interested in dynamic
+instrumentation and/or reverse-engineering. There are now language bindings
+for <a href="https://pypi.python.org/pypi/frida">python</a>, <a href="http://ospy.org/frida/windows/x64-Release/bin/Frida.dll">.NET</a>, and even a <a href="http://ospy.org/frida/mac/lib/browser/plugins/libnpfrida.dylib">browser plugin</a>.</p>
+
+
           <div class="section-nav">
   <div class="left align-right">
     
@@ -706,6 +727,12 @@
     
   
     
+  
+    
+  
+    
+  
+    
       <li class=""><a href="/docs/home/">Welcome</a></li>
     
   
@@ -725,12 +752,6 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
 
   
@@ -739,6 +760,12 @@
     
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -772,12 +799,6 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
 
   
@@ -786,6 +807,12 @@
     
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -819,12 +846,6 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
 
   
@@ -833,6 +854,14 @@
     
   
 
+  
+    
+  
+    
+  
+    
+  
+    
   
     
   
@@ -862,14 +891,6 @@
   
     
       <li class=""><a href="/docs/usage/">Basic Usage</a></li>
-    
-  
-    
-  
-    
-  
-    
-  
     
   
 
@@ -956,6 +977,12 @@
     
   
     
+  
+    
+  
+    
+  
+    
       <li class=""><a href="/docs/messages/">Messages</a></li>
     
   
@@ -967,12 +994,6 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
 
   
@@ -981,6 +1002,12 @@
     
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -1014,12 +1041,6 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
 
   
@@ -1028,11 +1049,11 @@
     
   
 
-  
-    
   
     
       <li class=""><a href="/docs/android/">Android</a></li>
+    
+  
     
   
     
@@ -1102,13 +1123,13 @@
     
   
     
+  
+    
+  
+    
+  
+    
       <li class=""><a href="/docs/javascript-api/">JavaScript API</a></li>
-    
-  
-    
-  
-    
-  
     
   
     
@@ -1162,19 +1183,19 @@
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
       <li class=""><a href="/docs/troubleshooting/">Troubleshooting</a></li>
     
   
     
   
-    
-  
-    
-  
-    
-  
-    
-  
 
 
   
@@ -1183,13 +1204,13 @@
     
   
 
-  
-    
   
     
   
     
       <li class=""><a href="/docs/building/">Building</a></li>
+    
+  
     
   
     
@@ -1243,9 +1264,9 @@
     
   
     
-  
-    
       <li class=""><a href="/docs/contributing/">Contributing</a></li>
+    
+  
     
   
     

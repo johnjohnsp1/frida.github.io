@@ -89,6 +89,12 @@
     
   
     
+  
+    
+  
+    
+  
+    
       <option value="/docs/home/">Welcome</option>
     
   
@@ -108,15 +114,15 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -150,15 +156,15 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -192,15 +198,17 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
   
 
+  
+    
+  
+    
+  
+    
+  
+    
   
     
   
@@ -230,14 +238,6 @@
   
     
       <option value="/docs/usage/">Basic Usage</option>
-    
-  
-    
-  
-    
-  
-    
-  
     
   
 
@@ -313,6 +313,12 @@
     
   
     
+  
+    
+  
+    
+  
+    
       <option value="/docs/messages/">Messages</option>
     
   
@@ -324,15 +330,15 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -366,20 +372,14 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
   
 
-  
-    
   
     
       <option value="/docs/android/">Android</option>
+    
+  
     
   
     
@@ -443,13 +443,13 @@
     
   
     
+  
+    
+  
+    
+  
+    
       <option value="/docs/javascript-api/">JavaScript API</option>
-    
-  
-    
-  
-    
-  
     
   
     
@@ -497,29 +497,29 @@
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
       <option value="/docs/troubleshooting/">Troubleshooting</option>
     
   
     
   
-    
-  
-    
-  
-    
-  
-    
-  
 
   
 
-  
-    
   
     
   
     
       <option value="/docs/building/">Building</option>
+    
+  
     
   
     
@@ -567,9 +567,9 @@
     
   
     
-  
-    
       <option value="/docs/contributing/">Contributing</option>
+    
+  
     
   
     
@@ -652,60 +652,80 @@
       <div class="unit four-fifths">
         <article>
           <h1>Installation</h1>
-          <p>Getting Frida installed and ready-to-go should only take a few minutes. If it ever becomes a pain in the ass, please <a href="https://github.com/frida/frida-website/issues/new">file an issue</a> (or submit a pull request) describing the issue you encountered and how we might make the process easier.</p>
+          <p>Getting Frida installed and ready-to-go should only take a few minutes. If it
+ever becomes a pain in the ass, please <a href="https://github.com/frida/frida-website/issues/new">file an
+issue</a> (or submit a pull request)
+describing the issue you encountered and how we might make the process easier.</p>
 
 <h3 id="requirements">Requirements</h3>
 
-<p>Installing Frida is easy and straight-forward, but there are a few requirements you’ll need to make sure your system has before you start.</p>
+<p>Installing Frida is easy and straight-forward, but there are a few requirements
+you’ll need to make sure your system has before you start.</p>
 
 <ul>
-<li><a href="http://python.org/">Python</a></li>
-
-<li><a href="https://pypi.python.org/pypi/setuptools">setuptools</a></li>
-
-<li>Windows, Mac OS X or Linux</li>
+  <li><a href="http://python.org/">Python</a></li>
+  <li><a href="https://pypi.python.org/pypi/setuptools">setuptools</a></li>
+  <li>Windows, Mac OS X or Linux</li>
 </ul>
-<div class='note info'>
+
+<div class="note info">
   <h5>Running Frida on Linux</h5>
   <p>
     While Frida's Linux support is still beta quality, it should work well
     as long as you don't need support for injecting into 32-bit processes.
   </p>
 </div>
-<h2 id="install_with_easy_install">Install with easy_install</h2>
 
-<p>The best way to install Frida is via <a href="https://pypi.python.org/pypi/frida">PyPI</a>. At the terminal prompt, simply run the following command to install Frida:</p>
-<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>sudo easy_install frida
-</code></pre></div>
-<p>All of Frida’s PyPI dependencies are automatically installed by the above command, so you won’t have to worry about them at all. If you have problems installing Frida, check out the <a href="../troubleshooting/">troubleshooting</a> page or <a href="https://github.com/frida/frida-website/issues/new">report an issue</a> so the Frida community can improve the experience for everyone.</p>
+<h2 id="install-with-easyinstall">Install with easy_install</h2>
 
-<h2 id="install_manually">Install manually</h2>
+<p>The best way to install Frida is via
+<a href="https://pypi.python.org/pypi/frida">PyPI</a>. At the terminal prompt,
+simply run the following command to install Frida:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo easy_install frida</code></pre></div>
+
+<p>All of Frida’s PyPI dependencies are automatically installed by the above
+command, so you won’t have to worry about them at all. If you have problems
+installing Frida, check out the <a href="../troubleshooting/">troubleshooting</a> page or
+<a href="https://github.com/frida/frida-website/issues/new">report an issue</a> so the Frida
+community can improve the experience for everyone.</p>
+
+<h2 id="install-manually">Install manually</h2>
 
 <p>You can also grab pre-release binaries from <a href="http://ospy.org/frida/">here</a>.</p>
 
-<h2 id="testing_your_installation">Testing your installation</h2>
+<h2 id="testing-your-installation">Testing your installation</h2>
 
 <p>Start a process we can inject into:</p>
-<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>cat
-</code></pre></div>
-<p>Just let it sit and wait for input. On Windows you might want to use <code>notepad.exe</code>.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>cat</code></pre></div>
+
+<p>Just let it sit and wait for input. On Windows you might want to use
+<code>notepad.exe</code>.</p>
 
 <p>In another terminal, make a file example.py with the following contents:</p>
-<div class='highlight'><pre><code class='py'><span class='kn'>import</span> <span class='nn'>frida</span>
-<span class='n'>p</span> <span class='o'>=</span> <span class='n'>frida</span><span class='o'>.</span><span class='n'>attach</span><span class='p'>(</span><span class='s'>&quot;cat&quot;</span><span class='p'>)</span>
-<span class='k'>print</span><span class='p'>([</span><span class='n'>x</span><span class='o'>.</span><span class='n'>name</span> <span class='k'>for</span> <span class='n'>x</span> <span class='ow'>in</span> <span class='n'>p</span><span class='o'>.</span><span class='n'>enumerate_modules</span><span class='p'>()])</span>
-</code></pre></div>
+
+<div class="highlight"><pre><code class="language-py" data-lang="py"><span class="kn">import</span> <span class="nn">frida</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">frida</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="s">&quot;cat&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">enumerate_modules</span><span class="p">()])</span></code></pre></div>
+
 <p>If you are on Linux, issue:</p>
-<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>sudo sysctl kernel.yama.ptrace_scope<span class='o'>=</span>0
-</code></pre></div>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo sysctl kernel.yama.ptrace_scope<span class="o">=</span>0</code></pre></div>
+
 <p>to enable ptracing non-child processes.</p>
 
-<p>At this point, we are ready to take Frida for a spin! Run the example.py script and watch the magic:</p>
-<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>python example.py
-</code></pre></div>
-<p>The output should be something similar to this (depending on your platform and library versions):</p>
-<div class='highlight'><pre><code class='py'><span class='p'>[</span><span class='s'>u&#39;cat&#39;</span><span class='p'>,</span> <span class='err'>…</span><span class='p'>,</span> <span class='s'>u&#39;ld-2.15.so&#39;</span><span class='p'>]</span>
-</code></pre></div>
+<p>At this point, we are ready to take Frida for a spin! Run the example.py
+script and watch the magic:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>python example.py</code></pre></div>
+
+<p>The output should be something similar to this (depending on your platform
+and library versions):</p>
+
+<div class="highlight"><pre><code class="language-py" data-lang="py"><span class="p">[</span><span class="s">u&#39;cat&#39;</span><span class="p">,</span> <span class="err">…</span><span class="p">,</span> <span class="s">u&#39;ld-2.15.so&#39;</span><span class="p">]</span></code></pre></div>
+
+
           <div class="section-nav">
   <div class="left align-right">
     
@@ -755,6 +775,12 @@
     
   
     
+  
+    
+  
+    
+  
+    
       <li class=""><a href="/docs/home/">Welcome</a></li>
     
   
@@ -774,12 +800,6 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
 
   
@@ -788,6 +808,12 @@
     
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -821,12 +847,6 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
 
   
@@ -835,6 +855,12 @@
     
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -868,12 +894,6 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
 
   
@@ -882,6 +902,14 @@
     
   
 
+  
+    
+  
+    
+  
+    
+  
+    
   
     
   
@@ -911,14 +939,6 @@
   
     
       <li class=""><a href="/docs/usage/">Basic Usage</a></li>
-    
-  
-    
-  
-    
-  
-    
-  
     
   
 
@@ -1005,6 +1025,12 @@
     
   
     
+  
+    
+  
+    
+  
+    
       <li class=""><a href="/docs/messages/">Messages</a></li>
     
   
@@ -1016,12 +1042,6 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
 
   
@@ -1030,6 +1050,12 @@
     
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -1063,12 +1089,6 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
 
   
@@ -1077,11 +1097,11 @@
     
   
 
-  
-    
   
     
       <li class=""><a href="/docs/android/">Android</a></li>
+    
+  
     
   
     
@@ -1151,13 +1171,13 @@
     
   
     
+  
+    
+  
+    
+  
+    
       <li class=""><a href="/docs/javascript-api/">JavaScript API</a></li>
-    
-  
-    
-  
-    
-  
     
   
     
@@ -1211,19 +1231,19 @@
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
       <li class=""><a href="/docs/troubleshooting/">Troubleshooting</a></li>
     
   
     
   
-    
-  
-    
-  
-    
-  
-    
-  
 
 
   
@@ -1232,13 +1252,13 @@
     
   
 
-  
-    
   
     
   
     
       <li class=""><a href="/docs/building/">Building</a></li>
+    
+  
     
   
     
@@ -1292,9 +1312,9 @@
     
   
     
-  
-    
       <li class=""><a href="/docs/contributing/">Contributing</a></li>
+    
+  
     
   
     

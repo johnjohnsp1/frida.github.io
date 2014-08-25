@@ -89,6 +89,12 @@
     
   
     
+  
+    
+  
+    
+  
+    
       <option value="/docs/home/">Welcome</option>
     
   
@@ -108,15 +114,15 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -150,15 +156,15 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -192,15 +198,17 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
   
 
+  
+    
+  
+    
+  
+    
+  
+    
   
     
   
@@ -230,14 +238,6 @@
   
     
       <option value="/docs/usage/">Basic Usage</option>
-    
-  
-    
-  
-    
-  
-    
-  
     
   
 
@@ -313,6 +313,12 @@
     
   
     
+  
+    
+  
+    
+  
+    
       <option value="/docs/messages/">Messages</option>
     
   
@@ -324,15 +330,15 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -366,20 +372,14 @@
   
     
   
-    
-  
-    
-  
-    
-  
 
   
 
-  
-    
   
     
       <option value="/docs/android/">Android</option>
+    
+  
     
   
     
@@ -443,13 +443,13 @@
     
   
     
+  
+    
+  
+    
+  
+    
       <option value="/docs/javascript-api/">JavaScript API</option>
-    
-  
-    
-  
-    
-  
     
   
     
@@ -497,29 +497,29 @@
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
       <option value="/docs/troubleshooting/">Troubleshooting</option>
     
   
     
   
-    
-  
-    
-  
-    
-  
-    
-  
 
   
 
-  
-    
   
     
   
     
       <option value="/docs/building/">Building</option>
+    
+  
     
   
     
@@ -567,9 +567,9 @@
     
   
     
-  
-    
       <option value="/docs/contributing/">Contributing</option>
+    
+  
     
   
     
@@ -652,45 +652,57 @@
       <div class="unit four-fifths">
         <article>
           <h1>Troubleshooting</h1>
-          <p>If you ever run into problems installing or using Frida, here’s a few tips that might be of help. If the problem you’re experiencing isn’t covered below, please <a href="https://github.com/frida/frida-website/issues/new">report an issue</a> so the Frida community can make everyone’s experience better.</p>
+          <p>If you ever run into problems installing or using Frida, here’s a few tips
+that might be of help. If the problem you’re experiencing isn’t covered below,
+please <a href="https://github.com/frida/frida-website/issues/new">report an issue</a> so the
+Frida community can make everyone’s experience better.</p>
 
-<h2 id="could_not_find_suitable_distribution_for_requirementparsefrida">Could not find suitable distribution for Requirement.parse(‘frida’)</h2>
+<h2 id="could-not-find-suitable-distribution-for-requirementparsefrida">Could not find suitable distribution for Requirement.parse(‘frida’)</h2>
 
 <p>Installing Frida with <code>easy_install</code> results in:</p>
-<div class='highlight'><pre><code class='text'>Searching for frida
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">Searching for frida
 Reading https://pypi.python.org/simple/frida/
 No local packages or download links found for frida
-error: Could not find suitable distribution for Requirement.parse(&#39;frida&#39;)
-</code></pre></div>
-<p>This appears on some OS X systems where there are multiple versions of <code>easy_install</code> present. A workaround seems to be to force using the system-provided default, i.d. <code>sudo /usr/bin/easy_install frida</code> or <code>/usr/bin/easy_install --user frida</code>.</p>
+error: Could not find suitable distribution for Requirement.parse(&#39;frida&#39;)</code></pre></div>
 
-<h2 id="no_distributions_at_all_found_for_frida">No distributions at all found for frida</h2>
+<p>This appears on some OS X systems where there are multiple versions of
+<code>easy_install</code> present. A workaround seems to be to force using the
+system-provided default, i.d. <code>sudo /usr/bin/easy_install frida</code> or
+<code>/usr/bin/easy_install --user frida</code>.</p>
+
+<h2 id="no-distributions-at-all-found-for-frida">No distributions at all found for frida</h2>
 
 <p>Running <code>pip install frida</code> gives the error</p>
 <pre>Could not find any downloads that satisfy the requirement frida</pre>
-<p>This is a known issue. Frida is distributed as an <code>.egg</code>. You must use <code>easy_install</code> instead of <code>pip</code> to install Frida:</p>
 
-<ul>
-<li>System-wide: <code>sudo easy_install frida</code>.</li>
+<p>This is a known issue. Frida is distributed as an <code>.egg</code>. You must use
+<code>easy_install</code> instead of <code>pip</code> to install Frida:
+ * System-wide: <code>sudo easy_install frida</code>.
+ * Current user only: <code>easy_install --user frida</code>.
+ * Or using <a href="http://www.virtualenv.org/en/latest/">virtualenv</a> .</p>
 
-<li>Current user only: <code>easy_install --user frida</code>.</li>
+<h2 id="valueerror-ambiguous-name-it-matches">ValueError: ambiguous name; it matches:</h2>
 
-<li>Or using <a href="http://www.virtualenv.org/en/latest/">virtualenv</a> .</li>
-</ul>
+<p>This means the process name you specified in <code>frida.attach()</code> matches more than
+one process. You can use the PID instead:</p>
 
-<h2 id="valueerror_ambiguous_name_it_matches">ValueError: ambiguous name; it matches:</h2>
+<div class="highlight"><pre><code class="language-py" data-lang="py"><span class="n">p</span> <span class="o">=</span> <span class="n">frida</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="mi">12345</span><span class="p">)</span></code></pre></div>
 
-<p>This means the process name you specified in <code>frida.attach()</code> matches more than one process. You can use the PID instead:</p>
-<div class='highlight'><pre><code class='py'><span class='n'>p</span> <span class='o'>=</span> <span class='n'>frida</span><span class='o'>.</span><span class='n'>attach</span><span class='p'>(</span><span class='mi'>12345</span><span class='p'>)</span>
-</code></pre></div>
-<h2 id="systemerror_attach_to_process_ptrace_attach_failed_1">SystemError: attach_to_process PTRACE_ATTACH failed: 1</h2>
+<h2 id="systemerror-attachtoprocess-ptraceattach-failed-1">SystemError: attach_to_process PTRACE_ATTACH failed: 1</h2>
 
-<p>This (probably) means that you don’t have permissions to attach to the target process. The process may be owned by another user and you are not root. You may have forgotten to enable ptrace of non-child processes. Try:</p>
-<div class='highlight'><pre><code class='bash'>sudo sysctl kernel.yama.ptrace_scope<span class='o'>=</span>0
-</code></pre></div>
-<h2 id="importerror_dynamic_module_does_not_define_init_function_init_frida">ImportError: dynamic module does not define init function (init_frida)</h2>
+<p>This (probably) means that you don’t have permissions to attach to the target
+process. The process may be owned by another user and you are not root. You may
+have forgotten to enable ptrace of non-child processes. Try:</p>
 
-<p>This or another similar error message is seen when trying to use <code>frida-python</code> compiled for python 2.x in python 3.x, or vice versa. Check which python interpreter you are running against which <code>PYTHONPATH</code> / <code>sys.path</code> is used.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo sysctl kernel.yama.ptrace_scope<span class="o">=</span>0</code></pre></div>
+
+<h2 id="importerror-dynamic-module-does-not-define-init-function-initfrida">ImportError: dynamic module does not define init function (init_frida)</h2>
+
+<p>This or another similar error message is seen when trying to use <code>frida-python</code>
+compiled for python 2.x in python 3.x, or vice versa. Check which python
+interpreter you are running against which <code>PYTHONPATH</code> / <code>sys.path</code> is used.</p>
+
           <div class="section-nav">
   <div class="left align-right">
     
@@ -740,6 +752,12 @@ error: Could not find suitable distribution for Requirement.parse(&#39;frida&#39
     
   
     
+  
+    
+  
+    
+  
+    
       <li class=""><a href="/docs/home/">Welcome</a></li>
     
   
@@ -759,12 +777,6 @@ error: Could not find suitable distribution for Requirement.parse(&#39;frida&#39
   
     
   
-    
-  
-    
-  
-    
-  
 
 
   
@@ -773,6 +785,12 @@ error: Could not find suitable distribution for Requirement.parse(&#39;frida&#39
     
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -806,12 +824,6 @@ error: Could not find suitable distribution for Requirement.parse(&#39;frida&#39
   
     
   
-    
-  
-    
-  
-    
-  
 
 
   
@@ -820,6 +832,12 @@ error: Could not find suitable distribution for Requirement.parse(&#39;frida&#39
     
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -853,12 +871,6 @@ error: Could not find suitable distribution for Requirement.parse(&#39;frida&#39
   
     
   
-    
-  
-    
-  
-    
-  
 
 
   
@@ -867,6 +879,14 @@ error: Could not find suitable distribution for Requirement.parse(&#39;frida&#39
     
   
 
+  
+    
+  
+    
+  
+    
+  
+    
   
     
   
@@ -896,14 +916,6 @@ error: Could not find suitable distribution for Requirement.parse(&#39;frida&#39
   
     
       <li class=""><a href="/docs/usage/">Basic Usage</a></li>
-    
-  
-    
-  
-    
-  
-    
-  
     
   
 
@@ -990,6 +1002,12 @@ error: Could not find suitable distribution for Requirement.parse(&#39;frida&#39
     
   
     
+  
+    
+  
+    
+  
+    
       <li class=""><a href="/docs/messages/">Messages</a></li>
     
   
@@ -1001,12 +1019,6 @@ error: Could not find suitable distribution for Requirement.parse(&#39;frida&#39
   
     
   
-    
-  
-    
-  
-    
-  
 
 
   
@@ -1015,6 +1027,12 @@ error: Could not find suitable distribution for Requirement.parse(&#39;frida&#39
     
   
 
+  
+    
+  
+    
+  
+    
   
     
   
@@ -1048,12 +1066,6 @@ error: Could not find suitable distribution for Requirement.parse(&#39;frida&#39
   
     
   
-    
-  
-    
-  
-    
-  
 
 
   
@@ -1062,11 +1074,11 @@ error: Could not find suitable distribution for Requirement.parse(&#39;frida&#39
     
   
 
-  
-    
   
     
       <li class=""><a href="/docs/android/">Android</a></li>
+    
+  
     
   
     
@@ -1136,13 +1148,13 @@ error: Could not find suitable distribution for Requirement.parse(&#39;frida&#39
     
   
     
+  
+    
+  
+    
+  
+    
       <li class=""><a href="/docs/javascript-api/">JavaScript API</a></li>
-    
-  
-    
-  
-    
-  
     
   
     
@@ -1196,19 +1208,19 @@ error: Could not find suitable distribution for Requirement.parse(&#39;frida&#39
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
       <li class="current"><a href="/docs/troubleshooting/">Troubleshooting</a></li>
     
   
     
   
-    
-  
-    
-  
-    
-  
-    
-  
 
 
   
@@ -1217,13 +1229,13 @@ error: Could not find suitable distribution for Requirement.parse(&#39;frida&#39
     
   
 
-  
-    
   
     
   
     
       <li class=""><a href="/docs/building/">Building</a></li>
+    
+  
     
   
     
@@ -1277,9 +1289,9 @@ error: Could not find suitable distribution for Requirement.parse(&#39;frida&#39
     
   
     
-  
-    
       <li class=""><a href="/docs/contributing/">Contributing</a></li>
+    
+  
     
   
     
