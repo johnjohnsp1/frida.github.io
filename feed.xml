@@ -11,10 +11,51 @@
     <title xml:lang="en">Frida</title>
     <atom:link type="application/atom+xml" href="http://www.frida.re/feed/" rel="self"/>
     <link>http://www.frida.re</link>
-    <pubDate>Mon, 25 Aug 2014 02:00:01 +0200</pubDate>
-    <lastBuildDate>Mon, 25 Aug 2014 02:00:01 +0200</lastBuildDate>
+    <pubDate>Sun, 19 Oct 2014 04:17:00 +0200</pubDate>
+    <lastBuildDate>Sun, 19 Oct 2014 04:17:00 +0200</lastBuildDate>
     <language>en-US</language>
     <description>Inject JavaScript to explore native apps on Windows, Mac, Linux and iOS.</description>
+    
+    <item>
+        <title>Frida 1.6.4 Released</title>
+        <link>http://www.frida.re/news/2014/10/19/frida-1-6-4-released/</link>
+        <pubDate>Sun, 19 Oct 2014 05:04:00 +0200</pubDate>
+        <dc:creator>oleavr</dc:creator>
+        <category>release</category>
+        <guid isPermaLink="false">/news/2014/10/19/frida-1-6-4-released</guid>
+        <description><![CDATA[ <p>It’s time for a bug fix release!</p>
+
+<p>Stalker improvements:</p>
+
+<ul>
+  <li>The engine no longer pre-allocates a fixed chunk of 256 MB per thread being
+traced, and now grows this dynamically in a reentrancy-safe manner.</li>
+  <li>Eliminated a bug in the cache lookup logic where certain blocks would always
+result in a cache miss. Those blocks thus got recompiled every time they
+were about to get executed, slowing down execution and clogging up the cache
+with more and more entries, and eventually running out of memory.</li>
+  <li>Relocation of RIP-relative <code>cmpxchg</code> instruction is now handled correctly.</li>
+</ul>
+
+<p>Better Dalvik integration (Android):</p>
+
+<ul>
+  <li>App’s own classes can now be loaded.</li>
+  <li>Several marshalling bugs have been fixed.</li>
+</ul>
+
+<p>Script runtime:</p>
+
+<ul>
+  <li>More than one NativeFunction with the same target address no longer results
+in use-after-free.</li>
+</ul>
+
+<p>Also, <a href="https://github.com/frida/cryptoshark">CryptoShark 0.1.2</a> is out,
+with an upgraded Frida engine and lots of performance improvements so the GUI
+is able to keep up with the Stalker. Go get it while it’s hot!</p>
+ ]]></description>
+    </item>
     
     <item>
         <title>Frida 1.6.3 Released</title>

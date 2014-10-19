@@ -72,6 +72,8 @@
     <option value="/news/">Home</option>
     <optgroup label="v1.x">
       
+      <option value="/news/2014/10/19/frida-1-6-4-released/">Frida 1.6.4 Released</option>
+      
       <option value="/news/2014/08/25/frida-1-6-3-released/">Frida 1.6.3 Released</option>
       
       <option value="/news/2014/08/03/frida-1-6-2-released/">Frida 1.6.2 Released</option>
@@ -111,6 +113,63 @@
 
       <div class="unit four-fifths">
         
+  <article>
+  <h2>
+    <a href="/news/2014/10/19/frida-1-6-4-released/">
+      Frida 1.6.4 Released
+    </a>
+  </h2>
+  <span class="post-category">
+    
+    <span class="label">release</span>
+    
+  </span>
+  <div class="post-meta">
+    <span class="post-date">
+      19 Oct 2014
+    </span>
+    <a href="https://github.com/oleavr" class="post-author">
+      <img src="https://github.com/oleavr.png" class="avatar" alt="oleavr"/>
+      oleavr
+    </a>
+  </div>
+  <div class="post-content">
+    <p>It’s time for a bug fix release!</p>
+
+<p>Stalker improvements:</p>
+
+<ul>
+  <li>The engine no longer pre-allocates a fixed chunk of 256 MB per thread being
+traced, and now grows this dynamically in a reentrancy-safe manner.</li>
+  <li>Eliminated a bug in the cache lookup logic where certain blocks would always
+result in a cache miss. Those blocks thus got recompiled every time they
+were about to get executed, slowing down execution and clogging up the cache
+with more and more entries, and eventually running out of memory.</li>
+  <li>Relocation of RIP-relative <code>cmpxchg</code> instruction is now handled correctly.</li>
+</ul>
+
+<p>Better Dalvik integration (Android):</p>
+
+<ul>
+  <li>App’s own classes can now be loaded.</li>
+  <li>Several marshalling bugs have been fixed.</li>
+</ul>
+
+<p>Script runtime:</p>
+
+<ul>
+  <li>More than one NativeFunction with the same target address no longer results
+in use-after-free.</li>
+</ul>
+
+<p>Also, <a href="https://github.com/frida/cryptoshark">CryptoShark 0.1.2</a> is out,
+with an upgraded Frida engine and lots of performance improvements so the GUI
+is able to keep up with the Stalker. Go get it while it’s hot!</p>
+
+  </div>
+</article>
+
+
   <article>
   <h2>
     <a href="/news/2014/08/25/frida-1-6-3-released/">
@@ -852,6 +911,10 @@ all platforms.</p>
     <ul>
       
       <li class="">
+        <a href="/news/2014/10/19/frida-1-6-4-released/">Version 1.6.4</a>
+      </li>
+      
+      <li class="">
         <a href="/news/2014/08/25/frida-1-6-3-released/">Version 1.6.3</a>
       </li>
       
@@ -865,10 +928,6 @@ all platforms.</p>
       
       <li class="">
         <a href="/news/2014/05/30/frida-1-6-0-released/">Version 1.6.0</a>
-      </li>
-      
-      <li class="">
-        <a href="/news/2014/05/14/frida-1-4-2-released/">Version 1.4.2</a>
       </li>
       
       <li>

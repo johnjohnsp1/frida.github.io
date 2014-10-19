@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
   <meta charset="UTF-8">
-  <title>Frida 1.4.2 Released</title>
+  <title>Frida 1.6.4 Released</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="alternate" type="application/rss+xml" title="Frida - Feed" href="/feed.xml" />
   <link rel="alternate" type="application/atom+xml" title="Recent commits to Frida’s master branch" href="https://github.com/frida/frida/commits/master.atom" />
@@ -114,8 +114,8 @@
       <div class="unit four-fifths">
         <article>
   <h2>
-    Frida 1.4.2 Released
-    <a href="/news/2014/05/14/frida-1-4-2-released/" class="permalink" title="Permalink">∞</a>
+    Frida 1.6.4 Released
+    <a href="/news/2014/10/19/frida-1-6-4-released/" class="permalink" title="Permalink">∞</a>
   </h2>
   <span class="post-category">
     
@@ -124,7 +124,7 @@
   </span>
   <div class="post-meta">
     <span class="post-date">
-      14 May 2014
+      19 Oct 2014
     </span>
     <a href="https://github.com/oleavr" class="post-author">
       <img src="https://github.com/oleavr.png" class="avatar" />
@@ -132,12 +132,37 @@
     </a>
   </div>
   <p class="post-content">
-    <p>Just a quick bugfix release to squash
-<a href="https://github.com/frida/frida-core/issues/5">this annoying bug</a>, which is
-reproducible on all supported x86 OSes. Thanks for Guillaume for tracking
-this one down.</p>
+    <p>It’s time for a bug fix release!</p>
 
-<p>As a bonus, frida-repl now also works on Windows. Happy REPLing!</p>
+<p>Stalker improvements:</p>
+
+<ul>
+  <li>The engine no longer pre-allocates a fixed chunk of 256 MB per thread being
+traced, and now grows this dynamically in a reentrancy-safe manner.</li>
+  <li>Eliminated a bug in the cache lookup logic where certain blocks would always
+result in a cache miss. Those blocks thus got recompiled every time they
+were about to get executed, slowing down execution and clogging up the cache
+with more and more entries, and eventually running out of memory.</li>
+  <li>Relocation of RIP-relative <code>cmpxchg</code> instruction is now handled correctly.</li>
+</ul>
+
+<p>Better Dalvik integration (Android):</p>
+
+<ul>
+  <li>App’s own classes can now be loaded.</li>
+  <li>Several marshalling bugs have been fixed.</li>
+</ul>
+
+<p>Script runtime:</p>
+
+<ul>
+  <li>More than one NativeFunction with the same target address no longer results
+in use-after-free.</li>
+</ul>
+
+<p>Also, <a href="https://github.com/frida/cryptoshark">CryptoShark 0.1.2</a> is out,
+with an upgraded Frida engine and lots of performance improvements so the GUI
+is able to keep up with the Stalker. Go get it while it’s hot!</p>
 
   </p>
 </article>
@@ -157,7 +182,7 @@ this one down.</p>
     <h4>Recent Releases</h4>
     <ul>
       
-      <li class="">
+      <li class="current">
         <a href="/news/2014/10/19/frida-1-6-4-released/">Version 1.6.4</a>
       </li>
       
