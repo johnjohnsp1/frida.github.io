@@ -11,10 +11,35 @@
     <title xml:lang="en">Frida</title>
     <atom:link type="application/atom+xml" href="http://www.frida.re/feed/" rel="self"/>
     <link>http://www.frida.re</link>
-    <pubDate>Sun, 19 Oct 2014 04:25:56 +0200</pubDate>
-    <lastBuildDate>Sun, 19 Oct 2014 04:25:56 +0200</lastBuildDate>
+    <pubDate>Thu, 30 Oct 2014 01:42:15 +0100</pubDate>
+    <lastBuildDate>Thu, 30 Oct 2014 01:42:15 +0100</lastBuildDate>
     <language>en-US</language>
     <description>Inject JavaScript to explore native apps on Windows, Mac, Linux and iOS.</description>
+    
+    <item>
+        <title>Frida 1.6.5 Released</title>
+        <link>http://www.frida.re/news/2014/10/29/frida-1-6-5-released/</link>
+        <pubDate>Wed, 29 Oct 2014 23:00:00 +0100</pubDate>
+        <dc:creator>oleavr</dc:creator>
+        <category>release</category>
+        <guid isPermaLink="false">/news/2014/10/29/frida-1-6-5-released</guid>
+        <description><![CDATA[ <p>It’s release ‘o clock, and time for some bugfixes:</p>
+
+<ul>
+  <li>iOS 8.1 is now supported, and the ARM64 support is better than ever.</li>
+  <li>The iOS USB transport no longer disconnects when sending a burst of data to
+the device. This would typically happen when using <code>frida-trace</code> and tracing
+a bunch of functions, resulting in a burst of data being sent over the wire.
+This was actually <a href="https://bugzilla.gnome.org/show_bug.cgi?id=11059">a generic networking issue affecting Mac and iOS</a>,
+but was very reproducible when using Frida with a tethered iOS device.</li>
+  <li>Eliminated crashes on shutdown of the Python interpreter.</li>
+  <li>The <code>onEnter</code> and <code>onLeave</code> callbacks in <code>frida-trace</code> scripts are now called
+with <code>this</code> bound to the correct object, which means that it’s bound to an
+object specific to that thread and invocation, and not an object shared by
+all threads and invocations.</li>
+</ul>
+ ]]></description>
+    </item>
     
     <item>
         <title>Frida 1.6.4 Released</title>

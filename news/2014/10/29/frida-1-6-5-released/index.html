@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
   <meta charset="UTF-8">
-  <title>Frida 1.6.3 Released</title>
+  <title>Frida 1.6.5 Released</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="alternate" type="application/rss+xml" title="Frida - Feed" href="/feed.xml" />
   <link rel="alternate" type="application/atom+xml" title="Recent commits to Frida’s master branch" href="https://github.com/frida/frida/commits/master.atom" />
@@ -116,8 +116,8 @@
       <div class="unit four-fifths">
         <article>
   <h2>
-    Frida 1.6.3 Released
-    <a href="/news/2014/08/25/frida-1-6-3-released/" class="permalink" title="Permalink">∞</a>
+    Frida 1.6.5 Released
+    <a href="/news/2014/10/29/frida-1-6-5-released/" class="permalink" title="Permalink">∞</a>
   </h2>
   <span class="post-category">
     
@@ -126,7 +126,7 @@
   </span>
   <div class="post-meta">
     <span class="post-date">
-      25 Aug 2014
+      29 Oct 2014
     </span>
     <a href="https://github.com/oleavr" class="post-author">
       <img src="https://github.com/oleavr.png" class="avatar" />
@@ -134,43 +134,21 @@
     </a>
   </div>
   <p class="post-content">
-    <p>This latest release includes a bunch of enhancements and bug fixes.
-Some of the highlights:</p>
+    <p>It’s release ‘o clock, and time for some bugfixes:</p>
 
 <ul>
-  <li>
-    <p>The remainder of Frida’s internals have been migrated from udis86 to
-Capstone, which means that our Stalker is now able to trace binaries with
-very recent x86 instructions. Part of this work also included battle-testing
-it on 32- and 64-bit binaries on Windows and Mac, and all known issues have
-now been resolved.</p>
-  </li>
-  <li>
-    <p><code>Memory.protect()</code> has been added to the JavaScript API, allowing you to
-easily change page protections. For example:</p>
-  </li>
+  <li>iOS 8.1 is now supported, and the ARM64 support is better than ever.</li>
+  <li>The iOS USB transport no longer disconnects when sending a burst of data to
+the device. This would typically happen when using <code>frida-trace</code> and tracing
+a bunch of functions, resulting in a burst of data being sent over the wire.
+This was actually <a href="https://bugzilla.gnome.org/show_bug.cgi?id=11059">a generic networking issue affecting Mac and iOS</a>,
+but was very reproducible when using Frida with a tethered iOS device.</li>
+  <li>Eliminated crashes on shutdown of the Python interpreter.</li>
+  <li>The <code>onEnter</code> and <code>onLeave</code> callbacks in <code>frida-trace</code> scripts are now called
+with <code>this</code> bound to the correct object, which means that it’s bound to an
+object specific to that thread and invocation, and not an object shared by
+all threads and invocations.</li>
 </ul>
-
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Memory</span><span class="p">.</span><span class="nx">protect</span><span class="p">(</span><span class="nx">ptr</span><span class="p">(</span><span class="s2">&quot;0x1234&quot;</span><span class="p">),</span> <span class="mi">4096</span><span class="p">,</span> <span class="s1">&#39;rw-&#39;</span><span class="p">);</span></code></pre></div>
-
-<ul>
-  <li>
-    <p><code>Process.enumerateThreads()</code> omits Frida’s own threads so you don’t have to
-worry about them.</p>
-  </li>
-  <li>
-    <p>Python 3 binaries are now built against Python 3.4.</p>
-  </li>
-</ul>
-
-<p>So with this release out, let’s talk about <a href="https://github.com/frida/cryptoshark">CryptoShark</a>:</p>
-
-<iframe width="560" height="315" src="//www.youtube.com/embed/hzDsxtcRavY?rel=0" frameborder="0" allowfullscreen=""></iframe>
-
-<p>Grab a pre-built Windows binary <a href="http://build.frida.re/frida/windows/Win32-Release/bin/cryptoshark-0.1.1.exe">here</a>,
-or build it from source if you’d like to try it out on Mac or Linux.</p>
-
-<p>Enjoy!</p>
 
   </p>
 </article>
@@ -190,7 +168,7 @@ or build it from source if you’d like to try it out on Mac or Linux.</p>
     <h4>Recent Releases</h4>
     <ul>
       
-      <li class="">
+      <li class="current">
         <a href="/news/2014/10/29/frida-1-6-5-released/">Version 1.6.5</a>
       </li>
       
@@ -198,7 +176,7 @@ or build it from source if you’d like to try it out on Mac or Linux.</p>
         <a href="/news/2014/10/19/frida-1-6-4-released/">Version 1.6.4</a>
       </li>
       
-      <li class="current">
+      <li class="">
         <a href="/news/2014/08/25/frida-1-6-3-released/">Version 1.6.3</a>
       </li>
       
