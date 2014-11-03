@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
   <meta charset="UTF-8">
-  <title>Frida 1.0.9 Released</title>
+  <title>Frida 1.6.7 Released</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="alternate" type="application/rss+xml" title="Frida - Feed" href="/feed.xml" />
   <link rel="alternate" type="application/atom+xml" title="Recent commits to Frida’s master branch" href="https://github.com/frida/frida/commits/master.atom" />
@@ -120,8 +120,8 @@
       <div class="unit four-fifths">
         <article>
   <h2>
-    Frida 1.0.9 Released
-    <a href="/news/2014/01/25/frida-1-0-9-released/" class="permalink" title="Permalink">∞</a>
+    Frida 1.6.7 Released
+    <a href="/news/2014/11/03/frida-1-6-7-released/" class="permalink" title="Permalink">∞</a>
   </h2>
   <span class="post-category">
     
@@ -130,7 +130,7 @@
   </span>
   <div class="post-meta">
     <span class="post-date">
-      25 Jan 2014
+      03 Nov 2014
     </span>
     <a href="https://github.com/oleavr" class="post-author">
       <img src="https://github.com/oleavr.png" class="avatar" />
@@ -138,33 +138,20 @@
     </a>
   </div>
   <p class="post-content">
-    <p>Another release — this time with some new features:</p>
+    <p>Tired of waiting for Frida to attach to 32-bit processes on 64-bit Mac
+or iOS systems? Or perhaps <code>frida-trace</code> takes a while to resolve functions?
+If any of the above, or none of it, then this release is for you!</p>
 
-<ul>
-  <li>Objective-C integration for Mac and iOS. Here’s an example to whet your
-appetite:</li>
-</ul>
+<p>Attaching to 32-bit processes on Mac/iOS hosts has been optimized, and instead
+of seconds this is now a matter of milliseconds. That’s however specific to
+Darwin OSes; this release also speeds up enumeration of module exports on
+all OSes. This is now 75% faster, and should be very noticable when using
+<code>frida-trace</code> and waiting for it to resolve functions.</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">UIAlertView</span> <span class="o">=</span> <span class="nx">ObjC</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;UIAlertView&#39;</span><span class="p">);</span> <span class="cm">/* iOS */</span>
-<span class="nx">ObjC</span><span class="p">.</span><span class="nx">schedule</span><span class="p">(</span><span class="nx">ObjC</span><span class="p">.</span><span class="nx">mainQueue</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">view</span> <span class="o">=</span> <span class="nx">UIAlertView</span><span class="p">.</span><span class="nx">alloc</span><span class="p">().</span><span class="nx">initWithTitle_message_delegate_cancelButtonTitle_otherButtonTitles_</span><span class="p">(</span>
-        <span class="s2">&quot;Frida&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Hello from Frida&quot;</span><span class="p">,</span>
-        <span class="nx">ptr</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">),</span>
-        <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
-        <span class="nx">ptr</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">));</span>
-    <span class="nx">view</span><span class="p">.</span><span class="nx">show</span><span class="p">();</span>
-    <span class="nx">view</span><span class="p">.</span><span class="nx">release</span><span class="p">();</span>
-<span class="p">});</span></code></pre></div>
+<p>Also, as an added bonus, teardown while attached to multiple processes no
+longer crashes on Darwin and Linux.</p>
 
-<ul>
-  <li><code>Module.enumerateExports()</code> now also enumerates exported variables and not
-just functions. The <code>onMatch</code> callback receives an <code>exp</code> object where the
-<code>type</code> field is either <code>function</code> or <code>variable</code>.</li>
-</ul>
-
-<p>To get the full scoop on the ObjC integration, have a look at the
-<a href="http://www.frida.re/docs/javascript-api/">JavaScript API reference</a>.</p>
+<p>Enjoy!</p>
 
   </p>
 </article>
@@ -184,7 +171,7 @@ just functions. The <code>onMatch</code> callback receives an <code>exp</code> o
     <h4>Recent Releases</h4>
     <ul>
       
-      <li class="">
+      <li class="current">
         <a href="/news/2014/11/03/frida-1-6-7-released/">Version 1.6.7</a>
       </li>
       
