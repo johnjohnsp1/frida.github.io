@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
   <meta charset="UTF-8">
-  <title>Frida 1.6.4 Released</title>
+  <title>Frida 1.6.6 Released</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="alternate" type="application/rss+xml" title="Frida - Feed" href="/feed.xml" />
   <link rel="alternate" type="application/atom+xml" title="Recent commits to Frida’s master branch" href="https://github.com/frida/frida/commits/master.atom" />
@@ -118,8 +118,8 @@
       <div class="unit four-fifths">
         <article>
   <h2>
-    Frida 1.6.4 Released
-    <a href="/news/2014/10/19/frida-1-6-4-released/" class="permalink" title="Permalink">∞</a>
+    Frida 1.6.6 Released
+    <a href="/news/2014/11/03/frida-1-6-6-released/" class="permalink" title="Permalink">∞</a>
   </h2>
   <span class="post-category">
     
@@ -128,7 +128,7 @@
   </span>
   <div class="post-meta">
     <span class="post-date">
-      19 Oct 2014
+      03 Nov 2014
     </span>
     <a href="https://github.com/oleavr" class="post-author">
       <img src="https://github.com/oleavr.png" class="avatar" />
@@ -136,37 +136,20 @@
     </a>
   </div>
   <p class="post-content">
-    <p>It’s time for a bug-fix release!</p>
+    <p>Tired of waiting for Frida to attach to 32-bit processes on 64-bit Mac
+or iOS systems? Or perhaps <code>frida-trace</code> takes a while to resolve functions?
+If any of the above, or none of it, then this release is for you!</p>
 
-<p>Stalker improvements:</p>
+<p>Attaching to 32-bit processes on Mac/iOS hosts has been optimized, and instead
+of seconds this is now a matter of milliseconds. That’s however specific to
+Darwin OSes; this release also speeds up enumeration of module exports on
+all OSes. This is now 75% faster, and should be very noticable when using
+<code>frida-trace</code> and waiting for it to resolve functions.</p>
 
-<ul>
-  <li>The engine no longer pre-allocates a fixed chunk of 256 MB per thread being
-traced, and now grows this dynamically in a reentrancy-safe manner.</li>
-  <li>Eliminated a bug in the cache lookup logic where certain blocks would always
-result in a cache miss. Those blocks thus got recompiled every time they
-were about to get executed, slowing down execution and clogging up the cache
-with more and more entries, and eventually running out of memory.</li>
-  <li>Relocation of RIP-relative <code>cmpxchg</code> instruction is now handled correctly.</li>
-</ul>
+<p>Also, as an added bonus, teardown while attached to multiple processes no
+longer crashes on Darwin and Linux.</p>
 
-<p>Better Dalvik integration (Android):</p>
-
-<ul>
-  <li>App’s own classes can now be loaded.</li>
-  <li>Several marshalling bugs have been fixed.</li>
-</ul>
-
-<p>Script runtime:</p>
-
-<ul>
-  <li>More than one NativeFunction with the same target address no longer results
-in use-after-free.</li>
-</ul>
-
-<p>Also, <a href="https://github.com/frida/cryptoshark">CryptoShark 0.1.2</a> is out,
-with an upgraded Frida engine and lots of performance improvements so the GUI
-is able to keep up with the Stalker. Go get it while it’s hot!</p>
+<p>Enjoy!</p>
 
   </p>
 </article>
@@ -186,7 +169,7 @@ is able to keep up with the Stalker. Go get it while it’s hot!</p>
     <h4>Recent Releases</h4>
     <ul>
       
-      <li class="">
+      <li class="current">
         <a href="/news/2014/11/03/frida-1-6-6-released/">Version 1.6.6</a>
       </li>
       
@@ -194,7 +177,7 @@ is able to keep up with the Stalker. Go get it while it’s hot!</p>
         <a href="/news/2014/10/29/frida-1-6-5-released/">Version 1.6.5</a>
       </li>
       
-      <li class="current">
+      <li class="">
         <a href="/news/2014/10/19/frida-1-6-4-released/">Version 1.6.4</a>
       </li>
       

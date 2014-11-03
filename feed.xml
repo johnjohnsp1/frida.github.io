@@ -11,10 +11,34 @@
     <title xml:lang="en">Frida</title>
     <atom:link type="application/atom+xml" href="http://www.frida.re/feed/" rel="self"/>
     <link>http://www.frida.re</link>
-    <pubDate>Thu, 30 Oct 2014 01:59:34 +0100</pubDate>
-    <lastBuildDate>Thu, 30 Oct 2014 01:59:34 +0100</lastBuildDate>
+    <pubDate>Mon, 03 Nov 2014 13:52:04 +0100</pubDate>
+    <lastBuildDate>Mon, 03 Nov 2014 13:52:04 +0100</lastBuildDate>
     <language>en-US</language>
     <description>Inject JavaScript to explore native apps on Windows, Mac, Linux and iOS.</description>
+    
+    <item>
+        <title>Frida 1.6.6 Released</title>
+        <link>http://www.frida.re/news/2014/11/03/frida-1-6-6-released/</link>
+        <pubDate>Mon, 03 Nov 2014 14:00:00 +0100</pubDate>
+        <dc:creator>oleavr</dc:creator>
+        <category>release</category>
+        <guid isPermaLink="false">/news/2014/11/03/frida-1-6-6-released</guid>
+        <description><![CDATA[ <p>Tired of waiting for Frida to attach to 32-bit processes on 64-bit Mac
+or iOS systems? Or perhaps <code>frida-trace</code> takes a while to resolve functions?
+If any of the above, or none of it, then this release is for you!</p>
+
+<p>Attaching to 32-bit processes on Mac/iOS hosts has been optimized, and instead
+of seconds this is now a matter of milliseconds. That’s however specific to
+Darwin OSes; this release also speeds up enumeration of module exports on
+all OSes. This is now 75% faster, and should be very noticable when using
+<code>frida-trace</code> and waiting for it to resolve functions.</p>
+
+<p>Also, as an added bonus, teardown while attached to multiple processes no
+longer crashes on Darwin and Linux.</p>
+
+<p>Enjoy!</p>
+ ]]></description>
+    </item>
     
     <item>
         <title>Frida 1.6.5 Released</title>
