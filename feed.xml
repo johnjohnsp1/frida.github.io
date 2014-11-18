@@ -11,10 +11,22 @@
     <title xml:lang="en">Frida</title>
     <atom:link type="application/atom+xml" href="http://www.frida.re/feed/" rel="self"/>
     <link>http://www.frida.re</link>
-    <pubDate>Mon, 03 Nov 2014 16:12:20 +0100</pubDate>
-    <lastBuildDate>Mon, 03 Nov 2014 16:12:20 +0100</lastBuildDate>
+    <pubDate>Tue, 18 Nov 2014 01:53:06 +0100</pubDate>
+    <lastBuildDate>Tue, 18 Nov 2014 01:53:06 +0100</lastBuildDate>
     <language>en-US</language>
     <description>Inject JavaScript to explore native apps on Windows, Mac, Linux and iOS.</description>
+    
+    <item>
+        <title>Frida 1.6.8 Released</title>
+        <link>http://www.frida.re/news/2014/11/18/frida-1-6-8-released/</link>
+        <pubDate>Tue, 18 Nov 2014 02:00:00 +0100</pubDate>
+        <dc:creator>oleavr</dc:creator>
+        <category>release</category>
+        <guid isPermaLink="false">/news/2014/11/18/frida-1-6-8-released</guid>
+        <description><![CDATA[ <p>Just a minor bugfix release to fix <code>spawn()</code> on Mac, and resolve some
+teardown issues. Enjoy!</p>
+ ]]></description>
+    </item>
     
     <item>
         <title>Frida 1.6.7 Released</title>
