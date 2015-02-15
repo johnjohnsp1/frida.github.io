@@ -11,8 +11,8 @@
     <title xml:lang="en">Frida</title>
     <atom:link type="application/atom+xml" href="http://www.frida.re/feed/" rel="self"/>
     <link>http://www.frida.re</link>
-    <pubDate>Tue, 18 Nov 2014 01:54:40 +0100</pubDate>
-    <lastBuildDate>Tue, 18 Nov 2014 01:54:40 +0100</lastBuildDate>
+    <pubDate>Sun, 15 Feb 2015 22:02:14 +0100</pubDate>
+    <lastBuildDate>Sun, 15 Feb 2015 22:02:14 +0100</lastBuildDate>
     <language>en-US</language>
     <description>Inject JavaScript to explore native apps on Windows, Mac, Linux and iOS.</description>
     
