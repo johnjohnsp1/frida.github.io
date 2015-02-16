@@ -868,56 +868,20 @@ although presumably much much simpler.</p>
 
 <p><strong>Possible Mentors:</strong> Ole André Vadla Ravnås &lt;<a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#111;&#108;&#101;&#097;&#118;&#114;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">&#111;&#108;&#101;&#097;&#118;&#114;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;</a>&gt;, Karl Trygve Kalleberg &lt;<a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#107;&#097;&#114;&#108;&#116;&#107;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">&#107;&#097;&#114;&#108;&#116;&#107;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;</a>&gt;</p>
 
-<h2 id="investigate-possible-integrations-with-radare">Investigate possible integrations with radare</h2>
+<h2 id="expose-backtracer-and-symbol-resolving-api-to-javascript">Expose backtracer and symbol resolving API to JavaScript</h2>
 
-<p><strong>Brief explanation:</strong> Radare has a strong focus on static analysis, whilst
-Frida is primarily focused on the dynamic end of the spectrum. It would be
-great to figure out whether we could make it easier for users to get the best
-of both worlds, either by integrating technology from Radare, or by making sure
-that tools leveraging Frida and Radare can do so with minimal friction.</p>
+<p><strong>Brief explanation:</strong> There’s currently a <a href="https://github.com/frida/frida-gum/blob/42b69917976f43ba3ec4297046b319970dc037dd/gum/gumbacktracer.h">Backtracer</a>
+and a <a href="https://github.com/frida/frida-gum/blob/42b69917976f43ba3ec4297046b319970dc037dd/gum/gumsymbolutil.h">symbol resolving</a>
+API in frida-gum that are not yet exposed to the JS runtime.</p>
 
-<p><strong>Expected results:</strong> Arrive at a conclusion with 0 or more development goals.</p>
+<p>The symbol resolving API is however not just a matter of exposing this API,
+as the underlying implementations will need some adjustments to work well
+when injected into another process. The Windows implementation currently
+relies on DbgHelp.dll being loaded, which might not be an acceptable constraint.</p>
 
-<p><strong>Knowledge Prerequisite:</strong> Frida, Radare</p>
-
-<p><strong>Possible Mentors:</strong> Ole André Vadla Ravnås &lt;<a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#111;&#108;&#101;&#097;&#118;&#114;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">&#111;&#108;&#101;&#097;&#118;&#114;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;</a>&gt;, Karl Trygve Kalleberg &lt;<a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#107;&#097;&#114;&#108;&#116;&#107;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">&#107;&#097;&#114;&#108;&#116;&#107;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;</a>&gt;</p>
-
-<h2 id="expose-backtracer-api-to-javascript">Expose Backtracer API to JavaScript</h2>
-
-<p><strong>Brief explanation:</strong> There’s currently a <a href="https://github.com/frida/frida-gum/blob/42b69917976f43ba3ec4297046b319970dc037dd/gum/gumbacktracer.h">Backtracer API in frida-gum</a>
-that is not yet exposed to the JS runtime.</p>
-
-<p><strong>Expected results:</strong> Backtracer API available in the JavaScript runtime.</p>
+<p><strong>Expected results:</strong> Backtracer and symbol resolving API available in the JavaScript runtime.</p>
 
 <p><strong>Knowledge Prerequisite:</strong> JavaScript, C</p>
-
-<p><strong>Possible Mentors:</strong> Ole André Vadla Ravnås &lt;<a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#111;&#108;&#101;&#097;&#118;&#114;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">&#111;&#108;&#101;&#097;&#118;&#114;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;</a>&gt;, Karl Trygve Kalleberg &lt;<a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#107;&#097;&#114;&#108;&#116;&#107;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">&#107;&#097;&#114;&#108;&#116;&#107;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;</a>&gt;</p>
-
-<h2 id="expose-symbol-resolving-api-to-javascript">Expose symbol resolving API to JavaScript</h2>
-
-<p><strong>Brief explanation:</strong> There’s currently a <a href="https://github.com/frida/frida-gum/blob/42b69917976f43ba3ec4297046b319970dc037dd/gum/gumsymbolutil.h">symbol resolving API in frida-gum</a>
-that is not yet exposed to the JS runtime.</p>
-
-<p>This is however not just a matter of exposing this API, as the
-underlying implementations will need some adjustments to work well
-when injected into another process. The Windows implementation
-currently relies on DbgHelp.dll being loaded, which might not be an
-acceptable constraint.</p>
-
-<p><strong>Expected results:</strong> Symbol resolving API available in the JavaScript runtime.</p>
-
-<p><strong>Knowledge Prerequisite:</strong> JavaScript, C</p>
-
-<p><strong>Possible Mentors:</strong> Ole André Vadla Ravnås &lt;<a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#111;&#108;&#101;&#097;&#118;&#114;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">&#111;&#108;&#101;&#097;&#118;&#114;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;</a>&gt;, Karl Trygve Kalleberg &lt;<a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#107;&#097;&#114;&#108;&#116;&#107;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">&#107;&#097;&#114;&#108;&#116;&#107;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;</a>&gt;</p>
-
-<h2 id="document-fridas-internal-architecture">Document Frida’s internal architecture</h2>
-
-<p><strong>Brief explanation:</strong> We need to make it easier for future contributors to
-dive into Frida’s code-base.</p>
-
-<p><strong>Expected results:</strong> Frida architecture documentation on Frida’s website.</p>
-
-<p><strong>Knowledge Prerequisite:</strong> Vala, C</p>
 
 <p><strong>Possible Mentors:</strong> Ole André Vadla Ravnås &lt;<a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#111;&#108;&#101;&#097;&#118;&#114;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">&#111;&#108;&#101;&#097;&#118;&#114;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;</a>&gt;, Karl Trygve Kalleberg &lt;<a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#107;&#097;&#114;&#108;&#116;&#107;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">&#107;&#097;&#114;&#108;&#116;&#107;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;</a>&gt;</p>
 
