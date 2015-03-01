@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
   <meta charset="UTF-8">
-  <title>Frida 1.6.3 Released</title>
+  <title>Frida 2.0.0 Released</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="alternate" type="application/rss+xml" title="Frida - Feed" href="/feed.xml" />
   <link rel="alternate" type="application/atom+xml" title="Recent commits to Frida’s master branch" href="https://github.com/frida/frida/commits/master.atom" />
@@ -126,8 +126,8 @@
       <div class="unit four-fifths">
         <article>
   <h2>
-    Frida 1.6.3 Released
-    <a href="/news/2014/08/25/frida-1-6-3-released/" class="permalink" title="Permalink">∞</a>
+    Frida 2.0.0 Released
+    <a href="/news/2015/03/01/frida-2-0-0-released/" class="permalink" title="Permalink">∞</a>
   </h2>
   <span class="post-category">
     
@@ -136,7 +136,7 @@
   </span>
   <div class="post-meta">
     <span class="post-date">
-      25 Aug 2014
+      01 Mar 2015
     </span>
     <a href="https://github.com/oleavr" class="post-author">
       <img src="https://github.com/oleavr.png" class="avatar" />
@@ -144,41 +144,49 @@
     </a>
   </div>
   <p class="post-content">
-    <p>This latest release includes a bunch of enhancements and bug fixes.
-Some of the highlights:</p>
+    <p>It’s time for a new and exciting release! Key changes include:</p>
 
 <ul>
-  <li>
-    <p>The remainder of Frida’s internals have been migrated from udis86 to
-Capstone, which means that our Stalker is now able to trace binaries with
-very recent x86 instructions. Part of this work also included battle-testing
-it on 32- and 64-bit binaries on Windows and Mac, and all known issues have
-now been resolved.</p>
-  </li>
-  <li>
-    <p><code>Memory.protect()</code> has been added to the JavaScript API, allowing you to
-easily change page protections. For example:</p>
-  </li>
+  <li>No more kernel panics on Mac and iOS! Read the full story
+<a href="https://medium.com/@oleavr/diy-kernel-panic-os-x-and-ios-in-10-loc-c250d9649159">here</a>.</li>
+  <li>Mac and iOS injector performs manual mapping of Frida’s dylib. This means
+we’re able to attach to heavily sandboxed processes.</li>
+  <li>The CLI tools like <em>frida-trace</em>, <em>frida-repl</em>, etc., have brand new support
+for spawning processes:</li>
 </ul>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Memory</span><span class="p">.</span><span class="nx">protect</span><span class="p">(</span><span class="nx">ptr</span><span class="p">(</span><span class="s2">&quot;0x1234&quot;</span><span class="p">),</span> <span class="mi">4096</span><span class="p">,</span> <span class="s1">&#39;rw-&#39;</span><span class="p">);</span></code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>frida-trace -i <span class="s1">&#39;open*&#39;</span> -i <span class="s1">&#39;read*&#39;</span> /bin/cat /etc/resolv.conf
+    <span class="m">27</span> ms	open<span class="nv">$NOCANCEL</span><span class="o">()</span>
+    <span class="m">28</span> ms	<span class="nb">read</span><span class="nv">$NOCANCEL</span><span class="o">()</span>
+    <span class="m">28</span> ms	<span class="nb">read</span><span class="nv">$NOCANCEL</span><span class="o">()</span>
+    <span class="m">28</span> ms	<span class="nb">read</span><span class="nv">$NOCANCEL</span><span class="o">()</span>
+Target process terminated.
+Stopping...
+<span class="err">$</span></code></pre></div>
 
 <ul>
-  <li>
-    <p><code>Process.enumerateThreads()</code> omits Frida’s own threads so you don’t have to
-worry about them.</p>
-  </li>
-  <li>
-    <p>Python 3 binaries are now built against Python 3.4.</p>
-  </li>
+  <li>Usability improvements in <em>frida-repl</em> and <em>frida-discover</em>.</li>
+  <li>First call to <code>DeviceManager.enumerate_devices()</code> does a better job and
+also gives you the currently connected iOS devices, so for simple applications
+or scripts you no longer have to subscribe to updates if you require the
+device to already be present.</li>
+  <li>The python API now provides you with <code>frida.get_usb_device(timeout = 0)</code> and
+<code>frida.get_remote_device()</code> for easy access to iOS and remote/Android
+devices.</li>
+  <li>The <code>onEnter</code> and <code>onLeave</code> callbacks passed to <code>Interceptor.attach()</code> may
+access <code>this.registers</code> to inspect CPU registers, which is really useful
+when dealing with custom calling conventions.</li>
+  <li><code>console.log()</code> logs to the console on your application’s side instead of
+the target process. This change is actually why we had to bump the major
+version for this release.</li>
+  <li>Android 5.0 compatibility, modulo ART support.</li>
+  <li>Brand new support for Android/x86. Everything works except the Dalvik
+integration; please get in touch if you’d like to help out with a pull-request
+to fix that!</li>
 </ul>
 
-<p>So with this release out, let’s talk about <a href="https://github.com/frida/cryptoshark">CryptoShark</a>:</p>
-
-<iframe width="560" height="315" src="//www.youtube.com/embed/hzDsxtcRavY?rel=0" frameborder="0" allowfullscreen=""></iframe>
-
-<p>Grab a pre-built Windows binary <a href="http://build.frida.re/frida/windows/Win32-Release/bin/cryptoshark-0.1.1.exe">here</a>,
-or build it from source if you’d like to try it out on Mac or Linux.</p>
+<p>Want to help out? Have a look at our <a href="http://www.frida.re/docs/gsoc-ideas-2015/">GSoC 2015 Ideas Page</a>
+to get an overview of where we’d like to go next.</p>
 
 <p>Enjoy!</p>
 
@@ -200,7 +208,7 @@ or build it from source if you’d like to try it out on Mac or Linux.</p>
     <h4>Recent Releases</h4>
     <ul>
       
-      <li class="">
+      <li class="current">
         <a href="/news/2015/03/01/frida-2-0-0-released/">Version 2.0.0</a>
       </li>
       

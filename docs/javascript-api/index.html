@@ -765,7 +765,13 @@ id that can be passed to <code>clearInterval</code> to cancel it.</p>
 <h2 id="console">console</h2>
 
 <ul>
-  <li><code>console.log(line)</code>: write <code>line</code> to stdout</li>
+  <li><code>console.log(line)</code>: write <code>line</code> to the console of your Frida-based
+application. The exact behavior depends on where
+<a href="https://github.com/frida/frida-core">frida-core</a> is integrated.
+For example, this output goes to <em>stdout</em> when using Frida through
+<a href="https://github.com/frida/frida-python">frida-python</a>,
+<a href="http://doc.qt.io/qt-5/qdebug.html">qDebug</a> when using
+<a href="https://github.com/frida/frida-qml">frida-qml</a>, etc.</li>
 </ul>
 
 <h2 id="process">Process</h2>
@@ -785,6 +791,10 @@ id that can be passed to <code>clearInterval</code> to cancel it.</p>
 portable.</p>
   </li>
   <li>
+    <p><code>Process.isDebuggerAttached()</code>: returns a boolean indicating whether a
+debugger is currently attached</p>
+  </li>
+  <li>
     <p><code>Process.getCurrentThreadId()</code>: get this thread’s OS-specific id as a
 JavaScript number</p>
   </li>
@@ -801,7 +811,8 @@ containing:
 <code>uninterruptible</code> or <code>halted</code></li>
           <li><code>registers</code>: object with the keys <code>pc</code> and <code>sp</code>, which are
 NativePointer objects specifying EIP/RIP/PC and ESP/RSP/SP,
-respectively, for ia32/x64/arm</li>
+respectively, for ia32/x64/arm. Other processor-specific keys
+are also available, e.g. <code>eax</code>, <code>rax</code>, <code>r0</code>, <code>x0</code>, etc.</li>
         </ul>
 
         <p>This function may return the string <code>stop</code> to cancel the enumeration
@@ -1248,6 +1259,11 @@ in <code>onLeave</code>.</p>
 <span class="p">});</span></code></pre></div>
 
 <pre><code>Additionally, the object contains some useful properties:
+
+-   `registers`: object with the keys `pc` and `sp`, which are
+    NativePointer objects specifying EIP/RIP/PC and ESP/RSP/SP,
+    respectively, for ia32/x64/arm. Other processor-specific keys
+    are also available, e.g. `eax`, `rax`, `r0`, `x0`, etc.
 
 -   `errno`: (UNIX) current errno value (you may replace it)
 

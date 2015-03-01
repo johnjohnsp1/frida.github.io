@@ -72,6 +72,10 @@
     <option value="/news/">Home</option>
     <optgroup label="v1.x">
       
+      <option value="/news/2015/03/01/frida-2-0-0-released/">Frida 2.0.0 Released</option>
+      
+      <option value="/news/2015/02/23/frida-1-8-0-released/">Frida 1.8.0 Released</option>
+      
       <option value="/news/2014/11/18/frida-1-6-8-released/">Frida 1.6.8 Released</option>
       
       <option value="/news/2014/11/03/frida-1-6-7-released/">Frida 1.6.7 Released</option>
@@ -121,6 +125,106 @@
 
       <div class="unit four-fifths">
         
+  <article>
+  <h2>
+    <a href="/news/2015/03/01/frida-2-0-0-released/">
+      Frida 2.0.0 Released
+    </a>
+  </h2>
+  <span class="post-category">
+    
+    <span class="label">release</span>
+    
+  </span>
+  <div class="post-meta">
+    <span class="post-date">
+      01 Mar 2015
+    </span>
+    <a href="https://github.com/oleavr" class="post-author">
+      <img src="https://github.com/oleavr.png" class="avatar" alt="oleavr"/>
+      oleavr
+    </a>
+  </div>
+  <div class="post-content">
+    <p>It’s time for a new and exciting release! Key changes include:</p>
+
+<ul>
+  <li>No more kernel panics on Mac and iOS! Read the full story
+<a href="https://medium.com/@oleavr/diy-kernel-panic-os-x-and-ios-in-10-loc-c250d9649159">here</a>.</li>
+  <li>Mac and iOS injector performs manual mapping of Frida’s dylib. This means
+we’re able to attach to heavily sandboxed processes.</li>
+  <li>The CLI tools like <em>frida-trace</em>, <em>frida-repl</em>, etc., have brand new support
+for spawning processes:</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>frida-trace -i <span class="s1">&#39;open*&#39;</span> -i <span class="s1">&#39;read*&#39;</span> /bin/cat /etc/resolv.conf
+    <span class="m">27</span> ms	open<span class="nv">$NOCANCEL</span><span class="o">()</span>
+    <span class="m">28</span> ms	<span class="nb">read</span><span class="nv">$NOCANCEL</span><span class="o">()</span>
+    <span class="m">28</span> ms	<span class="nb">read</span><span class="nv">$NOCANCEL</span><span class="o">()</span>
+    <span class="m">28</span> ms	<span class="nb">read</span><span class="nv">$NOCANCEL</span><span class="o">()</span>
+Target process terminated.
+Stopping...
+<span class="err">$</span></code></pre></div>
+
+<ul>
+  <li>Usability improvements in <em>frida-repl</em> and <em>frida-discover</em>.</li>
+  <li>First call to <code>DeviceManager.enumerate_devices()</code> does a better job and
+also gives you the currently connected iOS devices, so for simple applications
+or scripts you no longer have to subscribe to updates if you require the
+device to already be present.</li>
+  <li>The python API now provides you with <code>frida.get_usb_device(timeout = 0)</code> and
+<code>frida.get_remote_device()</code> for easy access to iOS and remote/Android
+devices.</li>
+  <li>The <code>onEnter</code> and <code>onLeave</code> callbacks passed to <code>Interceptor.attach()</code> may
+access <code>this.registers</code> to inspect CPU registers, which is really useful
+when dealing with custom calling conventions.</li>
+  <li><code>console.log()</code> logs to the console on your application’s side instead of
+the target process. This change is actually why we had to bump the major
+version for this release.</li>
+  <li>Android 5.0 compatibility, modulo ART support.</li>
+  <li>Brand new support for Android/x86. Everything works except the Dalvik
+integration; please get in touch if you’d like to help out with a pull-request
+to fix that!</li>
+</ul>
+
+<p>Want to help out? Have a look at our <a href="http://www.frida.re/docs/gsoc-ideas-2015/">GSoC 2015 Ideas Page</a>
+to get an overview of where we’d like to go next.</p>
+
+<p>Enjoy!</p>
+
+  </div>
+</article>
+
+
+  <article>
+  <h2>
+    <a href="/news/2015/02/23/frida-1-8-0-released/">
+      Frida 1.8.0 Released
+    </a>
+  </h2>
+  <span class="post-category">
+    
+    <span class="label">release</span>
+    
+  </span>
+  <div class="post-meta">
+    <span class="post-date">
+      23 Feb 2015
+    </span>
+    <a href="https://github.com/oleavr" class="post-author">
+      <img src="https://github.com/oleavr.png" class="avatar" alt="oleavr"/>
+      oleavr
+    </a>
+  </div>
+  <div class="post-content">
+    <p><strong>This release introduced a serious regression on iOS and was quickly pulled
+from our Cydia repo, though it was available for Mac, Linux and Android while
+waiting to be replaced by <a href="/news/2015/03/01/frida-2-0-0-released/">2.0.0</a>.</strong></p>
+
+  </div>
+</article>
+
+
   <article>
   <h2>
     <a href="/news/2014/11/18/frida-1-6-8-released/">
@@ -1056,6 +1160,14 @@ all platforms.</p>
     <ul>
       
       <li class="">
+        <a href="/news/2015/03/01/frida-2-0-0-released/">Version 2.0.0</a>
+      </li>
+      
+      <li class="">
+        <a href="/news/2015/02/23/frida-1-8-0-released/">Version 1.8.0</a>
+      </li>
+      
+      <li class="">
         <a href="/news/2014/11/18/frida-1-6-8-released/">Version 1.6.8</a>
       </li>
       
@@ -1065,14 +1177,6 @@ all platforms.</p>
       
       <li class="">
         <a href="/news/2014/11/03/frida-1-6-6-released/">Version 1.6.6</a>
-      </li>
-      
-      <li class="">
-        <a href="/news/2014/10/29/frida-1-6-5-released/">Version 1.6.5</a>
-      </li>
-      
-      <li class="">
-        <a href="/news/2014/10/19/frida-1-6-4-released/">Version 1.6.4</a>
       </li>
       
       <li>

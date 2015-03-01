@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
   <meta charset="UTF-8">
-  <title>Frida 1.6.3 Released</title>
+  <title>Frida 1.8.0 Released</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="alternate" type="application/rss+xml" title="Frida - Feed" href="/feed.xml" />
   <link rel="alternate" type="application/atom+xml" title="Recent commits to Frida’s master branch" href="https://github.com/frida/frida/commits/master.atom" />
@@ -126,8 +126,8 @@
       <div class="unit four-fifths">
         <article>
   <h2>
-    Frida 1.6.3 Released
-    <a href="/news/2014/08/25/frida-1-6-3-released/" class="permalink" title="Permalink">∞</a>
+    Frida 1.8.0 Released
+    <a href="/news/2015/02/23/frida-1-8-0-released/" class="permalink" title="Permalink">∞</a>
   </h2>
   <span class="post-category">
     
@@ -136,7 +136,7 @@
   </span>
   <div class="post-meta">
     <span class="post-date">
-      25 Aug 2014
+      23 Feb 2015
     </span>
     <a href="https://github.com/oleavr" class="post-author">
       <img src="https://github.com/oleavr.png" class="avatar" />
@@ -144,43 +144,9 @@
     </a>
   </div>
   <p class="post-content">
-    <p>This latest release includes a bunch of enhancements and bug fixes.
-Some of the highlights:</p>
-
-<ul>
-  <li>
-    <p>The remainder of Frida’s internals have been migrated from udis86 to
-Capstone, which means that our Stalker is now able to trace binaries with
-very recent x86 instructions. Part of this work also included battle-testing
-it on 32- and 64-bit binaries on Windows and Mac, and all known issues have
-now been resolved.</p>
-  </li>
-  <li>
-    <p><code>Memory.protect()</code> has been added to the JavaScript API, allowing you to
-easily change page protections. For example:</p>
-  </li>
-</ul>
-
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Memory</span><span class="p">.</span><span class="nx">protect</span><span class="p">(</span><span class="nx">ptr</span><span class="p">(</span><span class="s2">&quot;0x1234&quot;</span><span class="p">),</span> <span class="mi">4096</span><span class="p">,</span> <span class="s1">&#39;rw-&#39;</span><span class="p">);</span></code></pre></div>
-
-<ul>
-  <li>
-    <p><code>Process.enumerateThreads()</code> omits Frida’s own threads so you don’t have to
-worry about them.</p>
-  </li>
-  <li>
-    <p>Python 3 binaries are now built against Python 3.4.</p>
-  </li>
-</ul>
-
-<p>So with this release out, let’s talk about <a href="https://github.com/frida/cryptoshark">CryptoShark</a>:</p>
-
-<iframe width="560" height="315" src="//www.youtube.com/embed/hzDsxtcRavY?rel=0" frameborder="0" allowfullscreen=""></iframe>
-
-<p>Grab a pre-built Windows binary <a href="http://build.frida.re/frida/windows/Win32-Release/bin/cryptoshark-0.1.1.exe">here</a>,
-or build it from source if you’d like to try it out on Mac or Linux.</p>
-
-<p>Enjoy!</p>
+    <p><strong>This release introduced a serious regression on iOS and was quickly pulled
+from our Cydia repo, though it was available for Mac, Linux and Android while
+waiting to be replaced by <a href="/news/2015/03/01/frida-2-0-0-released/">2.0.0</a>.</strong></p>
 
   </p>
 </article>
@@ -204,7 +170,7 @@ or build it from source if you’d like to try it out on Mac or Linux.</p>
         <a href="/news/2015/03/01/frida-2-0-0-released/">Version 2.0.0</a>
       </li>
       
-      <li class="">
+      <li class="current">
         <a href="/news/2015/02/23/frida-1-8-0-released/">Version 1.8.0</a>
       </li>
       
