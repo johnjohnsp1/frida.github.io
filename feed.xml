@@ -11,10 +11,22 @@
     <title xml:lang="en">Frida</title>
     <atom:link type="application/atom+xml" href="http://www.frida.re/feed/" rel="self"/>
     <link>http://www.frida.re</link>
-    <pubDate>Sun, 01 Mar 2015 01:19:36 +0100</pubDate>
-    <lastBuildDate>Sun, 01 Mar 2015 01:19:36 +0100</lastBuildDate>
+    <pubDate>Sun, 01 Mar 2015 02:14:56 +0100</pubDate>
+    <lastBuildDate>Sun, 01 Mar 2015 02:14:56 +0100</lastBuildDate>
     <language>en-US</language>
     <description>Inject JavaScript to explore native apps on Windows, Mac, Linux and iOS.</description>
+    
+    <item>
+        <title>Frida 2.0.1 Released</title>
+        <link>http://www.frida.re/news/2015/03/01/frida-2-0-1-released/</link>
+        <pubDate>Sun, 01 Mar 2015 02:00:00 +0100</pubDate>
+        <dc:creator>oleavr</dc:creator>
+        <category>release</category>
+        <guid isPermaLink="false">/news/2015/03/01/frida-2-0-1-released</guid>
+        <description><![CDATA[ <p>Just a quick bug-fix release to remedy an iOS issue that slipped through while
+testing 2.0.0. Enjoy!</p>
+ ]]></description>
+    </item>
     
     <item>
         <title>Frida 2.0.0 Released</title>
@@ -68,6 +80,9 @@ to fix that!</li>
 to get an overview of where we’d like to go next.</p>
 
 <p>Enjoy!</p>
+
+<p><strong>Update: Frida 2.0.1 has now been released to remedy an iOS issue that slipped
+through the final testing.</strong></p>
  ]]></description>
     </item>
     
